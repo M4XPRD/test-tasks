@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import video from '../assets/GradientWallpaper.mp4';
 import routes from '../routes/routes.js';
-import Welcome from './Welcome';
+import Welcome from './pages/Welcome';
 
 const Main = () => {
   // const [formActivated, setFormActivated] = useState(false);
