@@ -1,5 +1,6 @@
 export default {
-  welcome: () => '/welcome',
-  main: () => '/',
+  welcome: () => '/',
+  login: () => '/login',
   profile: () => '/profile',
+  error: () => '*',
 };
