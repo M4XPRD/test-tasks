@@ -93,7 +93,7 @@ video {
   box-shadow: none;
 }
 
-.hint {
+.support-button {
   color: white;
   font-size: 30px;
   display: flex;
@@ -102,11 +102,11 @@ video {
   border: none;
   justify-content: center;
   align-items: center;
-  transform: translateY(180px);
+  transform: translateY(260px);
   transition: transform 0.2s ease-in-out;
 }
 
-.hint:hover {
+.support-button:hover {
   animation: color-change 4s ease-in-out infinite;
   cursor: pointer;
 }
@@ -120,6 +120,16 @@ video {
   transform: scale(1);
 }
 
+.small-h2 {
+  color: white;
+  transform: translateY(260px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.small-h2:hover {
+  animation: color-change 4s ease-in-out infinite;
+}
+
 @keyframes color-change {
   0% {
     color: #74f0d1;
@@ -129,5 +139,36 @@ video {
   }
   100% {
     color: #589eee;
+  }
+}
+
+.big-h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 60px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.big-h1:hover {
+  animation: color-change 4s ease-in-out infinite;
+}
+
+@keyframes color-change {
+  0% {
+    color: #f09a80;
+  }
+  25% {
+    color: #92e92e;
+  }
+  50% {
+    color: #67eec1;
+  }
+  75% {
+    color: #4e92eb;
+  }
+  100% {
+    color: #de88e6;
   }
 }
