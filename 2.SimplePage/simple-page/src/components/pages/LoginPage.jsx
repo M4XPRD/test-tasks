@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
+import cn from 'classnames';
 import routes from '../../routes/routes';
 
 const LoginPage = () => {
   const [inputValues, setInputValues] = useState({ login: '', password: '' });
+  const [inputErrors, setInputErrors] = useState({ login: false, password: false });
+  const [showHelp, setShowHelp] = useState(false);
   const loginRef = useRef();
   const passwordFocus = useRef();
   const submitFocus = useRef();
+  const helpFocus = useRef();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,6 +19,19 @@ const LoginPage = () => {
       loginRef.current.focus();
     }
   }, []);
+
+  const loginSchema = yup.object().shape({
+    login: yup
+      .string()
+      .trim()
+      .oneOf(['developer21'], 'LoginError')
+      .required(),
+    password: yup
+      .string()
+      .trim()
+      .oneOf(['123456'], 'PasswordError')
+      .required(),
+  });
 
   const handleKeyDown = (event, focus) => {
     if (event.key === 'ArrowDown' || event.key === 'Tab') {
@@ -26,6 +44,9 @@ const LoginPage = () => {
           submitFocus.current.focus();
           break;
         case submitFocus:
+          helpFocus.current.focus();
+          break;
+        case helpFocus:
           loginRef.current.focus();
           break;
         default:
@@ -41,24 +62,48 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { login, password } = inputValues;
-    if (login === 'developer21' && password === '123456') {
+    try {
+      loginSchema.validateSync(inputValues, { abortEarly: false });
+      setInputErrors({ login: false, password: false });
       navigate(routes.profile());
+    } catch (error) {
+      switch (error.message) {
+        case 'LoginError':
+          setInputValues({ ...inputValues, login: '' });
+          setInputErrors({ login: true, password: false });
+          break;
+        case 'PasswordError':
+          setInputValues({ ...inputValues, password: '' });
+          setInputErrors({ login: false, password: true });
+          break;
+        default:
+          setInputValues({ ...inputValues, login: '', password: '' });
+          setInputErrors({ login: true, password: true });
+          break;
+      }
     }
   };
+
+  const loginInput = cn('form-input', 'input-focus', {
+    'is-invalid': inputErrors.login,
+  });
+
+  const passwordInput = cn('form-input', 'input-focus', {
+    'is-invalid': inputErrors.password,
+  });
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div>
           <input
-            className="form-input"
+            className={loginInput}
             ref={loginRef}
             onKeyDown={(e) => handleKeyDown(e, loginRef)}
             onChange={handleInput}
             type="text"
             name="login"
-            placeholder="Login"
+            placeholder={inputErrors.login ? 'Incorrect Login' : 'Login'}
             autoComplete="off"
             spellCheck="false"
             value={inputValues.login}
@@ -66,13 +111,13 @@ const LoginPage = () => {
         </div>
         <div>
           <input
-            className="form-input"
+            className={passwordInput}
             ref={passwordFocus}
             onKeyDown={(e) => handleKeyDown(e, passwordFocus)}
             onChange={handleInput}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder={inputErrors.password ? 'Incorrect Password' : 'Password'}
             autoComplete="off"
             spellCheck="false"
             value={inputValues.password}
@@ -90,9 +135,12 @@ const LoginPage = () => {
       </form>
       <button
         className="support-button"
+        ref={helpFocus}
         type="button"
+        onClick={() => setShowHelp(!showHelp)}
+        onKeyDown={(e) => handleKeyDown(e, helpFocus)}
       >
-        {/* { hintActivated ? "All's settled! You're ready to enter" : 'Need some help?'} */}
+        {showHelp ? 'developer21 : 123456' : 'Need some help?'}
       </button>
     </div>
   );
