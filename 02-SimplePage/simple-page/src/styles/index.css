@@ -121,6 +121,10 @@ video {
   transform: scale(1);
 }
 
+.form-input[type="submit"]:disabled {
+  color: crimson;
+}
+
 .small-h2 {
   color: white;
   transform: translateY(220px);
