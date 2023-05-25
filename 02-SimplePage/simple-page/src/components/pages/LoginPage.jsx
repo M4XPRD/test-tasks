@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 import cn from 'classnames';
 import routes from '../../routes/routes';
 
 const LoginPage = () => {
   const [showHelp, setShowHelp] = useState(false);
+  const { login, password } = useSelector((state) => state.login);
   const loginRef = useRef();
   const passwordFocus = useRef();
   const submitFocus = useRef();
@@ -23,12 +25,12 @@ const LoginPage = () => {
     login: yup
       .string()
       .trim()
-      .oneOf(['developer21'], 'LoginError')
+      .oneOf([login], 'LoginError')
       .required(),
     password: yup
       .string()
       .trim()
-      .oneOf(['123456'], 'PasswordError')
+      .oneOf([password], 'PasswordError')
       .required(),
   });
 
@@ -123,7 +125,7 @@ const LoginPage = () => {
         onClick={() => setShowHelp(!showHelp)}
         onKeyDown={(e) => handleKeyDown(e, helpFocus)}
       >
-        {showHelp ? 'developer21 : 123456' : 'Get your login here!'}
+        {showHelp ? `${login} : ${password}` : 'Get your login here!'}
       </button>
     </div>
   );
