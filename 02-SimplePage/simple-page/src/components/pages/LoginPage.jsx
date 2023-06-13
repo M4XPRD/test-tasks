@@ -22,16 +22,8 @@ const LoginPage = () => {
   }, []);
 
   const loginSchema = yup.object().shape({
-    login: yup
-      .string()
-      .trim()
-      .oneOf([login], 'LoginError')
-      .required(),
-    password: yup
-      .string()
-      .trim()
-      .oneOf([password], 'PasswordError')
-      .required(),
+    login: yup.string().trim().oneOf([login], 'LoginError').required(),
+    password: yup.string().trim().oneOf([password], 'PasswordError').required(),
   });
 
   const f = useFormik({
@@ -80,13 +72,17 @@ const LoginPage = () => {
     <div className="form-container">
       <form onSubmit={f.handleSubmit}>
         <div>
+          <label htmlFor="login" className="sr-only">
+            {' '}
+            Your login
+          </label>
           <input
             className={loginInput}
             ref={loginRef}
             onKeyDown={(e) => handleKeyDown(e, loginRef)}
             onChange={f.handleChange}
             type="text"
-            name="login"
+            id="login"
             placeholder={f.errors.login ? 'Incorrect Login' : 'Login'}
             autoComplete="off"
             spellCheck="false"
@@ -94,13 +90,17 @@ const LoginPage = () => {
           />
         </div>
         <div>
+          <label htmlFor="password" className="sr-only">
+            {' '}
+            Your password
+          </label>
           <input
             className={passwordInput}
             ref={passwordFocus}
             onKeyDown={(e) => handleKeyDown(e, passwordFocus)}
             onChange={f.handleChange}
             type="password"
-            name="password"
+            id="password"
             placeholder={f.errors.password ? 'Incorrect Password' : 'Password'}
             autoComplete="off"
             spellCheck="false"
@@ -108,10 +108,15 @@ const LoginPage = () => {
           />
         </div>
         <div className="form-submit">
+          <label htmlFor="submit" className="sr-only">
+            {' '}
+            Enter button
+          </label>
           <input
             className="form-input"
             disabled={f.errors.login || f.errors.password}
             ref={submitFocus}
+            id="submit"
             onKeyDown={(e) => handleKeyDown(e, submitFocus)}
             type="submit"
             value="Enter"
