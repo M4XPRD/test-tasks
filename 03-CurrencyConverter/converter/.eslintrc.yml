@@ -14,10 +14,11 @@ parserOptions:
   sourceType: "module"
 plugins:
   - '@typescript-eslint'
+  - prefer-arrow
   - react
 rules:
-  react/jsx-filename-extension:
-    - 1
-    - extensions: [".tsx", ".ts"]
+  react/jsx-filename-extension: [1, {extensions: [".tsx", ".ts"]}]
+  react/function-component-definition: [2, { "namedComponents": "arrow-function" }]
   filesWithoutExtension: 0
   react/react-in-jsx-scope: 0
+  no-console: 0
