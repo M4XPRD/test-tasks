@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import routes from './routes/index';
-import video from './assets/3.mp4';
+import video from './assets/3_cut.mp4';
 import MainPage from './components/pages/MainPage';
 import CurrenciesPage from './components/pages/CurrenciesPage';
 import ErrorPage from './components/pages/ErrorPage';
