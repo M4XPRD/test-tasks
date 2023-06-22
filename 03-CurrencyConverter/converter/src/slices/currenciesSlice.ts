@@ -6,24 +6,29 @@ const baseCurrency = 'USD';
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
-    baseCurrency: 'USD',
-    currenciesForText: ['Рубли', 'Евро', 'Доллары', 'Йены', 'Юани'],
     currenciesURL: `https://api.freecurrencyapi.com/v1/latest?base_currency=${baseCurrency}&apikey=${APIkey}`,
-    type: null,
+    exchangeFrom: 'USD — United States',
+    exchangeTo: 'RUB — Russia',
   },
   reducers: {
-    onShow: (state) => {
-      state.type = null;
+    setExchangeFrom: (state, action) => {
+      state.exchangeFrom = action.payload;
     },
-    onHide: (state) => {
-      state.type = null;
+    setExchangeTo: (state, action) => {
+      state.exchangeTo = action.payload;
+    },
+    switchCurrencies: (state) => {
+      const temp = state.exchangeFrom;
+      state.exchangeFrom = state.exchangeTo;
+      state.exchangeTo = temp;
     },
   },
 });
 
 export const {
-  onShow,
-  onHide,
+  setExchangeFrom,
+  setExchangeTo,
+  switchCurrencies,
 } = currenciesSlice.actions;
 
 export default currenciesSlice.reducer;
