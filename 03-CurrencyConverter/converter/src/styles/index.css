@@ -22,7 +22,14 @@
   color: #fff;
   border-radius: 5px;
   padding: 4rem 2rem;
-  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.grid-container {
+  display: flex; 
+  justify-content: center;
+  width: 100%;
 }
 
 .main-content {
