@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch } from '@reduxjs/toolkit';
@@ -6,47 +6,34 @@ import InputAmount from '../InputAmount';
 import SelectCountry from '../SelectCountry';
 import SwitchCurrency from '../SwitchCurrency';
 import { getCountriesList } from '../../slices/countriesSlice';
+import { RootState } from '../../slices';
+import AnimationBar from '../AnimationBar';
+import { setExchangeFrom, setExchangeTo } from '../../slices/currenciesSlice';
 
 const MainPage = () => {
-  const currencies = ['Рубли', 'Евро', 'Доллары', 'Йены', 'Юани'];
-  const [currencyIndex, setCurrencyIndex] = useState({ first: 0, second: currencies.length - 1 });
-  const [parsingError, setParsingError] = useState(false);
-  const [rates, setRates] = useState<string[]>(['USD']);
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-  const test = useSelector((state: any) => state.countries.loadingStatus);
-  console.log(test);
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setCurrencyIndex((prevIndex) => ({
-  //       first: (prevIndex.first + 1) % currencies.length,
-  //       second: (prevIndex.second - 1 + currencies.length) % currencies.length,
-  //     }));
-  //   }, 1000);
-
-  //   return () => clearInterval(intervalId);
-  // }, [currencies.length]);
+  const dispatch = useDispatch<ThunkDispatch<RootState, any, any>>();
+  const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
+  const exchangeFrom = useSelector((state: RootState) => state.currencies.exchangeFrom);
+  const exchangeTo = useSelector((state: RootState) => state.currencies.exchangeTo);
 
   useEffect(() => {
     dispatch(getCountriesList());
   }, []);
 
   return (
-    <div className="content">
-      <h1>Конвертер валют</h1>
-      { parsingError ? (
-        <h2 className="parsing-error">Ошибка сети</h2>
-      ) : (
-        <h2>{`${currencies[currencyIndex.first]} в ${currencies[currencyIndex.second]}`}</h2>
-      )}
-      <Container maxWidth="md" className="currency-container">
-        <Grid container spacing={2}>
-          <InputAmount />
-          <SelectCountry />
-          <SwitchCurrency />
-          <SelectCountry />
-        </Grid>
-      </Container>
+    <div className="main-content">
+      <h1 className="converter-label">Конвертер валют</h1>
+      {loadingStatus !== 'finished'
+        ? <AnimationBar /> : (
+          <Container maxWidth="md" className="currency-container">
+            <Grid container spacing={2}>
+              <InputAmount />
+              <SelectCountry currencyValue={exchangeFrom} label="У меня есть" setCurrency={setExchangeFrom} />
+              <SwitchCurrency />
+              <SelectCountry currencyValue={exchangeTo} label="Меняю на" setCurrency={setExchangeTo} />
+            </Grid>
+          </Container>
+        )}
     </div>
   );
 };
