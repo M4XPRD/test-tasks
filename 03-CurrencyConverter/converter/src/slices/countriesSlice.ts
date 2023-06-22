@@ -7,12 +7,17 @@ export const getCountriesList = createAsyncThunk('countries/getCountriesList', a
   return data;
 });
 
+interface Countries {
+  countriesData: object[],
+  loadingStatus: string,
+}
+
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: {
     countriesData: [],
     loadingStatus: '',
-  },
+  } as Countries,
   reducers: {},
   extraReducers: (builder) => {
     builder
