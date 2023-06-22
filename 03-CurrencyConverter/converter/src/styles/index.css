@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-family:'Roboto', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -25,16 +25,24 @@
   position: relative;
 }
 
-.content h1 {
-  font-size: 95px;
-  color: #fff;
-  margin-bottom: 70px;
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.content h2 {
+.main-content h1 {
+  font-size: 95px;
+  color: #fff;
+  /* margin-bottom: 70px; */
+}
+
+.main-content h2 {
   font-size: 3rem;
   color: #fff;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
 }
 
 .input {
@@ -78,4 +86,27 @@
     width: auto;
     height: 100%;
   }
+}
+
+/*
+Анимация круга загрузки
+*/
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: rotate 1.5s linear infinite;
+}
+
+.circle-error {
+  border: 6px solid salmon;
+  border-color: salmon transparent salmon transparent;
 }
