@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <>
       <h1 className="big-h1">404: There&apos;s no such page 💀</h1>
-      <button type="button" className="support-button" onClick={() => navigate(routes.welcome())}>Click on me to fix this right up!</button>
+      <button type="button" className="support-button" onClick={() => navigate(routes.welcome())}>Click on me to fix this right away!</button>
     </>
   );
 };
