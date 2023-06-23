@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const APIkey = process.env.API_KEY;
-const baseCurrency = 'USD';
-
 interface CurrenciesState {
   exchangeRateURL: string;
   exchangeFrom: string;
   exchangeTo: string;
-  currencyAmount: number;
+  currencyAmount: number | string;
+  exchangeFromShort: string;
+  exchangeToShort: string;
+  exchangeAmount: number;
 }
 
 interface ExchangePayload {
@@ -23,33 +23,49 @@ interface SetExchangeAction {
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
-    exchangeRateURL: `https://api.freecurrencyapi.com/v1/latest?base_currency=${baseCurrency}&apikey=${APIkey}`,
+    exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
     exchangeFrom: 'USD — United States',
+    exchangeFromShort: 'USD',
     exchangeTo: 'RUB — Russia',
-    currencyAmount: 0,
+    exchangeToShort: 'RUB',
+    currencyAmount: '',
+    exchangeAmount: 0,
   } as CurrenciesState,
   reducers: {
     setExchange: (state, action) => {
       const { newValue, label } = action.payload;
+      const [firstValue, secondValue] = newValue.split(' ');
+      const os = navigator.platform;
       if (label === 'У меня есть') {
         state.exchangeFrom = newValue;
+        state.exchangeFromShort = os === 'Win32' ? firstValue : secondValue;
       } else if (label === 'Меняю на') {
         state.exchangeTo = newValue;
+        state.exchangeToShort = os === 'Win32' ? firstValue : secondValue;
       }
     },
     setCurrencyAmount: (state, action) => {
-      state.currencyAmount = action.payload;
+      state.currencyAmount = Number(action.payload);
+    },
+    setExchangeCurrency: (state, action) => {
+      state.exchangeAmount = action.payload;
     },
     switchCurrencies: (state) => {
-      const temp = state.exchangeFrom;
+      const firstTemp = state.exchangeFrom;
       state.exchangeFrom = state.exchangeTo;
-      state.exchangeTo = temp;
+      state.exchangeTo = firstTemp;
+
+      const secondTemp = state.exchangeFromShort;
+      state.exchangeFromShort = state.exchangeToShort;
+      state.exchangeToShort = secondTemp;
     },
   },
 });
 
 export const {
   setExchange,
+  setCurrencyAmount,
+  setExchangeCurrency,
   switchCurrencies,
 } = currenciesSlice.actions;
 
