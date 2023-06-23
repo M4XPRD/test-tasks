@@ -27,7 +27,6 @@ const SelectCountry = (props: Props) => {
   } = props;
   const dispatch = useDispatch();
   const countriesList = useSelector((state: RootState) => state.countries.countriesList);
-  console.log(countriesList);
 
   const formOptions = countriesList.map((country: object) => {
     const countryTypes = country as Country;
