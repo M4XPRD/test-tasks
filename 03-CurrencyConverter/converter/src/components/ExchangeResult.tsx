@@ -1,11 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { RootState } from '../slices';
 import { setExchangeCurrency } from '../slices/currenciesSlice';
 
 const ExchangeResult = () => {
+  const [axiosError, setAxisError] = useState(false);
   const dispatch = useDispatch();
   const currencyAmount = useSelector((state: RootState) => state.currencies.currencyAmount);
   const exchangeAmount = useSelector((state: RootState) => state.currencies.exchangeAmount);
@@ -25,20 +26,39 @@ const ExchangeResult = () => {
           },
         });
         const { data } = countExchange.data;
-        const result = data[exchangeToShort];
+        const result = data[exchangeToShort] * currencyAmount;
         dispatch(setExchangeCurrency(result.toFixed(2)));
+        setAxisError(false);
       } catch (e) {
-        console.log(e);
+        setAxisError(true);
       }
     };
     getExchange();
-    console.log(exchangeAmount);
-  }, [currencyAmount]);
+  }, [currencyAmount, exchangeFromShort, exchangeToShort]);
 
   return (
-    <Box>
-      <Typography>{exchangeAmount}</Typography>
-      <Typography>r</Typography>
+    <Box className="exchange-result-container">
+      {axiosError ? (
+        <>
+          <Typography>Валюты нет в базе данных</Typography>
+          <Typography variant="h5" className="exchange-result">Попробуйте другую валюту</Typography>
+        </>
+      ) : (
+        <>
+          <Typography>
+            {currencyAmount}
+            {' '}
+            {exchangeFromShort}
+            {' '}
+            =
+          </Typography>
+          <Typography variant="h5" className="exchange-result">
+            {exchangeAmount}
+            {' '}
+            {exchangeToShort}
+          </Typography>
+        </>
+      )}
     </Box>
   );
 };
