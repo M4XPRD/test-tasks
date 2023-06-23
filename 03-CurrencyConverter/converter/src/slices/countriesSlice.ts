@@ -27,6 +27,18 @@ export interface Country {
   };
 }
 
+// Ограничение API, где не все валюты работают
+
+const currencyList = [
+  'EUR', 'USD', 'JPY', 'BGN', 'CZK',
+  'DKK', 'GBP', 'HUF', 'PLN', 'RON',
+  'SEK', 'CHF', 'ISK', 'NOK', 'HRK',
+  'RUB', 'TRY', 'AUD', 'BRL', 'CAD',
+  'CNY', 'HKD', 'IDR', 'ILS', 'INR',
+  'KRW', 'MXN', 'MYR', 'NZD', 'PHP',
+  'SGD', 'THB', 'ZAR',
+];
+
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: {
@@ -43,7 +55,16 @@ const countriesSlice = createSlice({
       .addCase(getCountriesList.fulfilled, (state, action) => {
         state.loadingStatus = 'finished';
         const countries = action.payload;
-        const filteredCountries = countries.filter((country: object) => Object.prototype.hasOwnProperty.call(country, 'currencies'));
+        const filteredCountries = countries
+          .filter((country: object) => Object.prototype.hasOwnProperty.call(country, 'currencies'))
+          .filter((country: object) => {
+            const countryTypes = country as Country;
+            const [countryCurrency] = Object.keys(countryTypes.currencies);
+            if (currencyList.includes(countryCurrency)) {
+              return country;
+            }
+            return null;
+          });
         const sortedCountries = filteredCountries
           .sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
 
