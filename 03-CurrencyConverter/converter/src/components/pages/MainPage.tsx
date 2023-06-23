@@ -9,6 +9,7 @@ import { getCountriesList } from '../../slices/countriesSlice';
 import { AppDispatch, RootState } from '../../slices';
 import AnimationBar from '../AnimationBar';
 import { setExchange } from '../../slices/currenciesSlice';
+import ExchangeResult from '../ExchangeResult';
 
 const MainPage = () => {
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
@@ -31,6 +32,7 @@ const MainPage = () => {
               <SelectCountry currencyValue={exchangeFrom} label="У меня есть" setExchange={setExchange} />
               <SwitchCurrency />
               <SelectCountry currencyValue={exchangeTo} label="Меняю на" setExchange={setExchange} />
+              <ExchangeResult />
             </Grid>
           </Container>
         )}
