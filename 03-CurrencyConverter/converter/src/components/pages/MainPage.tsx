@@ -32,8 +32,8 @@ const MainPage = () => {
               <SelectCountry currencyValue={exchangeFrom} label="У меня есть" setExchange={setExchange} />
               <SwitchCurrency />
               <SelectCountry currencyValue={exchangeTo} label="Меняю на" setExchange={setExchange} />
-              <ExchangeResult />
             </Grid>
+            <ExchangeResult />
           </Container>
         )}
     </div>
