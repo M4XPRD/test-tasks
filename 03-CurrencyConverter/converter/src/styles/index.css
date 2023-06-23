@@ -21,9 +21,20 @@
   text-align: center;
   color: #fff;
   border-radius: 5px;
-  padding: 4rem 2rem;
+  padding: 3rem;
   display: flex;
   justify-content: center;
+}
+
+.exchange-result-container {
+  color: black;
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.exchange-result {
+  font-size: 7rem;
 }
 
 .grid-container {
@@ -37,11 +48,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   gap: 4rem;
 }
 
 .main-content h1 {
-  font-size: 95px;
+  font-size: 6.9rem;
   color: #fff;
   /* margin-bottom: 70px; */
 }
