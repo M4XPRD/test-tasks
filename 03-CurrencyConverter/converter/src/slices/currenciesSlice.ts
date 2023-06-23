@@ -4,7 +4,7 @@ interface CurrenciesState {
   exchangeRateURL: string;
   exchangeFrom: string;
   exchangeTo: string;
-  currencyAmount: number | string;
+  currencyAmount: number;
   exchangeFromShort: string;
   exchangeToShort: string;
   exchangeAmount: number;
@@ -28,7 +28,7 @@ const currenciesSlice = createSlice({
     exchangeFromShort: 'USD',
     exchangeTo: 'RUB — Russia',
     exchangeToShort: 'RUB',
-    currencyAmount: '',
+    currencyAmount: 0,
     exchangeAmount: 0,
   } as CurrenciesState,
   reducers: {
@@ -38,10 +38,10 @@ const currenciesSlice = createSlice({
       const os = navigator.platform;
       if (label === 'У меня есть') {
         state.exchangeFrom = newValue;
-        state.exchangeFromShort = os === 'Win32' ? firstValue : secondValue;
+        state.exchangeFromShort = os === 'Win32' ? firstValue : `${firstValue} ${secondValue}`;
       } else if (label === 'Меняю на') {
         state.exchangeTo = newValue;
-        state.exchangeToShort = os === 'Win32' ? firstValue : secondValue;
+        state.exchangeToShort = os === 'Win32' ? firstValue : `${firstValue} ${secondValue}`;
       }
     },
     setCurrencyAmount: (state, action) => {
