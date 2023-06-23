@@ -61,9 +61,4 @@ const countriesSlice = createSlice({
   },
 });
 
-// export const {
-//   onShow,
-//   onHide,
-// } = countriesSlice.actions;
-
 export default countriesSlice.reducer;
