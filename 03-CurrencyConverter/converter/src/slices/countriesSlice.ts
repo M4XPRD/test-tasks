@@ -8,14 +8,30 @@ export const getCountriesList = createAsyncThunk('countries/getCountriesList', a
 });
 
 interface Countries {
-  countriesData: object[],
+  countriesList: Country[],
+  countriesCurSymbols: {
+    [key: string]: string;
+  },
   loadingStatus: string,
+}
+
+export interface Country {
+  name: {
+    common: string;
+  }
+  flag: string;
+  currencies: {
+    [key: string]: {
+      symbol: string;
+    };
+  };
 }
 
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: {
-    countriesData: [],
+    countriesList: [],
+    countriesCurSymbols: {},
     loadingStatus: '',
   } as Countries,
   reducers: {},
@@ -26,7 +42,18 @@ const countriesSlice = createSlice({
       })
       .addCase(getCountriesList.fulfilled, (state, action) => {
         state.loadingStatus = 'finished';
-        state.countriesData = action.payload;
+        const countries = action.payload;
+        const filteredCountries = countries.filter((country: object) => Object.prototype.hasOwnProperty.call(country, 'currencies'));
+        const sortedCountries = filteredCountries
+          .sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
+
+        state.countriesList = sortedCountries;
+        state.countriesCurSymbols = sortedCountries
+          .reduce((acc: { [key: string]: string }, country: Country) => {
+            const [currencyShort] = Object.keys(country.currencies);
+            acc[currencyShort] = country.currencies[currencyShort].symbol;
+            return acc;
+          }, {});
       })
       .addCase(getCountriesList.rejected, (state) => {
         state.loadingStatus = 'rejected';

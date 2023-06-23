@@ -5,6 +5,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../slices';
 import { SetExchangeType } from '../slices/currenciesSlice';
+import { Country } from '../slices/countriesSlice';
 
 interface Props {
   currencyValue: string;
@@ -20,32 +21,15 @@ interface SetExchangeAction {
   };
 }
 
-interface Country {
-  name: {
-    common: string;
-  }
-  flag: string;
-  currencies: object;
-}
-
 const SelectCountry = (props: Props) => {
   const {
     currencyValue, label, setExchange,
   } = props;
   const dispatch = useDispatch();
-  const countriesData = useSelector((state: RootState) => state.countries.countriesData);
-  console.log(countriesData);
+  const countriesList = useSelector((state: RootState) => state.countries.countriesList);
+  console.log(countriesList);
 
-  const filteredCountries = countriesData.filter((country: object) => Object.prototype.hasOwnProperty.call(country, 'currencies'));
-
-  const sortedCountries = filteredCountries
-    .sort((a: object, b: object) => {
-      const aCountry = a as Country;
-      const bCountry = b as Country;
-      return aCountry.name.common.localeCompare(bCountry.name.common);
-    });
-
-  const formOptions = sortedCountries.map((country: object) => {
+  const formOptions = countriesList.map((country: object) => {
     const countryTypes = country as Country;
     const os = navigator.platform;
     const [currency] = Object.keys(countryTypes.currencies);
