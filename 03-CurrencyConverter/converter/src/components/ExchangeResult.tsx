@@ -26,7 +26,7 @@ const ExchangeResult = () => {
           },
         });
         const { data } = countExchange.data;
-        const result = data[exchangeToShort] * currencyAmount;
+        const result = data[exchangeToShort] * Number(currencyAmount);
         dispatch(setExchangeCurrency(result.toFixed(2)));
         setAxisError(false);
       } catch (e) {
@@ -40,8 +40,8 @@ const ExchangeResult = () => {
     <Box className="exchange-result-container">
       {axiosError ? (
         <>
-          <Typography>Валюты нет в базе данных</Typography>
-          <Typography variant="h5" className="exchange-result">Попробуйте другую валюту</Typography>
+          <Typography>Произошла ошибка</Typography>
+          <Typography variant="h5">Попробуйте другую валюту</Typography>
         </>
       ) : (
         <>
@@ -52,7 +52,7 @@ const ExchangeResult = () => {
             {' '}
             =
           </Typography>
-          <Typography variant="h5" className="exchange-result">
+          <Typography variant="h5">
             {exchangeAmount}
             {' '}
             {exchangeToShort}
