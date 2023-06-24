@@ -19,6 +19,7 @@ const InputAmount = () => {
         InputProps={{
           type: 'number',
           startAdornment: <InputAdornment position="start">{currencySymbols[exchangeFromShort]}</InputAdornment>,
+          inputProps: { min: 0 },
         }}
       />
     </Grid>
