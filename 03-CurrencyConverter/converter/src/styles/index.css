@@ -30,11 +30,7 @@
   color: black;
   text-align: left;
   margin-top: 1rem;
-  margin-left: 2rem;
-}
-
-.exchange-result {
-  font-size: 7rem;
+  margin-left: 2.8rem;
 }
 
 .grid-container {
@@ -48,6 +44,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-basis: max-content;
   width: 100%;
   gap: 4rem;
 }
@@ -93,7 +90,7 @@
   z-index: -1;
 }
 
-@media (min-aspect-ratio:16/9) {
+/* @media (min-aspect-ratio:16/9) {
   .background-clip {
     width: 100%;
     height: auto;
@@ -104,6 +101,51 @@
   .background-clip {
     width: auto;
     height: 100%;
+  }
+} */
+
+@media (max-width: 1000px) {
+  .main-content > h1.converter-label {
+    font-size: 6rem;
+  }
+  .exchange-result-container {
+    margin-left: 2.4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .exchange-result-container {
+    margin-left: 0.9rem;
+  }
+}
+
+@media (max-width: 870px) {
+  .main-content > h1.converter-label {
+    font-size: 5rem;
+  }
+  .exchange-result-container {
+    margin-left: 0.9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-content > h1.converter-label {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .main-content > h1.converter-label {
+    font-size: 3rem;
+  }
+  .main-content .currency-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-content > h1.converter-label {
+    font-size: 2rem;
   }
 }
 
