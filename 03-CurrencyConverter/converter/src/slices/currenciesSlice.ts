@@ -4,7 +4,7 @@ interface CurrenciesState {
   exchangeRateURL: string;
   exchangeFrom: string;
   exchangeTo: string;
-  currencyAmount: number;
+  currencyAmount: number | string;
   exchangeFromShort: string;
   exchangeToShort: string;
   exchangeAmount: number;
@@ -28,7 +28,7 @@ const currenciesSlice = createSlice({
     exchangeFromShort: 'USD',
     exchangeTo: 'RUB — Russia',
     exchangeToShort: 'RUB',
-    currencyAmount: 0,
+    currencyAmount: '',
     exchangeAmount: 0,
   } as CurrenciesState,
   reducers: {
@@ -45,7 +45,7 @@ const currenciesSlice = createSlice({
       }
     },
     setCurrencyAmount: (state, action) => {
-      state.currencyAmount = Number(action.payload);
+      state.currencyAmount = action.payload;
     },
     setExchangeCurrency: (state, action) => {
       state.exchangeAmount = action.payload;
