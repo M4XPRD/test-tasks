@@ -23,6 +23,7 @@ export interface Country {
   currencies: {
     [key: string]: {
       symbol: string;
+      name: string;
     };
   };
 }

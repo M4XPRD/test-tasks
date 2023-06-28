@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesState {
+  baseCurrency: string;
   exchangeRateURL: string;
   exchangeFrom: string;
   exchangeTo: string;
@@ -23,6 +24,7 @@ interface SetExchangeAction {
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
+    baseCurrency: 'USD',
     exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
     exchangeFrom: 'USD — United States',
     exchangeFromShort: 'USD',
