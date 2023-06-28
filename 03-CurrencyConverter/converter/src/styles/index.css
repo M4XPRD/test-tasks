@@ -110,9 +110,66 @@
   cursor: pointer;
 }
 
+.to-currencies-button {
+  font-size: 2rem;
+  color: lightgreen;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 3rem;
+}
+
+/* Стили CurrenciesPage.tsx*/
+
+.currencies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: max-content;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 3rem;
+}
+
+.currencies-container h2 {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+.currencies-container .currencies-h1 {
+  font-size: 4rem;
+  color: #fff;
+}
+
+.currencies-table-container {
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.currencies-cirle {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  min-height: 30vh;
+}
+
+.currencies-table {
+  color: white;
+}
+
 @media (max-width: 1000px) {
   .main-content > h1.converter-label {
     font-size: 6rem;
+  }
+  .to-currencies-button {
+    font-size: 1.6rem;
   }
   .exchange-result-container {
     margin-left: 2.4rem;
@@ -132,6 +189,9 @@
   .to-main-button {
     font-size: 2.5rem;
   }
+  .to-currencies-button {
+    font-size: 1.4rem;
+  }
   .exchange-result-container {
     margin-left: 0.9rem;
   }
@@ -149,6 +209,9 @@
   }
   .to-main-button {
     font-size: 2rem;
+  }
+  .to-currencies-button {
+    font-size: 1.2rem;
   }
   .main-content .currency-container {
     width: 80%;
