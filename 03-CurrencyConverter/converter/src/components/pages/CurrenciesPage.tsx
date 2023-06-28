@@ -72,8 +72,8 @@ const CurrenciesPage = () => {
         {baseCurrency}
       </h1>
       {loadingStatus === 'finished' && rates ? (
-        <TableContainer className="currencies-table-container" component={Paper}>
-          <Table className="currencies-table" aria-label="simple table" stickyHeader>
+        <TableContainer className="currencies-table-container">
+          <Table className="currencies-table">
             <TableHead>
               <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                 <TableCell align="center" width="33%">Страна</TableCell>

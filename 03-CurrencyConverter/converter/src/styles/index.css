@@ -145,8 +145,11 @@
 }
 
 .currencies-table-container {
-  max-height: 30vh;
+  max-height: 40vh;
+  min-width: 100vh;
   overflow-y: auto;
+  background: transparent;
+  color: #fff;
 }
 
 .currencies-cirle {
@@ -157,12 +160,31 @@
   align-items: center;
   text-align: center;
   gap: 2rem;
-  min-height: 30vh;
+  min-height: 40vh;
 }
 
-.currencies-table {
-  color: white;
+.currencies-table .MuiTableHead-root th {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
 }
+
+.currencies-table th {
+  color: #fff;
+  background-color: transparent;
+}
+
+.currencies-table-container::-webkit-scrollbar {
+  width: 8px;  
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.currencies-table-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Адаптивность под устройства */
 
 @media (max-width: 1000px) {
   .main-content > h1.converter-label {
