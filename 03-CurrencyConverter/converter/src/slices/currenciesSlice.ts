@@ -10,6 +10,9 @@ interface CurrenciesState {
   exchangeFromShort: string;
   exchangeToShort: string;
   exchangeAmount: number;
+  rates: {
+    [key: string]: number;
+  },
   axiosError: boolean;
 }
 
@@ -35,6 +38,7 @@ const currenciesSlice = createSlice({
     exchangeToShort: 'RUB',
     currencyAmount: '',
     exchangeAmount: 0,
+    rates: {},
     axiosError: false,
   } as CurrenciesState,
   reducers: {
@@ -71,6 +75,10 @@ const currenciesSlice = createSlice({
       state.exchangeFromShort = state.exchangeToShort;
       state.exchangeToShort = secondTemp;
     },
+    setRates: (state, action) => {
+      const { payload } = action.payload;
+      state.rates = payload;
+    },
     setRatesError: (state, action) => {
       state.axiosError = action.payload;
     },
@@ -83,6 +91,7 @@ export const {
   setExchangeCurrency,
   setBaseCurrency,
   switchCurrencies,
+  setRates,
   setRatesError,
 } = currenciesSlice.actions;
 
