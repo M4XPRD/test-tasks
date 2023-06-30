@@ -2,12 +2,14 @@ import { Box, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import { RootState } from '../slices';
 import { setExchangeCurrency } from '../slices/currenciesSlice';
 
 const ExchangeResult = () => {
   const [axiosError, setAxisError] = useState(false);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const currencyAmount = useSelector((state: RootState) => state.currencies.currencyAmount);
   const exchangeAmount = useSelector((state: RootState) => state.currencies.exchangeAmount);
   const exchangeFromShort = useSelector((state: RootState) => state.currencies.exchangeFromShort);
@@ -40,8 +42,8 @@ const ExchangeResult = () => {
     <Box className="exchange-result-container">
       {axiosError ? (
         <>
-          <Typography>Произошла ошибка</Typography>
-          <Typography variant="h6">Попробуйте другую валюту</Typography>
+          <Typography>{t('components.exchangeResult.firstErrorMessage')}</Typography>
+          <Typography variant="h6">{t('components.exchangeResult.secondErrorMessage')}</Typography>
         </>
       ) : (
         <>
