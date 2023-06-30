@@ -33,7 +33,7 @@ const ExchangeResult = () => {
         setAxisError(true);
       }
     };
-    // getExchange();
+    getExchange();
   }, [currencyAmount, exchangeFromShort, exchangeToShort]);
 
   return (
