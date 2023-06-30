@@ -24,13 +24,14 @@
   padding: 3rem;
   display: flex;
   justify-content: center;
+  min-width: 65rem;
 }
 
 .exchange-result-container {
   color: black;
   text-align: left;
   margin-top: 1rem;
-  margin-left: 2.8rem;
+  margin-left: 3.6rem;
 }
 
 .grid-container {
@@ -50,7 +51,7 @@
   gap: 4rem;
 }
 
-.main-content h1 {
+.converter-label {
   font-size: 6.9rem;
   color: #fff;
   text-align: center;
@@ -131,12 +132,17 @@
   flex-wrap: wrap;
   text-align: center;
   gap: 3rem;
+  box-sizing: border-box;
 }
 
 .currencies-container h2 {
   font-size: 3rem;
   color: #fff;
   text-align: center;
+}
+
+.currencies-choose-currency {
+  width: 50%;
 }
 
 .currencies-container .currencies-h1 {
@@ -175,7 +181,8 @@
 }
 
 .currencies-table-container::-webkit-scrollbar {
-  width: 8px;  
+  width: 8px;
+  height: 8px;
   background-color: rgba(255, 255, 255, 0.2); 
 }
 
@@ -195,6 +202,9 @@
   }
   .exchange-result-container {
     margin-left: 2.4rem;
+  }
+  .currencies-table-container {
+    min-width: 80vw;
   }
 }
 
@@ -217,11 +227,20 @@
   .exchange-result-container {
     margin-left: 0.9rem;
   }
+  .currencies-table-container {
+    min-width: 60vw;
+  }
 }
 
 @media (max-width: 700px) {
   .main-content > h1.converter-label {
     font-size: 4rem;
+  }
+  .currencies-container .currencies-h1 {
+    font-size: 3rem;
+  }
+  .currencies-table-container {
+    margin: 0;
   }
 }
 
@@ -238,6 +257,9 @@
   .main-content .currency-container {
     width: 80%;
   }
+  .currencies-container .currencies-h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 450px) {
@@ -246,6 +268,21 @@
   }
   .to-main-button {
     font-size: 1.5rem;
+  }
+  .currencies-container .currencies-h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .currencies-table-container {
+    max-width: 20vw;
+  }
+}
+
+@media (max-height: 700px) {
+  .currencies-container .to-currencies-button {
+    bottom: 0.5rem;
   }
 }
 
