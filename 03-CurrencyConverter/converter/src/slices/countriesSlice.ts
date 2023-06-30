@@ -30,7 +30,7 @@ export interface Country {
 
 // Ограничение API, где не все валюты работают
 
-const currencyList = [
+const currenciesList = [
   'EUR', 'USD', 'JPY', 'BGN', 'CZK',
   'DKK', 'GBP', 'HUF', 'PLN', 'RON',
   'SEK', 'CHF', 'ISK', 'NOK', 'HRK',
@@ -61,7 +61,7 @@ const countriesSlice = createSlice({
           .filter((country: object) => {
             const countryTypes = country as Country;
             const [countryCurrency] = Object.keys(countryTypes.currencies);
-            if (currencyList.includes(countryCurrency)) {
+            if (currenciesList.includes(countryCurrency)) {
               return country;
             }
             return null;
