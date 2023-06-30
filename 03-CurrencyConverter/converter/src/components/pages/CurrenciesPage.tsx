@@ -14,13 +14,13 @@ import { Country, getCountriesList } from '../../slices/countriesSlice';
 import routes from '../../routes';
 import AnimationBar from '../AnimationBar';
 import SelectCountry from '../SelectCountry';
-import { setBaseCurrency } from '../../slices/currenciesSlice';
+import { setRatesError, setBaseCurrency } from '../../slices/currenciesSlice';
 
 const CurrenciesPage = () => {
   const navigate = useNavigate();
   const [rates, setRates] = useState();
-  const [axiosError, setAxiosError] = useState(false);
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
+  const axiosError = useSelector((state: RootState) => state.currencies.axiosError);
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
   const baseCurrency = useSelector((state: RootState) => state.currencies.baseCurrency);
   const baseCurrencyShort = useSelector((state: RootState) => state.currencies.baseCurrencyShort);
@@ -43,9 +43,9 @@ const CurrenciesPage = () => {
         });
         const { data } = countExchange.data;
         setRates(data);
-        setAxiosError(false);
+        dispatch(setRatesError(false));
       } catch (e) {
-        setAxiosError(true);
+        dispatch(setRatesError(true));
       }
     };
     getRates();
@@ -74,7 +74,7 @@ const CurrenciesPage = () => {
       <div className="currencies-choose-currency">
         <SelectCountry currencyValue={baseCurrency} label="Выберите валюту" setExchange={setBaseCurrency} />
       </div>
-      {loadingStatus === 'finished' && rates ? (
+      {loadingStatus === 'finished' && rates && !axiosError ? (
         <TableContainer className="currencies-table-container">
           <Table className="currencies-table">
             <TableHead>

@@ -3,8 +3,9 @@ import { RootState } from '../slices';
 
 const AnimationBar = () => {
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
+  const axiosError = useSelector((state: RootState) => state.currencies.axiosError);
 
-  if (loadingStatus === 'rejected') {
+  if (loadingStatus === 'rejected' || axiosError) {
     return (
       <>
         <div className="animation-circle circle-error" />
