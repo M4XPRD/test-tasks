@@ -4,7 +4,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
@@ -14,6 +13,8 @@ import { AppDispatch, RootState } from '../../slices';
 import { Country, getCountriesList } from '../../slices/countriesSlice';
 import routes from '../../routes';
 import AnimationBar from '../AnimationBar';
+import SelectCountry from '../SelectCountry';
+import { setBaseCurrency } from '../../slices/currenciesSlice';
 
 const CurrenciesPage = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const CurrenciesPage = () => {
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
   const baseCurrency = useSelector((state: RootState) => state.currencies.baseCurrency);
+  const baseCurrencyShort = useSelector((state: RootState) => state.currencies.baseCurrencyShort);
   const countriesList = useSelector((state: RootState) => state.countries.countriesList);
   const exchangeAPI = useSelector((state: RootState) => state.currencies.exchangeRateURL);
   const APIkey = process.env.REACT_APP_CURRENCY_KEY;
@@ -36,7 +38,7 @@ const CurrenciesPage = () => {
         const countExchange = await axios.get(exchangeAPI, {
           params: {
             apikey: APIkey,
-            base_currency: baseCurrency,
+            base_currency: baseCurrencyShort,
           },
         });
         const { data } = countExchange.data;
@@ -58,7 +60,7 @@ const CurrenciesPage = () => {
       case 'currency':
         return `${currency} — ${currencyName}`;
       case 'rates':
-        return curRates && curRates[currency] ? curRates[currency] : '-';
+        return curRates && curRates[currency] ? curRates[currency] : '—';
       default:
         return countryType.name.common;
     }
@@ -67,10 +69,11 @@ const CurrenciesPage = () => {
   return (
     <div className="currencies-container">
       <h1 className="currencies-h1">
-        Базовая валюта:
-        {' '}
-        {baseCurrency}
+        Выбранная валюта:
       </h1>
+      <div className="currencies-choose-currency">
+        <SelectCountry currencyValue={baseCurrency} label="Выберите валюту" setExchange={setBaseCurrency} />
+      </div>
       {loadingStatus === 'finished' && rates ? (
         <TableContainer className="currencies-table-container">
           <Table className="currencies-table">
