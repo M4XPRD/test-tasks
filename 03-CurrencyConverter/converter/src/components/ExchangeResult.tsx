@@ -33,7 +33,7 @@ const ExchangeResult = () => {
         setAxisError(true);
       }
     };
-    getExchange();
+    // getExchange();
   }, [currencyAmount, exchangeFromShort, exchangeToShort]);
 
   return (
@@ -41,7 +41,7 @@ const ExchangeResult = () => {
       {axiosError ? (
         <>
           <Typography>Произошла ошибка</Typography>
-          <Typography variant="h5">Попробуйте другую валюту</Typography>
+          <Typography variant="h6">Попробуйте другую валюту</Typography>
         </>
       ) : (
         <>
