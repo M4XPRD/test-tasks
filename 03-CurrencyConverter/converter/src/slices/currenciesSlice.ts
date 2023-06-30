@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesState {
   baseCurrency: string;
+  baseCurrencyShort: string;
   exchangeRateURL: string;
   exchangeFrom: string;
   exchangeTo: string;
@@ -24,7 +25,8 @@ interface SetExchangeAction {
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
-    baseCurrency: 'USD',
+    baseCurrency: 'USD — United States',
+    baseCurrencyShort: 'USD',
     exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
     exchangeFrom: 'USD — United States',
     exchangeFromShort: 'USD',
@@ -52,6 +54,12 @@ const currenciesSlice = createSlice({
     setExchangeCurrency: (state, action) => {
       state.exchangeAmount = action.payload;
     },
+    setBaseCurrency: (state, action) => {
+      const { newValue } = action.payload;
+      const [firstValue] = newValue.split(' ');
+      state.baseCurrency = newValue;
+      state.baseCurrencyShort = firstValue;
+    },
     switchCurrencies: (state) => {
       const firstTemp = state.exchangeFrom;
       state.exchangeFrom = state.exchangeTo;
@@ -68,6 +76,7 @@ export const {
   setExchange,
   setCurrencyAmount,
   setExchangeCurrency,
+  setBaseCurrency,
   switchCurrencies,
 } = currenciesSlice.actions;
 
