@@ -1,30 +1,32 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import { AppDispatch, RootState } from '../../slices';
-import { Country, getCountriesList } from '../../slices/countriesSlice';
+import { getCountriesList } from '../../slices/countriesSlice';
 import routes from '../../routes';
 import AnimationBar from '../AnimationBar';
 import SelectCountry from '../SelectCountry';
-import { setRatesError, setBaseCurrency } from '../../slices/currenciesSlice';
+import { setRatesError, setBaseCurrency, setRates } from '../../slices/currenciesSlice';
+import CurrenciesTable from '../CurrenciesTable';
 
+interface SetRateAction {
+  type: string;
+  payload: {
+    [key: string]: number;
+  } | undefined;
+}
 const CurrenciesPage = () => {
   const navigate = useNavigate();
-  const [rates, setRates] = useState();
+  const { t } = useTranslation();
+  const rates = useSelector((state: RootState) => state.currencies.rates);
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
   const axiosError = useSelector((state: RootState) => state.currencies.axiosError);
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
   const baseCurrency = useSelector((state: RootState) => state.currencies.baseCurrency);
   const baseCurrencyShort = useSelector((state: RootState) => state.currencies.baseCurrencyShort);
-  const countriesList = useSelector((state: RootState) => state.countries.countriesList);
   const exchangeAPI = useSelector((state: RootState) => state.currencies.exchangeRateURL);
   const APIkey = process.env.REACT_APP_CURRENCY_KEY;
 
@@ -33,7 +35,7 @@ const CurrenciesPage = () => {
   }, []);
 
   useEffect(() => {
-    const getRates = async () => {
+    const getRates = async (): Promise<void> => {
       try {
         const countExchange = await axios.get(exchangeAPI, {
           params: {
@@ -42,7 +44,11 @@ const CurrenciesPage = () => {
           },
         });
         const { data } = countExchange.data;
-        setRates(data);
+        const action: SetRateAction = {
+          type: 'SET_RATES',
+          payload: data,
+        };
+        dispatch(setRates(action));
         dispatch(setRatesError(false));
       } catch (e) {
         dispatch(setRatesError(true));
@@ -51,61 +57,22 @@ const CurrenciesPage = () => {
     getRates();
   }, [baseCurrency]);
 
-  // eslint-disable-next-line max-len
-  const formRow = (country: object, curRates?: Record<string, number> | undefined, type?: string) => {
-    const countryType = country as Country;
-    const [currency] = Object.keys(countryType.currencies);
-    const currencyName = countryType.currencies[currency].name;
-    switch (type) {
-      case 'currency':
-        return `${currency} — ${currencyName}`;
-      case 'rates':
-        return curRates && curRates[currency] ? curRates[currency] : '—';
-      default:
-        return countryType.name.common;
-    }
-  };
-
   return (
     <div className="currencies-container">
       <h1 className="currencies-h1">
-        Выбранная валюта:
+        {t('pages.currenciesPage.main')}
       </h1>
       <div className="currencies-choose-currency">
-        <SelectCountry currencyValue={baseCurrency} label="Выберите валюту" setExchange={setBaseCurrency} />
+        <SelectCountry currencyValue={baseCurrency} label={t('pages.currenciesPage.selectCurrencyLabel')} setExchange={setBaseCurrency} />
       </div>
       {loadingStatus === 'finished' && rates && !axiosError ? (
-        <TableContainer className="currencies-table-container">
-          <Table className="currencies-table">
-            <TableHead>
-              <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-                <TableCell align="center" width="33%">Страна</TableCell>
-                <TableCell align="center" width="33%">Валюта</TableCell>
-                <TableCell align="center" width="33%">Курс</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countriesList.map((country) => (
-                <TableRow
-                  key={country.name.common}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell align="left" component="th" scope="row">
-                    {formRow(country)}
-                  </TableCell>
-                  <TableCell align="left" component="th" scope="row">{formRow(country, rates, 'currency')}</TableCell>
-                  <TableCell align="center" component="th" scope="row">{formRow(country, rates, 'rates')}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <CurrenciesTable />
       ) : (
         <div className="currencies-cirle">
           <AnimationBar />
         </div>
       )}
-      <button className="to-currencies-button currencies-circle" type="button" onClick={() => navigate(routes.main())}>Вернуться к конвертеру</button>
+      <button className="to-currencies-button currencies-circle" type="button" onClick={() => navigate(routes.main())}>{t('pages.currenciesPage.toMainPage')}</button>
     </div>
   );
 };
