@@ -101,6 +101,7 @@
 ## ✅ Результат:
 <a name="simple-page-result"></a>
 Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/).
+
 ![02-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/cbc75b30-1c63-41ca-ae6e-c67b5d818809)
 ![02-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/3c4ddd89-e02a-4bb5-9ca6-6b648a775e31)
 ![02-3](https://github.com/M4XPRD/Test-Tasks/assets/86636158/dd222ff0-f671-4053-adf0-1b6c839da472)
@@ -142,7 +143,8 @@
 ## ✅ Результат:
 <a name="currency-converter-result"></a>
 Вот здесь есть [свежий деплой](https://bit.ly/currency-converter-maxprd).
-![03-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/e3997938-6269-42d6-b08e-122cfc199803)
+
+![03-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/f0862f46-4988-4eeb-b015-f256cfa7ffc0)
 ![03-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/581d7ae0-e670-47c9-8ee8-ae2f359b8a77)
 
 Что получилось в итоге:
