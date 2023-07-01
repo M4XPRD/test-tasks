@@ -18,7 +18,7 @@
 
 <!-- The description of each task is located in the folder of the same name. 👁‍🗨 -->
 
-## 1. Filter Courses / Фильтр курсов
+## 1. Filter Courses / Отфильтровать курсы
 #### Условие задачи:
 <a name="filter-courses-task"></a>
 
