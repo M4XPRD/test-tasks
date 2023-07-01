@@ -100,7 +100,16 @@
 
 ## ✅ Результат:
 <a name="simple-page-result"></a>
-Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/) :)
+Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/).
+![02-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/cbc75b30-1c63-41ca-ae6e-c67b5d818809)
+
+Что получилось:
+   * Решил модифицировать и чуть усложнить задачу, поэтому есть 3 страницы: ```/``` - главная, ```/login``` и страница с ошибкой ```404```
+   * На странице `/login` при нажатии на *Get your login here!* можно увидеть секретный логин для входа. Сделано для большей интерактивности
+   * Добавлена полноценная realtime-валидация формы с помощью `Formik`
+   * Все страницы переключаются без перезагрузки и работают через `React-Router`
+   * Всё состояние работает через `Redux-Toolkit`
+   * Уделил внимание CSS-оформлению и адаптивности на разных устройствах
 
 ## 3. [Currency Converter / Конвертер валют](https://bit.ly/currency-converter-maxprd) (React, Redux Toolkit, Axios, i18n)
 <a name="currency-converter"></a>
