@@ -68,7 +68,11 @@
 
 ## ✅ Результат:
 <a name="filter-courses-result"></a>
-Выполненная задача находится в файле `filterCources.js`
+Выполненная задача находится в файле [`filterCources.js`](/01-FilterCources/filterCources.js).
+
+Фильтр можно сделать:
+* По цене в радиусе, например ```[200, 350]``` или ```[null, 200]```
+* По минимальной и максимальной цене (дополнительное задание)
 
 ## 2. [Simple Page / Простая страничка](https://test-tasks-nti3.vercel.app/) (React Router/Redux)
 ### Условие задачи:
