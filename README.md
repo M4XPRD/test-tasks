@@ -1,17 +1,17 @@
 # Тестовые задания:
 
-1. Filter Courses / Отфильтровать курсы (JavaScript)
+1. [Filter Courses / Отфильтровать курсы (JavaScript)](#filter-courses)
     * [Условие задания](#filter-courses-task)
     * [Требования](#filter-courses-requirements)
     * [Входные данные и вывод](#filter-courses-io)
     * [✅Результат](#filter-courses-result)
 
-2. [Simple Page / Простая страничка (React Router/Redux)](https://bit.ly/simple-page-m4xprd)
+2. [Simple Page / Простая страничка (React Router/Redux)](#simple-page)
     * [Условие задания](#simple-page-task)
     * [Требования](#simple-page-requirements)
     * [✅Результат](#simple-page-result)
 
-3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](https://bit.ly/currency-converter-maxprd)
+3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](#currency-converter)
     * [Описание задания](#currency-converter-task)
     * [Требования](#currency-converter-requirements)
     * [Дополнительные задания](#currency-converter-additional-tasks)
@@ -20,6 +20,7 @@
 <!-- The description of each task is located in the folder of the same name. 👁‍🗨 -->
 
 ## 1. Filter Courses / Отфильтровать курсы
+<a name="filter-courses"></a>
 #### Условие задачи:
 <a name="filter-courses-task"></a>
 
@@ -77,6 +78,7 @@
 * По минимальной и максимальной цене (дополнительное задание)
 
 ## 2. [Simple Page / Простая страничка](https://test-tasks-nti3.vercel.app/) (React Router/Redux)
+<a name="simple-page"></a>
 ### Условие задачи:
 <a name="simple-page-task"></a>
 Есть две страницы:
@@ -101,6 +103,7 @@
 Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/) :)
 
 ## 3. [Currency Converter / Конвертер валют](https://bit.ly/currency-converter-m4xprd) (React, Redux Toolkit, Axios, i18n)
+<a name="currency-converter"></a>
 ### Описание. Тестовое задание Appbooster: frontend
 <a name="currency-converter-task"></a>
 
