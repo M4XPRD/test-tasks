@@ -4,16 +4,16 @@
     * [Условие задания](#filter-courses-task)
     * [Требования](#filter-courses-requirements)
     * [Входные данные и вывод](#filter-courses-io)
-    * [Результат](#filter-courses-result)
+    * [✅Результат](#filter-courses-result)
 2. [Simple Page / Простая страничка (React Router/Redux)](https://bit.ly/simple-page-m4xprd)
     * [Условие задания](#simple-page-task)
     * [Требования](#simple-page-requirements)
-    * [Результат](#simple-page-result)
+    * [✅Результат](#simple-page-result)
 3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](https://bit.ly/currency-converter-maxprd)
     * [Описание задания](#currency-converter-task)
     * [Требования](#currency-converter-requirements)
     * [Дополнительные задания](#currency-converter-additional-tasks)
-    * [Результат](#currency-converter-result)
+    * [✅Результат](#currency-converter-result)
 
 <!-- The description of each task is located in the folder of the same name. 👁‍🗨 -->
 
