@@ -9,8 +9,7 @@
     * [Условие задания](#simple-page-task)
     * [Требования](#simple-page-requirements)
     * [Результат](#simple-page-result)
-
-3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](https://bit.ly/currency-converter-m4xprd)
+3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](https://bit.ly/currency-converter-maxprd)
     * [Описание задания](#currency-converter-task)
     * [Требования](#currency-converter-requirements)
     * [Дополнительные задания](#currency-converter-additional-tasks)
@@ -119,4 +118,4 @@
 ## ✅ Результат:
 <a name="currency-converter-result"></a>
 
-[Свежий деплой](https://bit.ly/currency-converter-m4xprd)
+[Свежий деплой](https://bit.ly/currency-converter-maxprd)
