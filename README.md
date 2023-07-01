@@ -102,7 +102,7 @@
 <a name="simple-page-result"></a>
 Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/) :)
 
-## 3. [Currency Converter / Конвертер валют](https://bit.ly/currency-converter-m4xprd) (React, Redux Toolkit, Axios, i18n)
+## 3. [Currency Converter / Конвертер валют](https://bit.ly/currency-converter-maxprd) (React, Redux Toolkit, Axios, i18n)
 <a name="currency-converter"></a>
 ### Описание. Тестовое задание Appbooster: frontend
 <a name="currency-converter-task"></a>
