@@ -1,3 +1,4 @@
+import '../navigator.d';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesState {
@@ -26,6 +27,14 @@ interface SetExchangeAction {
   payload: ExchangePayload;
 }
 
+// declare global {
+//   interface Navigator {
+//     userAgentData: {
+//       platform: string;
+//     }
+//   }
+// }
+
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
@@ -45,13 +54,13 @@ const currenciesSlice = createSlice({
     setExchange: (state, action) => {
       const { newValue, label } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
-      const os = navigator.platform;
+      const os = navigator.userAgentData.platform;
       if (label === 'У меня есть') {
         state.exchangeFrom = newValue;
-        state.exchangeFromShort = os === 'Win32' ? firstValue : `${firstValue} ${secondValue}`;
+        state.exchangeFromShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
       } else if (label === 'Меняю на') {
         state.exchangeTo = newValue;
-        state.exchangeToShort = os === 'Win32' ? firstValue : `${firstValue} ${secondValue}`;
+        state.exchangeToShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
       }
     },
     setCurrencyAmount: (state, action) => {

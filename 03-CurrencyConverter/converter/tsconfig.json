@@ -23,6 +23,7 @@
   "include": [
     "src",
     "src/slices",
-    "contexts"
+    "contexts",
+    "src/navigator.d.ts"
   ]
 }
