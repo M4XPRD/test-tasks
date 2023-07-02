@@ -16,8 +16,7 @@ const App = () => {
 
   return (
     <div className="main">
-      {/* <div className="overlay" /> */}
-      <div className="container">
+      <div className="main-container">
         <video autoPlay loop muted controlsList="nodownload" className="background-clip">
           <source src={video} type="video/mp4" />
         </video>
