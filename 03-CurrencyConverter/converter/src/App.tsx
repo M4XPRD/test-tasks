@@ -16,12 +16,12 @@ const App = () => {
 
   return (
     <div className="main">
-      <div className="overlay" />
+      {/* <div className="overlay" /> */}
       <div className="container">
-        <button className="test" type="button" onClick={handleChangeLang}>{languageButtonText}</button>
         <video autoPlay loop muted controlsList="nodownload" className="background-clip">
           <source src={video} type="video/mp4" />
         </video>
+        <button className="change-language-button" type="button" onClick={handleChangeLang}>{languageButtonText}</button>
         <Routes>
           <Route path={routes.main()} element={<MainPage />} />
           <Route path={routes.currencies()} element={<CurrenciesPage />} />
