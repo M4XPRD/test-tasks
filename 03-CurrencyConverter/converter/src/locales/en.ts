@@ -14,7 +14,7 @@ export default {
       },
       errorPage: {
         main: '404: Page Not Found',
-        returnButton: 'Return back to main page',
+        returnButton: 'Return back to the main page',
       },
     },
     components: {
