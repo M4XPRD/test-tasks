@@ -50,7 +50,13 @@ const SelectCountry = (props: Props) => {
           dispatch(action);
         }}
         options={formOptions}
-        renderInput={(params) => <TextField {...params} label={label} />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={label}
+            autoComplete="off"
+          />
+        )}
       />
     </Grid>
   );
