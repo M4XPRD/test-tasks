@@ -8,6 +8,8 @@ export const getCountriesList = createAsyncThunk('countries/getCountriesList', a
 });
 
 interface Countries {
+  defaultFromCountry: string,
+  defaultToCountry: string,
   countriesList: Country[],
   countriesCurSymbols: {
     [key: string]: string;
@@ -43,6 +45,8 @@ const currenciesList = [
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: {
+    defaultFromCountry: '',
+    defaultToCountry: '',
     countriesList: [],
     countriesCurSymbols: {},
     loadingStatus: '',
@@ -76,6 +80,11 @@ const countriesSlice = createSlice({
             acc[currencyShort] = country.currencies[currencyShort].symbol;
             return acc;
           }, {});
+        const os = navigator.userAgentData.platform;
+        const defaultFromFlag = sortedCountries.find((country: Country) => country.name.common === 'United States').flag;
+        const defaultToFlag = sortedCountries.find((country: Country) => country.name.common === 'Russia').flag;
+        state.defaultFromCountry = os === 'Windows' ? 'USD — United States' : `${defaultFromFlag} USD — United States`;
+        state.defaultToCountry = os === 'Windows' ? 'RUB — Russia' : `${defaultToFlag} RUB — Russia`;
       })
       .addCase(getCountriesList.rejected, (state) => {
         state.loadingStatus = 'rejected';

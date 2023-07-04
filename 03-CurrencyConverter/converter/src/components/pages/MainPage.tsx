@@ -19,8 +19,8 @@ const MainPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
-  const exchangeFrom = useSelector((state: RootState) => state.currencies.exchangeFrom);
-  const exchangeTo = useSelector((state: RootState) => state.currencies.exchangeTo);
+  const defaultFromCountry = useSelector((state: RootState) => state.countries.defaultFromCountry);
+  const defaultToCountry = useSelector((state: RootState) => state.countries.defaultToCountry);
 
   useEffect(() => {
     dispatch(getCountriesList());
@@ -34,9 +34,9 @@ const MainPage = () => {
           <Container maxWidth="md" className="currency-container">
             <Grid container spacing={2} className="grid-container">
               <InputAmount />
-              <SelectCountry currencyValue={exchangeFrom} label={t('pages.mainPage.exchangeFromLabel')} exchangeOption="from" setExchange={setExchange} />
+              <SelectCountry currencyValue={defaultFromCountry} label={t('pages.mainPage.exchangeFromLabel')} exchangeOption="from" setExchange={setExchange} />
               <SwitchCurrency />
-              <SelectCountry currencyValue={exchangeTo} label={t('pages.mainPage.exchangeToLabel')} exchangeOption="to" setExchange={setExchange} />
+              <SelectCountry currencyValue={defaultToCountry} label={t('pages.mainPage.exchangeToLabel')} exchangeOption="to" setExchange={setExchange} />
             </Grid>
             <ExchangeResult />
           </Container>

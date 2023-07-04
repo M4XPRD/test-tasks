@@ -45,7 +45,6 @@ const currenciesSlice = createSlice({
   reducers: {
     setExchange: (state, action) => {
       const { newValue, exchangeOption } = action.payload;
-      console.log(action.payload);
       const [firstValue, secondValue] = newValue.split(' ');
       const os = navigator.userAgentData.platform;
       if (exchangeOption === 'from') {
