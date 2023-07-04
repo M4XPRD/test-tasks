@@ -61,9 +61,20 @@
   align-items: center;
   flex-direction: column;
   flex-basis: max-content;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 100%;
+  /* height: 100%; */
   gap: 4rem;
+}
+
+.main-page-circle {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1.4rem;
+  gap: 3rem;
 }
 
 .converter-label {
@@ -223,11 +234,24 @@
   .currencies-table-container {
     min-width: 80vw;
   }
+  .main-page-circle {
+    transform: scale(0.9);
+  }
+  .currencies-cirle {
+    transform: scale(0.9);
+  }
 }
 
 @media (max-width: 900px) {
   .exchange-result-container {
     margin-left: 0.9rem;
+  }
+  .main-page-circle {
+    padding: 7.7rem;
+    transform: scale(0.8);
+  }
+  .currencies-cirle {
+    transform: scale(0.8);
   }
 }
 
@@ -263,6 +287,12 @@
   .currencies-table-container {
     margin: 0;
   }
+  .main-page-circle {
+    transform: scale(0.7);
+  }
+  .currencies-cirle {
+    transform: scale(0.7);
+  }
 }
 
 @media (max-width: 570px) {
@@ -284,6 +314,12 @@
   .currencies-container .currencies-h1 {
     font-size: 2.5rem;
   }
+  .main-page-circle {
+    transform: scale(0.6);
+  }
+  .currencies-cirle {
+    transform: scale(0.6);
+  }
 }
 
 @media (max-width: 450px) {
@@ -301,6 +337,12 @@
   }
   .currencies-container .currencies-h1 {
     font-size: 2rem;
+  }
+  .main-page-circle {
+    transform: scale(0.5);
+  }
+  .currencies-cirle {
+    transform: scale(0.5);
   }
 }
 

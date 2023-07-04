@@ -30,7 +30,11 @@ const MainPage = () => {
     <div className="main-content">
       <h1 className="converter-label">{t('pages.mainPage.main')}</h1>
       {loadingStatus !== 'finished'
-        ? <AnimationBar /> : (
+        ? (
+          <div className="main-page-circle">
+            <AnimationBar />
+          </div>
+        ) : (
           <Container maxWidth="md" className="currency-container">
             <Grid container spacing={2} className="grid-container">
               <InputAmount />
