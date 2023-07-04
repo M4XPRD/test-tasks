@@ -27,14 +27,6 @@ interface SetExchangeAction {
   payload: ExchangePayload;
 }
 
-// declare global {
-//   interface Navigator {
-//     userAgentData: {
-//       platform: string;
-//     }
-//   }
-// }
-
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
@@ -53,14 +45,15 @@ const currenciesSlice = createSlice({
   reducers: {
     setExchange: (state, action) => {
       const { newValue, exchangeOption } = action.payload;
+      console.log(action.payload);
       const [firstValue, secondValue] = newValue.split(' ');
       const os = navigator.userAgentData.platform;
       if (exchangeOption === 'from') {
         state.exchangeFrom = newValue;
-        state.exchangeFromShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
+        state.exchangeFromShort = os === 'Windows' ? firstValue : secondValue;
       } else if (exchangeOption === 'to') {
         state.exchangeTo = newValue;
-        state.exchangeToShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
+        state.exchangeToShort = os === 'Windows' ? firstValue : secondValue;
       }
     },
     setCurrencyAmount: (state, action) => {
