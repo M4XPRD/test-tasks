@@ -54,6 +54,7 @@ const SelectCountry = (props: Props) => {
           <TextField
             {...params}
             label={label}
+            type="text"
             autoComplete="off"
           />
         )}
