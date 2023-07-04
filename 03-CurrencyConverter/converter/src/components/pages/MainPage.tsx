@@ -34,9 +34,9 @@ const MainPage = () => {
           <Container maxWidth="md" className="currency-container">
             <Grid container spacing={2} className="grid-container">
               <InputAmount />
-              <SelectCountry currencyValue={exchangeFrom} label={t('pages.mainPage.exchangeFromLabel')} setExchange={setExchange} />
+              <SelectCountry currencyValue={exchangeFrom} label={t('pages.mainPage.exchangeFromLabel')} exchangeOption="from" setExchange={setExchange} />
               <SwitchCurrency />
-              <SelectCountry currencyValue={exchangeTo} label={t('pages.mainPage.exchangeToLabel')} setExchange={setExchange} />
+              <SelectCountry currencyValue={exchangeTo} label={t('pages.mainPage.exchangeToLabel')} exchangeOption="to" setExchange={setExchange} />
             </Grid>
             <ExchangeResult />
           </Container>

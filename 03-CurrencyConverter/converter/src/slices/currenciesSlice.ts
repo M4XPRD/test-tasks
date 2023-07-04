@@ -19,7 +19,7 @@ interface CurrenciesState {
 
 interface ExchangePayload {
   newValue: string;
-  label: string;
+  exchangeOption?: string;
 }
 
 interface SetExchangeAction {
@@ -52,13 +52,13 @@ const currenciesSlice = createSlice({
   } as CurrenciesState,
   reducers: {
     setExchange: (state, action) => {
-      const { newValue, label } = action.payload;
+      const { newValue, exchangeOption } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
       const os = navigator.userAgentData.platform;
-      if (label === 'У меня есть') {
+      if (exchangeOption === 'from') {
         state.exchangeFrom = newValue;
         state.exchangeFromShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
-      } else if (label === 'Меняю на') {
+      } else if (exchangeOption === 'to') {
         state.exchangeTo = newValue;
         state.exchangeToShort = os === 'Windows' ? firstValue : `${firstValue} ${secondValue}`;
       }

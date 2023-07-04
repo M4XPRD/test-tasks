@@ -12,19 +12,20 @@ interface Props {
   currencyValue: string;
   label: string;
   setExchange: SetExchangeType;
+  exchangeOption?: string;
 }
 
 interface SetExchangeAction {
   type: string;
   payload: {
     newValue: string;
-    label: string;
+    exchangeOption?: string;
   };
 }
 
 const SelectCountry = (props: Props) => {
   const {
-    currencyValue, label, setExchange,
+    currencyValue, label, setExchange, exchangeOption,
   } = props;
   const dispatch = useDispatch();
   const countriesList = useSelector((state: RootState) => state.countries.countriesList);
@@ -45,7 +46,7 @@ const SelectCountry = (props: Props) => {
         isOptionEqualToValue={(option, value) => option.trim() === value.trim()}
         disableClearable
         onChange={(e, newValue) => {
-          const action: SetExchangeAction = setExchange({ newValue, label });
+          const action: SetExchangeAction = setExchange({ newValue, exchangeOption });
           dispatch(action);
         }}
         options={formOptions}
@@ -53,6 +54,10 @@ const SelectCountry = (props: Props) => {
       />
     </Grid>
   );
+};
+
+SelectCountry.defaultProps = {
+  exchangeOption: undefined,
 };
 
 export default SelectCountry;
