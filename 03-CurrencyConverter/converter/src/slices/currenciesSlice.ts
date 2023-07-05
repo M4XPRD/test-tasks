@@ -63,9 +63,10 @@ const currenciesSlice = createSlice({
     },
     setBaseCurrency: (state, action) => {
       const { newValue } = action.payload;
-      const [firstValue] = newValue.split(' ');
+      const [firstValue, secondValue] = newValue.split(' ');
+      const os = navigator.userAgentData.platform;
       state.baseCurrency = newValue;
-      state.baseCurrencyShort = firstValue;
+      state.baseCurrencyShort = os === 'Windows' ? firstValue : secondValue;
     },
     switchCurrencies: (state) => {
       const firstTemp = state.exchangeFrom;

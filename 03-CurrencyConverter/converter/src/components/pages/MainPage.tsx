@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch, AnyAction } from '@reduxjs/toolkit';
 import InputAmount from '../InputAmount';
 import SelectCountry from '../SelectCountry';
 import SwitchCurrency from '../SwitchCurrency';
 import { getCountriesList } from '../../slices/countriesSlice';
+import { setExchange } from '../../slices/currenciesSlice';
 import { AppDispatch, RootState } from '../../slices';
 import AnimationBar from '../AnimationBar';
-import { setExchange } from '../../slices/currenciesSlice';
 import ExchangeResult from '../ExchangeResult';
 import routes from '../../routes';
 
@@ -19,8 +19,8 @@ const MainPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
-  const defaultFromCountry = useSelector((state: RootState) => state.countries.defaultFromCountry);
-  const defaultToCountry = useSelector((state: RootState) => state.countries.defaultToCountry);
+  const defaultFromCountry = useSelector((state: RootState) => state.currencies.exchangeFrom);
+  const defaultToCountry = useSelector((state: RootState) => state.currencies.exchangeTo);
 
   useEffect(() => {
     dispatch(getCountriesList());
