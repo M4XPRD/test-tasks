@@ -150,7 +150,17 @@
   bottom: 3rem;
 }
 
-/* Стили CurrenciesPage.tsx*/
+/* Стили SelectCountry.tsx */
+.select-country-grid {
+  display: flex;
+}
+
+.select-country-select {
+  text-align: left;
+  width: 100%;
+}
+
+/* Стили CurrenciesPage.tsx */
 
 .currencies-container {
   display: flex;
