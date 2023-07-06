@@ -27,15 +27,17 @@ interface SetExchangeAction {
   payload: ExchangePayload;
 }
 
+const os = navigator.userAgentData.platform;
+
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
-    baseCurrency: 'USD — United States',
+    baseCurrency: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
     baseCurrencyShort: 'USD',
     exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
-    exchangeFrom: 'USD — United States',
+    exchangeFrom: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
     exchangeFromShort: 'USD',
-    exchangeTo: 'RUB — Russia',
+    exchangeTo: os === 'Windows' ? 'RUB — Russia' : '🇷🇺 RUB — Russia',
     exchangeToShort: 'RUB',
     currencyAmount: '',
     exchangeAmount: 0,
@@ -46,7 +48,6 @@ const currenciesSlice = createSlice({
     setExchange: (state, action) => {
       const { newValue, exchangeOption } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
-      const os = navigator.userAgentData.platform;
       if (exchangeOption === 'from') {
         state.exchangeFrom = newValue;
         state.exchangeFromShort = os === 'Windows' ? firstValue : secondValue;
@@ -64,7 +65,6 @@ const currenciesSlice = createSlice({
     setBaseCurrency: (state, action) => {
       const { newValue } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
-      const os = navigator.userAgentData.platform;
       state.baseCurrency = newValue;
       state.baseCurrencyShort = os === 'Windows' ? firstValue : secondValue;
     },
