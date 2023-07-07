@@ -25,7 +25,7 @@ const formRow = (country: object, curRates?: Record<string, number> | undefined,
 
 const CurrenciesTable = () => {
   const countriesList = useSelector((state: RootState) => state.countries.countriesList);
-  const rates = useSelector((state: RootState) => state.currencies.rates);
+  const exchangeRates = useSelector((state: RootState) => state.currencies.exchange.rates.rates);
   const { t } = useTranslation();
 
   return (
@@ -47,8 +47,8 @@ const CurrenciesTable = () => {
               <TableCell align="left" component="th" scope="row">
                 {formRow(country)}
               </TableCell>
-              <TableCell align="left" component="th" scope="row">{formRow(country, rates, 'currency')}</TableCell>
-              <TableCell align="center" component="th" scope="row">{formRow(country, rates, 'rates')}</TableCell>
+              <TableCell align="left" component="th" scope="row">{formRow(country, exchangeRates, 'currency')}</TableCell>
+              <TableCell align="center" component="th" scope="row">{formRow(country, exchangeRates, 'rates')}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -19,8 +19,9 @@ const MainPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
-  const defaultFromCountry = useSelector((state: RootState) => state.currencies.exchangeFrom);
-  const defaultToCountry = useSelector((state: RootState) => state.currencies.exchangeTo);
+  const exchangeData = useSelector((state: RootState) => state.currencies.exchange);
+  const defaultFromCountry = exchangeData.currency.from.full;
+  const defaultToCountry = exchangeData.currency.to.full;
 
   useEffect(() => {
     dispatch(getCountriesList());

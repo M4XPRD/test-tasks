@@ -11,16 +11,16 @@ const ExchangeResult = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const currencyAmount = useSelector((state: RootState) => state.currencies.currencyAmount);
-  const exchangeAmount = useSelector((state: RootState) => state.currencies.exchangeAmount);
-  const exchangeFromShort = useSelector((state: RootState) => state.currencies.exchangeFromShort);
-  const exchangeToShort = useSelector((state: RootState) => state.currencies.exchangeToShort);
-  const exchangeAPI = useSelector((state: RootState) => state.currencies.exchangeRateURL);
+  const exchangeData = useSelector((state: RootState) => state.currencies.exchange);
+  const exchangeFromShort = exchangeData.currency.from.short;
+  const exchangeToShort = exchangeData.currency.to.short;
+  const exchangeAmount = exchangeData.amount;
   const APIkey = process.env.REACT_APP_CURRENCY_KEY;
 
   useEffect(() => {
     const getExchange = async () => {
       try {
-        const countExchange = await axios.get(exchangeAPI, {
+        const countExchange = await axios.get(exchangeData.rates.URL, {
           params: {
             apikey: APIkey,
             base_currency: exchangeFromShort,

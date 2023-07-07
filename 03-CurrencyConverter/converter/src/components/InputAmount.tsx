@@ -5,9 +5,10 @@ import { RootState } from '../slices';
 import { setCurrencyAmount } from '../slices/currenciesSlice';
 
 const InputAmount = () => {
-  const exchangeFromShort = useSelector((state: RootState) => state.currencies.exchangeFromShort);
-  const currencyAmount = useSelector((state: RootState) => state.currencies.currencyAmount);
   const currencySymbols = useSelector((state: RootState) => state.countries.countriesCurSymbols);
+  const currencyAmount = useSelector((state: RootState) => state.currencies.currencyAmount);
+  const exchangeData = useSelector((state: RootState) => state.currencies.exchange);
+  const exchangeFromShort = exchangeData.currency.from.short;
   const dispatch = useDispatch();
   const { t } = useTranslation();
 

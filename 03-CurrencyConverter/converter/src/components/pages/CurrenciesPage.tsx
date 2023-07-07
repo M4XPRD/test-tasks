@@ -21,13 +21,13 @@ interface SetRateAction {
 const CurrenciesPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const rates = useSelector((state: RootState) => state.currencies.rates);
   const dispatch = useDispatch<ThunkDispatch<RootState, AppDispatch, AnyAction>>();
-  const axiosError = useSelector((state: RootState) => state.currencies.axiosError);
   const loadingStatus = useSelector((state: RootState) => state.countries.loadingStatus);
+  const axiosError = useSelector((state: RootState) => state.currencies.axiosError);
   const baseCurrency = useSelector((state: RootState) => state.currencies.baseCurrency);
-  const baseCurrencyShort = useSelector((state: RootState) => state.currencies.baseCurrencyShort);
-  const exchangeAPI = useSelector((state: RootState) => state.currencies.exchangeRateURL);
+  const exchangeData = useSelector((state: RootState) => state.currencies.exchange);
+  const exchangeRates = exchangeData.rates.rates;
+  const exchangeAPI = exchangeData.rates.URL;
   const APIkey = process.env.REACT_APP_CURRENCY_KEY;
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const CurrenciesPage = () => {
         const countExchange = await axios.get(exchangeAPI, {
           params: {
             apikey: APIkey,
-            base_currency: baseCurrencyShort,
+            base_currency: baseCurrency.short,
           },
         });
         const { data } = countExchange.data;
@@ -63,9 +63,9 @@ const CurrenciesPage = () => {
         {t('pages.currenciesPage.main')}
       </h1>
       <div className="currencies-choose-currency">
-        <SelectCountry currencyValue={baseCurrency} label={t('pages.currenciesPage.selectCurrencyLabel')} setExchange={setBaseCurrency} />
+        <SelectCountry currencyValue={baseCurrency.full} label={t('pages.currenciesPage.selectCurrencyLabel')} setExchange={setBaseCurrency} />
       </div>
-      {loadingStatus === 'finished' && rates && !axiosError ? (
+      {loadingStatus === 'finished' && exchangeRates && !axiosError ? (
         <CurrenciesTable />
       ) : (
         <div className="currencies-cirle">

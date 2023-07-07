@@ -2,18 +2,30 @@ import '../navigator.d';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesState {
-  baseCurrency: string;
-  baseCurrencyShort: string;
-  exchangeRateURL: string;
-  exchangeFrom: string;
-  exchangeTo: string;
-  currencyAmount: number | string;
-  exchangeFromShort: string;
-  exchangeToShort: string;
-  exchangeAmount: number;
-  rates: {
-    [key: string]: number;
+  baseCurrency: {
+    full: string,
+    short: string,
   },
+  exchange: {
+    amount: number,
+    rates: {
+      URL: string,
+      rates: {
+        [key: string]: number;
+      },
+    },
+    currency: {
+      from: {
+        full: string,
+        short: string,
+      },
+      to: {
+        full: string,
+        short: string,
+      },
+    },
+  },
+  currencyAmount: number | string;
   axiosError: boolean;
 }
 
@@ -32,16 +44,29 @@ const os = navigator.userAgentData.platform;
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
-    baseCurrency: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
-    baseCurrencyShort: 'USD',
+    baseCurrency: {
+      full: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
+      short: 'USD',
+    },
     exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
-    exchangeFrom: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
-    exchangeFromShort: 'USD',
-    exchangeTo: os === 'Windows' ? 'RUB — Russia' : '🇷🇺 RUB — Russia',
-    exchangeToShort: 'RUB',
-    currencyAmount: '',
-    exchangeAmount: 0,
-    rates: {},
+    exchange: {
+      amount: 0,
+      rates: {
+        URL: 'https://api.freecurrencyapi.com/v1/latest',
+        rates: {},
+      },
+      currency: {
+        from: {
+          full: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
+          short: 'USD',
+        },
+        to: {
+          full: os === 'Windows' ? 'RUB — Russia' : '🇷🇺 RUB — Russia',
+          short: 'RUB',
+        },
+      },
+    },
+    currencyAmount: 0,
     axiosError: false,
   } as CurrenciesState,
   reducers: {
@@ -49,37 +74,37 @@ const currenciesSlice = createSlice({
       const { newValue, exchangeOption } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
       if (exchangeOption === 'from') {
-        state.exchangeFrom = newValue;
-        state.exchangeFromShort = os === 'Windows' ? firstValue : secondValue;
+        state.exchange.currency.from.full = newValue;
+        state.exchange.currency.from.short = os === 'Windows' ? firstValue : secondValue;
       } else if (exchangeOption === 'to') {
-        state.exchangeTo = newValue;
-        state.exchangeToShort = os === 'Windows' ? firstValue : secondValue;
+        state.exchange.currency.to.full = newValue;
+        state.exchange.currency.to.short = os === 'Windows' ? firstValue : secondValue;
       }
     },
     setCurrencyAmount: (state, action) => {
       state.currencyAmount = action.payload;
     },
     setExchangeCurrency: (state, action) => {
-      state.exchangeAmount = action.payload;
+      state.exchange.amount = action.payload;
     },
     setBaseCurrency: (state, action) => {
       const { newValue } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
-      state.baseCurrency = newValue;
-      state.baseCurrencyShort = os === 'Windows' ? firstValue : secondValue;
+      state.baseCurrency.full = newValue;
+      state.baseCurrency.short = os === 'Windows' ? firstValue : secondValue;
     },
     switchCurrencies: (state) => {
-      const firstTemp = state.exchangeFrom;
-      state.exchangeFrom = state.exchangeTo;
-      state.exchangeTo = firstTemp;
+      const firstTemp = state.exchange.currency.from.full;
+      state.exchange.currency.from.full = state.exchange.currency.to.full;
+      state.exchange.currency.to.full = firstTemp;
 
-      const secondTemp = state.exchangeFromShort;
-      state.exchangeFromShort = state.exchangeToShort;
-      state.exchangeToShort = secondTemp;
+      const secondTemp = state.exchange.currency.from.short;
+      state.exchange.currency.from.short = state.exchange.currency.to.short;
+      state.exchange.currency.to.short = secondTemp;
     },
     setRates: (state, action) => {
       const { payload } = action.payload;
-      state.rates = payload;
+      state.exchange.rates.rates = payload;
     },
     setRatesError: (state, action) => {
       state.axiosError = action.payload;
