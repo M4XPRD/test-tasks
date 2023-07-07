@@ -7,7 +7,7 @@
 /* Стили App.tsx */
 
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .main-container {
