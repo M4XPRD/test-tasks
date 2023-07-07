@@ -6,6 +6,10 @@
 
 /* Стили App.tsx */
 
+body {
+  overflow: hidden;
+}
+
 .main-container {
   width: 100%;
   /* min-height: 100vh; */
