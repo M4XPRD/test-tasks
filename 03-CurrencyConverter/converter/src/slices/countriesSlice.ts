@@ -31,14 +31,38 @@ export interface Country {
 // Ограничение API, где не все валюты работают
 
 const currenciesList = [
-  'EUR', 'USD', 'JPY', 'BGN', 'CZK',
-  'DKK', 'GBP', 'HUF', 'PLN', 'RON',
-  'SEK', 'CHF', 'ISK', 'NOK', 'HRK',
-  'RUB', 'TRY', 'AUD', 'BRL', 'CAD',
-  'CNY', 'HKD', 'IDR', 'ILS', 'INR',
-  'KRW', 'MXN', 'MYR', 'NZD', 'PHP',
-  'SGD', 'THB', 'ZAR',
+  'JPY', 'BGN', 'CZK', 'DKK', 'GBP',
+  'HUF', 'PLN', 'RON', 'SEK', 'CHF',
+  'ISK', 'NOK', 'HRK', 'RUB', 'TRY',
+  'AUD', 'BRL', 'CAD', 'CNY', 'HKD',
+  'IDR', 'ILS', 'INR', 'KRW', 'MXN',
+  'MYR', 'NZD', 'PHP', 'SGD', 'THB',
+  'ZAR',
 ];
+
+const eurozoneData = {
+  name: {
+    common: 'European Union',
+  },
+  flag: '🇪🇺',
+  currencies: {
+    EUR: {
+      name: 'Euro', symbol: '€',
+    },
+  },
+};
+
+const usaData = {
+  name: {
+    common: 'United States',
+  },
+  flag: '🇺🇸',
+  currencies: {
+    USD: {
+      name: 'United States dollar', symbol: '$',
+    },
+  },
+};
 
 const countriesSlice = createSlice({
   name: 'countries',
@@ -66,6 +90,9 @@ const countriesSlice = createSlice({
             }
             return null;
           });
+
+        filteredCountries.push(eurozoneData, usaData);
+
         const sortedCountries = filteredCountries
           .sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
 
