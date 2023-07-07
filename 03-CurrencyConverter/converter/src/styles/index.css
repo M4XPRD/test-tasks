@@ -8,7 +8,8 @@
 
 .main-container {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-wrap: wrap;
@@ -50,6 +51,7 @@
   text-align: center;
   gap: 3rem;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .currencies-container h2 {
@@ -96,10 +98,9 @@
   align-items: center;
   flex-direction: column;
   flex-basis: max-content;
-  /* flex-wrap: wrap; */
   width: 100%;
-  /* height: 100%; */
   gap: 4rem;
+  height: 100%; 
 }
 
 .main-content h2 {
