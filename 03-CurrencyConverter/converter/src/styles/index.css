@@ -157,8 +157,10 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 3rem;
+  /* position: absolute;
+  bottom: 3rem; */
+  position: relative;
+  top: 1rem;
 }
 
 /* Стили AnimationBar.tsx и анимация круга загрузки */
