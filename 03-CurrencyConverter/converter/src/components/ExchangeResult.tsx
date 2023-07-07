@@ -48,7 +48,7 @@ const ExchangeResult = () => {
       ) : (
         <>
           <Typography>
-            {currencyAmount}
+            {currencyAmount === '' ? 0 : currencyAmount}
             {' '}
             {exchangeFromShort}
             {' '}

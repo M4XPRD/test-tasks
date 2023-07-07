@@ -18,6 +18,8 @@ const InputAmount = () => {
         value={currencyAmount}
         label={t('components.inputAmount.amount')}
         fullWidth
+        onBlur={() => (currencyAmount === '' ? dispatch(setCurrencyAmount(0)) : currencyAmount)}
+        onFocus={() => dispatch(setCurrencyAmount(''))}
         onChange={(e) => dispatch(setCurrencyAmount(e.target.value))}
         InputProps={{
           type: 'number',
