@@ -51,7 +51,7 @@
   text-align: center;
   gap: 3rem;
   box-sizing: border-box;
-  height: 100%;
+  height: 100vh;
 }
 
 .currencies-container h2 {
@@ -100,7 +100,7 @@
   flex-basis: max-content;
   width: 100%;
   gap: 4rem;
-  height: 100%; 
+  height: 100vh; 
 }
 
 .main-content h2 {
