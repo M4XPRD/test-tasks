@@ -15,18 +15,16 @@ const App = () => {
   };
 
   return (
-    <div className="main">
-      <div className="main-container">
-        <video autoPlay loop muted controlsList="nodownload" className="background-clip">
-          <source src={video} type="video/mp4" />
-        </video>
-        <button className="change-language-button" type="button" onClick={handleChangeLang}>{languageButtonText}</button>
-        <Routes>
-          <Route path={routes.main()} element={<MainPage />} />
-          <Route path={routes.currencies()} element={<CurrenciesPage />} />
-          <Route path={routes.error()} element={<ErrorPage />} />
-        </Routes>
-      </div>
+    <div className="main-container">
+      <video autoPlay loop muted controlsList="nodownload" className="background-clip">
+        <source src={video} type="video/mp4" />
+      </video>
+      <button className="change-language-button" type="button" onClick={handleChangeLang}>{languageButtonText}</button>
+      <Routes>
+        <Route path={routes.main()} element={<MainPage />} />
+        <Route path={routes.currencies()} element={<CurrenciesPage />} />
+        <Route path={routes.error()} element={<ErrorPage />} />
+      </Routes>
     </div>
   );
 };

@@ -32,7 +32,7 @@ const CurrenciesTable = () => {
     <TableContainer className="currencies-table-container">
       <Table className="currencies-table">
         <TableHead>
-          <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+          <TableRow className="table-head-row">
             <TableCell align="center" width="33%">{t('components.currenciesTable.country')}</TableCell>
             <TableCell align="center" width="33%">{t('components.currenciesTable.currency')}</TableCell>
             <TableCell align="center" width="33%">{t('components.currenciesTable.rate')}</TableCell>
@@ -41,8 +41,8 @@ const CurrenciesTable = () => {
         <TableBody>
           {countriesList.map((country) => (
             <TableRow
+              className="table-body-row"
               key={country.name.common}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell align="left" component="th" scope="row">
                 {formRow(country)}

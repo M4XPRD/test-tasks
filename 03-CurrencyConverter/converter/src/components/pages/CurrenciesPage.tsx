@@ -72,7 +72,7 @@ const CurrenciesPage = () => {
           <AnimationBar />
         </div>
       )}
-      <button className="to-currencies-button currencies-circle" type="button" onClick={() => navigate(routes.main())}>{t('pages.currenciesPage.toMainPage')}</button>
+      <button className="to-currencies-button" type="button" onClick={() => navigate(routes.main())}>{t('pages.currenciesPage.toMainPage')}</button>
     </div>
   );
 };

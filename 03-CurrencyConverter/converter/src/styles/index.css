@@ -1,22 +1,10 @@
 * {
   padding: 0;
   margin: 0;
-  /* box-sizing: border-box; */
-  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-family:'Roboto', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.change-language-button {
-  position: absolute;
-  top: 1.5em;
-  right: 1.5em;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  font-weight: bold;
-}
+/* Стили App.tsx */
 
 .main-container {
   width: 100%;
@@ -26,100 +14,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.currency-container {
-  background: transparent;
-  text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  padding: 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 0;
-  max-width: 70rem;
-  width: 100%;
-}
-
-.exchange-result-container {
-  color: black;
-  text-align: left;
-  margin-top: 1rem;
-  margin-left: 2.8rem;
-}
-
-.grid-container {
-  display: flex; 
-  justify-content: center;
-  width: 100%;
-}
-
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-basis: max-content;
-  /* flex-wrap: wrap; */
-  width: 100%;
-  /* height: 100%; */
-  gap: 4rem;
-}
-
-.main-page-circle {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1.4rem;
-  gap: 3rem;
-}
-
-.converter-label {
-  font-size: 7rem;
-  color: #fff;
-  text-align: center;
-  /* margin-bottom: 70px; */
-}
-
-.main-content h2 {
-  font-size: 3rem;
-  color: #fff;
-  text-align: center;
-  /* margin-bottom: 70px; */
-}
-
-.input {
-  font-size: 2em;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  border-bottom: 1px solid white;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: 10px
-}
-
-.switch-button {
-  height: 100%;
-  border-radius: 1px;
-}
-
-.arrow-icon {
-  font-size: 30px;
-}
-
-.parsing-error {
-  color: red;
-}
-.select {
-  font-size: 2em;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  margin-left: 20px;
 }
 
 .background-clip {
@@ -132,32 +26,16 @@
   z-index: -1;
 }
 
-.to-main-button {
-  font-size: 3rem;
-  color: lightgreen;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.to-currencies-button {
-  font-size: 2rem;
-  color: lightgreen;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+.change-language-button {
   position: absolute;
-  bottom: 3rem;
-}
-
-/* Стили SelectCountry.tsx */
-.select-country-grid {
-  display: flex;
-}
-
-.select-country-select {
-  text-align: left;
-  width: 100%;
+  top: 1.5em;
+  right: 1.5em;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* Стили CurrenciesPage.tsx */
@@ -180,21 +58,13 @@
   text-align: center;
 }
 
-.currencies-choose-currency {
-  width: 50%;
-}
-
 .currencies-container .currencies-h1 {
   font-size: 4rem;
   color: #fff;
 }
 
-.currencies-table-container {
-  max-height: 40vh;
-  min-width: 100vh;
-  overflow-y: auto;
-  background: transparent;
-  color: #fff;
+.currencies-choose-currency {
+  width: 50%;
 }
 
 .currencies-cirle {
@@ -208,15 +78,114 @@
   min-height: 40vh;
 }
 
-.currencies-table .MuiTableHead-root th {
-  color: #fff;
-  font-weight: bold;
-  font-size: 1rem;
+/* Стили ErrorPage.tsx */
+
+.to-main-button {
+  font-size: 3rem;
+  color: lightgreen;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.currencies-table th {
+/* Стили MainPage.tsx */
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: max-content;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  /* height: 100%; */
+  gap: 4rem;
+}
+
+.main-content h2 {
+  font-size: 3rem;
   color: #fff;
+  text-align: center;
+  /* margin-bottom: 70px; */
+}
+
+.converter-label {
+  font-size: 7rem;
+  color: #fff;
+  text-align: center;
+  /* margin-bottom: 70px; */
+}
+
+.main-page-circle {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1.4rem;
+  gap: 3rem;
+}
+
+.currency-container {
+  background: transparent;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 0;
+  max-width: 70rem;
+  width: 100%;
+}
+
+.grid-container {
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+}
+
+.to-currencies-button {
+  font-size: 2rem;
+  color: lightgreen;
   background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 3rem;
+}
+
+/* Стили AnimationBar.tsx и анимация круга загрузки */
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: rotate 1.5s linear infinite;
+}
+
+.circle-error {
+  border: 6px solid salmon;
+  border-color: salmon transparent salmon transparent;
+}
+
+/* Стили CurrenciesTable.tsx */
+
+.currencies-table-container {
+  max-height: 40vh;
+  min-width: 100vh;
+  overflow-y: auto;
+  background: transparent;
+  color: #fff;
 }
 
 .currencies-table-container::-webkit-scrollbar {
@@ -228,6 +197,34 @@
 .currencies-table-container::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.currencies-table .MuiTableHead-root th {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.currencies-table th {
+  color: #fff;
+  background-color: transparent;
+}
+
+.table-head-row {
+  border-bottom: unset;
+}
+
+.table-body-row {
+  border: 0;
+}
+
+/* Стили ExchangeResult.tsx */
+
+.exchange-result-container {
+  color: black;
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 2.8rem;
 }
 
 /* Адаптивность под устройства */
@@ -368,32 +365,7 @@
   }
 }
 
-/*
-Анимация круга загрузки
-*/
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animation-circle {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: rotate 1.5s linear infinite;
-}
-
-.circle-error {
-  border: 6px solid salmon;
-  border-color: salmon transparent salmon transparent;
-}
-
-/*
-Настройка MUI-компонентов
-*/
+/* Настройка MUI-компонентов */
 .MuiButtonBase-root {
   color: lime !important;
 }
