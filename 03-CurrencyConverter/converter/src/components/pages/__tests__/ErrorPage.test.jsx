@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { render, screen } from '@testing-library/react';
 import { useTranslation } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
