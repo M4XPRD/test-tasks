@@ -23,3 +23,8 @@ rules:
   react/react-in-jsx-scope: 0
   no-console: 0
   no-param-reassign: 0
+overrides:
+  - files: '**/__tests__/**/*.{js,jsx}'
+    rules:
+      no-undef: off
+      react/jsx-filename-extension: off
