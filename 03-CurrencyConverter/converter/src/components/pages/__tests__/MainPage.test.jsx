@@ -1,4 +1,4 @@
-import { MemoryRouter, Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import MainPage from '../MainPage';
 
 describe('MainPage component', () => {
