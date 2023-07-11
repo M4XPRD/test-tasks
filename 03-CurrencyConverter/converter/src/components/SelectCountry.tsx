@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import '../navigator.d';
 import {
   Autocomplete, Grid, TextField,
 } from '@mui/material';
@@ -32,10 +31,10 @@ const SelectCountry = (props: Props) => {
 
   const formOptions = countriesList.map((country: object) => {
     const countryTypes = country as Country;
-    const os = navigator.userAgentData.platform;
+    const os = navigator.platform;
     const [currency] = Object.keys(countryTypes.currencies);
     const countryName = countryTypes.name.common;
-    const currencyData = `${os === 'Windows' ? '' : countryTypes.flag} ${currency} — ${countryName}`;
+    const currencyData = `${os === 'Win32' ? '' : countryTypes.flag} ${currency} — ${countryName}`;
     return currencyData.trim();
   });
 

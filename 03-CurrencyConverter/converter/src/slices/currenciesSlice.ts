@@ -1,4 +1,3 @@
-import '../navigator.d';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesState {
@@ -39,13 +38,13 @@ interface SetExchangeAction {
   payload: ExchangePayload;
 }
 
-const os = navigator.userAgentData.platform;
+const os = navigator.platform;
 
 const currenciesSlice = createSlice({
   name: 'currencies',
   initialState: {
     baseCurrency: {
-      full: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
+      full: os === 'Win32' ? 'USD — United States' : '🇺🇸 USD — United States',
       short: 'USD',
     },
     exchangeRateURL: 'https://api.freecurrencyapi.com/v1/latest',
@@ -57,11 +56,11 @@ const currenciesSlice = createSlice({
       },
       currency: {
         from: {
-          full: os === 'Windows' ? 'USD — United States' : '🇺🇸 USD — United States',
+          full: os === 'Win32' ? 'USD — United States' : '🇺🇸 USD — United States',
           short: 'USD',
         },
         to: {
-          full: os === 'Windows' ? 'RUB — Russia' : '🇷🇺 RUB — Russia',
+          full: os === 'Win32' ? 'RUB — Russia' : '🇷🇺 RUB — Russia',
           short: 'RUB',
         },
       },
@@ -75,10 +74,10 @@ const currenciesSlice = createSlice({
       const [firstValue, secondValue] = newValue.split(' ');
       if (exchangeOption === 'from') {
         state.exchange.currency.from.full = newValue;
-        state.exchange.currency.from.short = os === 'Windows' ? firstValue : secondValue;
+        state.exchange.currency.from.short = os === 'Win32' ? firstValue : secondValue;
       } else if (exchangeOption === 'to') {
         state.exchange.currency.to.full = newValue;
-        state.exchange.currency.to.short = os === 'Windows' ? firstValue : secondValue;
+        state.exchange.currency.to.short = os === 'Win32' ? firstValue : secondValue;
       }
     },
     setCurrencyAmount: (state, action) => {
@@ -91,7 +90,7 @@ const currenciesSlice = createSlice({
       const { newValue } = action.payload;
       const [firstValue, secondValue] = newValue.split(' ');
       state.baseCurrency.full = newValue;
-      state.baseCurrency.short = os === 'Windows' ? firstValue : secondValue;
+      state.baseCurrency.short = os === 'Win32' ? firstValue : secondValue;
     },
     switchCurrencies: (state) => {
       const firstTemp = state.exchange.currency.from.full;
