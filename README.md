@@ -145,8 +145,8 @@
 <a name="currency-converter-result"></a>
 Вот здесь есть [свежий деплой](https://bit.ly/currency-converter-maxprd).
 
-![03-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/f01476e1-3d22-4d72-a553-fe3cad1be07b)
-![03-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/4241e0eb-ad88-4c8c-96c3-9ab549d57a29)
+![03-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/b24beabb-7f0a-49e8-a0ba-dad91d7550eb)
+![03-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/b63f6738-852e-4074-be5a-b237b6ae6485)
 
 ### Производительность:
 ![04-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/68cd83cb-7dbf-4c7f-b84a-d8c2030c9224)
