@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { useTranslation } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -10,13 +10,18 @@ jest.mock('react-i18next', () => ({
   useTranslation: () => ({ t: (key) => key }),
 }));
 
+const history = createMemoryHistory();
+
 describe('ErrorPage component', () => {
+  history.push('/123');
   it('ErrorPage renders', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter history={history}>
         <ErrorPage />
       </MemoryRouter>,
     );
+    expect(history.location.pathname).not.toBe(routes.main());
+    expect(history.location.pathname).not.toBe(routes.currencies());
   });
 
   it('ErrorPage i18next texts', () => {
@@ -39,13 +44,14 @@ describe('ErrorPage component', () => {
   });
 
   it('ErrorPage return button works', () => {
-    const history = createMemoryHistory();
     render(
       <MemoryRouter history={history}>
         <ErrorPage />
       </MemoryRouter>,
     );
 
-    expect(history.location.pathname).toBe(routes.main());
+    const returnButton = screen.getByRole('button');
+    fireEvent.click(returnButton);
+    expect(window.location.pathname).toBe(routes.main());
   });
 });
