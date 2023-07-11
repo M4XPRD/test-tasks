@@ -21,9 +21,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src",
-    "src/slices",
-    "contexts",
-    "src/navigator.d.ts"
+    "src"
   ]
 }
