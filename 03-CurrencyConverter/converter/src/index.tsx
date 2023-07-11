@@ -13,7 +13,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import store from './slices/index';
-import i18n from './i18n';
+import i18next from './i18next';
 import LangProvider from './contexts/LanguageProvider';
 
 const root = ReactDOM.createRoot(
@@ -23,7 +23,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
+        <I18nextProvider i18n={i18next}>
           <LangProvider>
             <App />
           </LangProvider>
