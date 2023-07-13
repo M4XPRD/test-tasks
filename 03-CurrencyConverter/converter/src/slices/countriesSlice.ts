@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {
+  currenciesList, euroData, usdData, audData, nzdData,
+} from './currenciesData';
 
 export const getCountriesList = createAsyncThunk('countries/getCountriesList', async () => {
   const response = await axios.get('https://restcountries.com/v3.1/all');
@@ -28,42 +31,6 @@ export interface Country {
   };
 }
 
-// Ограничение API, где не все валюты работают
-
-const currenciesList = [
-  'JPY', 'BGN', 'CZK', 'DKK', 'GBP',
-  'HUF', 'PLN', 'RON', 'SEK', 'CHF',
-  'ISK', 'NOK', 'HRK', 'RUB', 'TRY',
-  'AUD', 'BRL', 'CAD', 'CNY', 'HKD',
-  'IDR', 'ILS', 'INR', 'KRW', 'MXN',
-  'MYR', 'NZD', 'PHP', 'SGD', 'THB',
-  'ZAR',
-];
-
-const eurozoneData = {
-  name: {
-    common: 'European Union',
-  },
-  flag: '🇪🇺',
-  currencies: {
-    EUR: {
-      name: 'Euro', symbol: '€',
-    },
-  },
-};
-
-const usaData = {
-  name: {
-    common: 'United States',
-  },
-  flag: '🇺🇸',
-  currencies: {
-    USD: {
-      name: 'United States dollar', symbol: '$',
-    },
-  },
-};
-
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: {
@@ -91,7 +58,7 @@ const countriesSlice = createSlice({
             return null;
           });
 
-        filteredCountries.push(eurozoneData, usaData);
+        filteredCountries.push(euroData, usdData, audData, nzdData);
 
         const sortedCountries = filteredCountries
           .sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
