@@ -42,6 +42,7 @@ const SelectCountry = (props: Props) => {
     <Grid item xs={12} md={3.5}>
       <Autocomplete
         value={currencyValue}
+        data-testid="autocomplete"
         isOptionEqualToValue={(option, value) => option.trim() === value.trim()}
         disableClearable
         onChange={(e, newValue) => {

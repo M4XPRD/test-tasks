@@ -8,6 +8,7 @@ const SwitchCurrency = () => {
   return (
     <Grid item xs={12} md="auto">
       <Button
+        data-testid="switch-button"
         sx={{
           borderRadius: 1,
           height: '100%',
