@@ -3,12 +3,14 @@ import * as reduxHooks from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {
-  act, render, screen,
+  act, render, screen, waitFor,
 } from '@testing-library/react';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 import CurrenciesPage from '../CurrenciesPage';
 import store from '../../../slices/index';
 import resources from '../../../locales/index';
+import { getCountriesList } from '../../../slices/countriesSlice';
 
 jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve({ data: {} })),
@@ -33,6 +35,34 @@ const i18nConfig = {
 // const mockedDispatch = jest.spyOn(reduxHooks, 'useDispatch');
 
 describe('CurrenciesPage component', () => {
+  // let response;
+  // beforeEach(() => {
+  //   response = [
+  //     {
+  //       name: {
+  //         common: 'European Union',
+  //       },
+  //       flag: '🇪🇺',
+  //       currencies: {
+  //         EUR: {
+  //           name: 'Euro', symbol: '€',
+  //         },
+  //       },
+  //     },
+  //     {
+  //       name: {
+  //         common: 'United States',
+  //       },
+  //       flag: '🇺🇸',
+  //       currencies: {
+  //         USD: {
+  //           name: 'United States dollar', symbol: '$',
+  //         },
+  //       },
+  //     },
+  //   ];
+  // });
+
   it('CurrenciesPage snapshot', async () => {
     await act(async () => {
       const page = render(
@@ -63,4 +93,38 @@ describe('CurrenciesPage component', () => {
     const header = screen.getByText(t(currenciesPageH1));
     expect(header).toBeInTheDocument();
   });
+
+  // it("Countries list fills when CurrenciesPage's rendered", async () => {
+  //   axios.get.mockReturnValue(response);
+
+  //   render(
+  //     <Provider store={store}>
+  //       <BrowserRouter>
+  //         <CurrenciesPage />
+  //       </BrowserRouter>
+  //     </Provider>,
+  //   );
+  //   const { countriesList } = store.getState().countries;
+  //   expect(countriesList.length).toBeGreaterThan(0);
+  // });
+
+  // it("Countries list fills when CurrenciesPage's rendered", async () => {
+  //   render(
+  //     <Provider store={store}>
+  //       <BrowserRouter>
+  //         <CurrenciesPage />
+  //       </BrowserRouter>
+  //     </Provider>,
+  //   );
+
+  //   await act(async () => {
+  //     store.dispatch(getCountriesList());
+  //   });
+
+  //   const { countriesList } = store.getState().countries;
+
+  //   await waitFor(() => {
+  //     expect(countriesList.length).toBeGreaterThan(0);
+  //   });
+  // });
 });
