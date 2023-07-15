@@ -54,7 +54,7 @@ const ExchangeResult = () => {
             {' '}
             =
           </Typography>
-          <Typography variant="h5">
+          <Typography variant="h5" data-testid="exchange-result">
             {exchangeAmount}
             {' '}
             {exchangeToShort}
