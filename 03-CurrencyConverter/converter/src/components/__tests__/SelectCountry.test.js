@@ -7,6 +7,15 @@ import SelectCountry from '../SelectCountry';
 import store from '../../slices/index';
 
 describe('SelectCountry component', () => {
+  it('SelectCountry snapshot', () => {
+    const element = render(
+      <Provider store={store}>
+        <SelectCountry />
+      </Provider>,
+    );
+
+    expect(element).toMatchSnapshot();
+  });
   it('Should update the selected country in Autocomplete', async () => {
     const setExchangeMock = jest.fn();
     const label = 'Select a country';

@@ -5,6 +5,15 @@ import store from '../../slices/index';
 import { switchCurrencies } from '../../slices/currenciesSlice';
 
 describe('SwitchCurrency component', () => {
+  it('SwitchCurrency snapshot', () => {
+    const element = render(
+      <Provider store={store}>
+        <SwitchCurrency />
+      </Provider>,
+    );
+
+    expect(element).toMatchSnapshot();
+  });
   it('Should call dispatch when button is clicked', () => {
     const mockDispatch = jest.fn();
     jest.spyOn(store, 'dispatch').mockImplementation(mockDispatch);

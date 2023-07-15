@@ -29,6 +29,13 @@ describe('ErrorPage component', () => {
   const errorPageMainText = 'pages.errorPage.main';
   const returnToMainText = 'pages.errorPage.returnButton';
 
+  it('ErrorPage snapshot', () => {
+    const page = render(
+      <ErrorPage />,
+    );
+    expect(page).toMatchSnapshot();
+  });
+
   it('ErrorPage renders', () => {
     render(
       <ErrorPage />,

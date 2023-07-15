@@ -19,6 +19,15 @@ const i18nConfig = {
 };
 
 describe('InputAmount component', () => {
+  it('InputAmount snapshot', () => {
+    const element = render(
+      <Provider store={store}>
+        <InputAmount />
+      </Provider>,
+    );
+
+    expect(element).toMatchSnapshot();
+  });
   it('Should update the currency amount in Textfield', async () => {
     render(
       <Provider store={store}>
