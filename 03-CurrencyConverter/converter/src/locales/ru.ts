@@ -33,6 +33,7 @@ export default {
       },
       inputAmount: {
         amount: 'Количество',
+        input: 'Введите сумму',
       },
     },
   },

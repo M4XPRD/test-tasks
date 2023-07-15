@@ -15,11 +15,11 @@ const InputAmount = () => {
   return (
     <Grid item xs={12} md={3}>
       <TextField
+        data-testid="input-amount"
         value={currencyAmount}
         label={t('components.inputAmount.amount')}
         fullWidth
-        onBlur={() => (currencyAmount === '' ? dispatch(setCurrencyAmount(0)) : currencyAmount)}
-        onFocus={() => dispatch(setCurrencyAmount(''))}
+        placeholder={t('components.inputAmount.input')}
         onChange={(e) => dispatch(setCurrencyAmount(e.target.value))}
         InputProps={{
           type: 'number',

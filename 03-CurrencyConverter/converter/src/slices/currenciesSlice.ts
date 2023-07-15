@@ -65,7 +65,7 @@ const currenciesSlice = createSlice({
         },
       },
     },
-    currencyAmount: 0,
+    currencyAmount: '',
     axiosError: false,
   } as CurrenciesState,
   reducers: {

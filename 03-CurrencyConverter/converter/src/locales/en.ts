@@ -33,6 +33,7 @@ export default {
       },
       inputAmount: {
         amount: 'Amount',
+        input: 'Enter the amount',
       },
     },
   },
