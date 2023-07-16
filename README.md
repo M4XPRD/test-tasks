@@ -32,6 +32,11 @@ $ make install-03
 # Шаг 3 — Запускаем 2 или 3 проект
 $ make start-02
 $ make start-03
+
+# Если у вас yarn, то перед командой пишем "y"
+
+$ make y-install-03
+$ make y-start-03
 ```
 
 <!-- The description of each task is located in the folder of the same name. 👁‍🗨 -->
