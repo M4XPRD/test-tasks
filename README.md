@@ -17,7 +17,7 @@
     * [Дополнительные задания](#currency-converter-additional-tasks)
     * [✅Результат](#currency-converter-result)
 
-# Установка 
+## Установка 
 
 ```sh
 Все команды запускаются из корня проекта:
@@ -38,6 +38,21 @@ $ make start-03
 $ make y-install-03
 $ make y-start-03
 ```
+
+## Возможные проблемы
+Если у вас VSCode и в конвертере валют TypeScript выдаёт ошибку `Parsing error: Cannot read file '.../tsconfig.json'.eslint`, то нужно сделать следующее:
+
+1. Создать в общем корне всех проектов папку `.vscode`
+2. Добавить в папку `.vscode` файл `settings.json`
+3. В файл добавить следующий код:
+```
+{
+  "eslint.workingDirectories": [
+    "03-CurrencyConverter/converter"
+  ]
+}
+```
+
 
 <!-- The description of each task is located in the folder of the same name. 👁‍🗨 -->
 
