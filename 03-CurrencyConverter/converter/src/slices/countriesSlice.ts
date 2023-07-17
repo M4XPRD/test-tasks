@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {
-  currenciesList, euroData, usdData, audData, nzdData,
+  currenciesList, euroData, usdData, audData, nzdData, dkkData,
 } from './currenciesData';
 
 export const getCountriesList = createAsyncThunk('countries/getCountriesList', async () => {
@@ -58,7 +58,7 @@ const countriesSlice = createSlice({
             return null;
           });
 
-        filteredCountries.push(euroData, usdData, audData, nzdData);
+        filteredCountries.push(euroData, usdData, audData, nzdData, dkkData);
 
         const sortedCountries = filteredCountries
           .sort((a: Country, b: Country) => a.name.common.localeCompare(b.name.common));
