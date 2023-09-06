@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  
+  background-color: #F5F5F5;
+}
+
+.page__h1 {
+  color: #ecbcb8;
+
+  font-size: 7rem;
+  font-weight: 100;
+}
+
+.page__form {
+  display: flex;
+  flex-direction: column;
+
+  font-family: inherit;
+  justify-content: center;
+  align-items: center;
+}
+
+.page__form__container {
+  width: 500px;
+  background-color: #fff;
+}
+
+.page__form__img__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page__form__add {
+  background-color: cyan;
+}
+
+.page__form__image {
+  width: 25px;
+  height: 25px;
+  
+  cursor: pointer;
+}
+
+
+.page__form__arrow {
+  padding-left: 1em;
+  
+  filter: brightness(0.8);
+}
+
+.page__form__image__left {
+  padding-left: 1em;
+}
+
+.page__form__image__right {
+  padding-right: 1em;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.page__form__ul__li {  
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  width: 75%;
+}
+
+.page__form__input::placeholder {
+  font-style: italic;
+}
+
+.page__form__input {
+  border: none;
+  height: 3em;
+  
+  padding-left: 1em;
+}
+
+.page__form__input:focus {
+  outline: none;
+}
+
+.page__form__input,
+.page__form__task {
+  width: 100%;
+
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.page__form__task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 500px;
+  height: 3rem;
+  padding: 0;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.page__form__task__completed {
+  text-decoration: line-through;
+  color: #DEDEDE;
+}
+
+.page__form__button {
+  cursor: pointer;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 500px;
+  padding: 0.5em 0;
+
+  background-color: #fff;
+}
+
+.page__form__footer {
+  font-size: 0.8rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  all: initial;
+}
