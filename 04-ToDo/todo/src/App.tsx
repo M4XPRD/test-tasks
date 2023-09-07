@@ -13,10 +13,10 @@ import finishedTask from './assets/finished-task.png';
 import removeTask from './assets/remove-task.png';
 
 const App = () => {
-  const [todos, setTodos] = useState<
-  Array<{ text: string; completed: boolean; id: number }>
-  >([]);
+  const [todos, setTodos] = useState<Array<{ text: string; completed: boolean; id: number }>>([]);
   const [inputValue, setInputValue] = useState<string>('');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+
   const inputFocus = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -48,13 +48,51 @@ const App = () => {
     setTodos(updatedTodos);
   };
 
-  const handleDeleteClick = (id: number) => {};
+  const handleDeleteClick = (index: number) => {
+    const updatedTodos = todos.filter((todo, todoIndex) => todoIndex !== index);
+    setTodos(updatedTodos);
+  };
 
-  const handleClearCompleted = () => {
-    const unfinishedTodos = todos.filter(
-      ({ completed }) => completed === false,
-    );
-    setTodos(unfinishedTodos);
+  const handleTodosFilter = (type: string) => {
+    switch (type) {
+      case 'all':
+        setActiveFilter('all');
+        break;
+      case 'active':
+        setActiveFilter('active');
+        break;
+      case 'completed':
+        setActiveFilter('completed');
+        break;
+      case 'clear': {
+        setActiveFilter('clear');
+        const unfinishedTodos = todos.filter(
+          ({ completed }) => completed === false,
+        );
+        setTodos(unfinishedTodos);
+      }
+        setActiveFilter('all');
+        break;
+      default:
+        break;
+    }
+  };
+
+  const renderTodos = () => {
+    switch (activeFilter) {
+      case 'all':
+        return todos.length;
+      case 'active': {
+        const activeTodos = todos.filter((todo) => !todo.completed);
+        return activeTodos.length;
+      }
+      case 'completed': {
+        const completedTodos = todos.filter((todo) => todo.completed);
+        return completedTodos.length;
+      }
+      default:
+        return 0;
+    }
   };
 
   return (
@@ -62,7 +100,7 @@ const App = () => {
       <h1 className="page__h1">todos</h1>
       <div className="page__form">
         <form onSubmit={handleFormSubmit} className="page__form__container">
-          <div className="flex">
+          <div className="page__form__input__container">
             <button type="button" className="page__form__img__container">
               <img
                 className="page__form__image page__form__arrow"
@@ -101,14 +139,13 @@ const App = () => {
                   alt={completed ? 'Finished task' : 'Active task'}
                 />
               </button>
-              <button
-                type="button"
-                className={`page__form__ul__li ${
+              <span
+                className={`page__form__task__text ${
                   completed ? 'page__form__task__completed' : ''
                 }`}
               >
                 {text}
-              </button>
+              </span>
               <button
                 type="submit"
                 className="page__form__img__container"
@@ -125,32 +162,35 @@ const App = () => {
         </ul>
         <div className="page__footer">
           <span className="page__form__footer">
-            {todos.length || 0}
+            {renderTodos()}
             {' '}
             items left
           </span>
           <button
-            className="page__form__button page__form__footer"
+            onClick={() => handleTodosFilter('all')}
+            className={`page__form__button page__form__footer ${activeFilter === 'all' ? 'page__form__footer__active' : ''}`}
             type="button"
           >
             All
           </button>
           <button
-            className="page__form__button page__form__footer"
+            onClick={() => handleTodosFilter('active')}
+            className={`page__form__button page__form__footer ${activeFilter === 'active' ? 'page__form__footer__active' : ''}`}
             type="button"
           >
             Active
           </button>
           <button
-            className="page__form__button page__form__footer"
+            onClick={() => handleTodosFilter('completed')}
+            className={`page__form__button page__form__footer ${activeFilter === 'completed' ? 'page__form__footer__active' : ''}`}
             type="button"
           >
             Completed
           </button>
           <button
-            className="page__form__button page__form__footer"
+            onClick={() => handleTodosFilter('clear')}
+            className={`page__form__button page__form__footer ${activeFilter === 'clear' ? 'page__form__footer__active' : ''}`}
             type="button"
-            onClick={handleClearCompleted}
           >
             Clear completed
           </button>
