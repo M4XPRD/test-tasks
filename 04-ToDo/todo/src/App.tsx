@@ -16,6 +16,7 @@ const App = () => {
   const [todos, setTodos] = useState<Array<{ text: string; completed: boolean; id: number }>>([]);
   const [inputValue, setInputValue] = useState<string>('');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [dropdownActive, setDropdownActive] = useState<boolean>(false);
 
   const inputFocus = useRef<HTMLInputElement>(null);
 
@@ -24,6 +25,10 @@ const App = () => {
       inputFocus.current.focus();
     }
   }, [inputFocus]);
+
+  const handleDropdown = () => {
+    setDropdownActive(!dropdownActive);
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -97,70 +102,74 @@ const App = () => {
 
   return (
     <div className="page">
-      <h1 className="page__h1">todos</h1>
-      <div className="page__form">
-        <form onSubmit={handleFormSubmit} className="page__form__container">
-          <div className="page__form__input__container">
-            <button type="button" className="page__form__img__container">
-              <img
-                className="page__form__image page__form__arrow"
-                src={arrow}
-                alt="1"
-              />
-            </button>
-            <input
-              className="page__form__input"
-              onChange={handleInputChange}
-              ref={inputFocus}
-              placeholder="What needs to be done?"
-              value={inputValue}
-              type="text"
-            />
-            <button type="submit" className="page__form__img__container">
-              <img
-                className="page__form__image page__form__image__right"
-                src={addTask}
-                alt="Add task"
-              />
-            </button>
-          </div>
-        </form>
-        <ul className="page__form__ul">
-          {todos.map(({ text, completed, id }, index) => (
-            <li className="page__form__task" key={id}>
-              <button
-                type="submit"
-                className="page__form__img__container"
-                onClick={() => handleTodoClick(index)}
-              >
+      <div className="page__container">
+        <header>
+          <h1 className="page__h1">todos</h1>
+        </header>
+        <main className="page__form">
+          <form onSubmit={handleFormSubmit} className="page__form__container">
+            <div className="page__form__input__container">
+              <button type="button" className="page__form__img__container" onClick={() => handleDropdown()}>
                 <img
-                  className="page__form__image page__form__image__left"
-                  src={completed ? finishedTask : activeTask}
-                  alt={completed ? 'Finished task' : 'Active task'}
+                  className={`page__form__image page__form__arrow ${dropdownActive ? 'rotate' : ''}`}
+                  src={arrow}
+                  alt="1"
                 />
               </button>
-              <span
-                className={`page__form__task__text ${
-                  completed ? 'page__form__task__completed' : ''
-                }`}
-              >
-                {text}
-              </span>
-              <button
-                type="submit"
-                className="page__form__img__container"
-                onClick={() => handleDeleteClick(index)}
-              >
+              <input
+                className="page__form__input"
+                onChange={handleInputChange}
+                ref={inputFocus}
+                placeholder="What needs to be done?"
+                value={inputValue}
+                type="text"
+              />
+              <button type="submit" className="page__form__img__container">
                 <img
                   className="page__form__image page__form__image__right"
-                  src={removeTask}
-                  alt="Remove task"
+                  src={addTask}
+                  alt="Add task"
                 />
               </button>
-            </li>
-          ))}
-        </ul>
-        <div className="page__footer">
+            </div>
+          </form>
+          <ul className={`page__form__ul ${dropdownActive ? 'hide' : ''}`}>
+            {todos.map(({ text, completed, id }, index) => (
+              <li className="page__form__task" key={id}>
+                <button
+                  type="submit"
+                  className="page__form__img__container"
+                  onClick={() => handleTodoClick(index)}
+                >
+                  <img
+                    className="page__form__image page__form__image__left"
+                    src={completed ? finishedTask : activeTask}
+                    alt={completed ? 'Finished task' : 'Active task'}
+                  />
+                </button>
+                <span
+                  className={`page__form__task__text ${
+                    completed ? 'page__form__task__completed' : ''
+                  }`}
+                >
+                  {text}
+                </span>
+                <button
+                  type="submit"
+                  className="page__form__img__container"
+                  onClick={() => handleDeleteClick(index)}
+                >
+                  <img
+                    className="page__form__image page__form__image__right"
+                    src={removeTask}
+                    alt="Remove task"
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </main>
+        <footer className={`page__footer ${dropdownActive ? 'hide' : ''}`}>
           <span className="page__form__footer">
             {renderTodos()}
             {' '}
@@ -194,7 +203,7 @@ const App = () => {
           >
             Clear completed
           </button>
-        </div>
+        </footer>
       </div>
     </div>
   );
