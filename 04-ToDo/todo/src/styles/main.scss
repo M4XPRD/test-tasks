@@ -13,14 +13,19 @@ button {
 
 .page {
   height: 100svh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F5F5F5;
+}
 
+.page__container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
-  font-family: 'Montserrat', sans-serif;
-  
+  transform: translateY(10em);
+  padding-bottom: 10em;
+
   background-color: #F5F5F5;
 }
 
@@ -62,6 +67,8 @@ button {
   height: 25px;
   
   cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .page__form__arrow {
@@ -87,6 +94,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: 3px;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .page__form__task__text {  
@@ -157,6 +166,8 @@ button {
   margin-top: 3px;
 
   background-color: #fff;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .page__form__footer {
@@ -167,4 +178,42 @@ button {
   color: #ecbcb8;
 
   transition: all 0.3s ease-in-out;
+}
+
+/* Dropdown */
+
+.page__form__image.rotate {
+  transform: scaleY(-1);
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.page__form__ul.hide {
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page__footer.hide {
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Скроллинг */
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ecbcb8;
+  transition: background-color 0.3s ease;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #daaba7;
 }
