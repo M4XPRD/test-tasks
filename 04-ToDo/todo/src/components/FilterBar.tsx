@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import useTodo from '../hooks/todoHook';
 
@@ -11,6 +12,46 @@ const FilterBar = (props: { type: string }) => {
     activeFilter,
     handleTodosFilter,
   } = todo;
+
+  /*
+    return (
+    <div className={`page__filter filter ${dropdownActive && type !== 'main' ? 'filter_hide' : ''}`}>
+      <span className="filter__counter">
+        {renderTodos?.()}
+        {' '}
+        items left
+      </span>
+      <button
+        onClick={() => handleTodosFilter?.('all')}
+        className={`filter__button ${activeFilter === 'all' ? 'filter__button_active' : ''}`}
+        type="button"
+      >
+        All
+      </button>
+      <button
+        onClick={() => handleTodosFilter?.('all')}
+        className={`filter__button ${activeFilter === 'all' ? 'filter__button_active' : ''}`}
+        type="button"
+      >
+        Active
+      </button>
+      <button
+        onClick={() => handleTodosFilter?.('all')}
+        className={`filter__button ${activeFilter === 'all' ? 'filter__button_active' : ''}`}
+        type="button"
+      >
+        Completed
+      </button>
+      <button
+        onClick={() => handleTodosFilter?.('all')}
+        className={`filter__button ${activeFilter === 'all' ? 'filter__button_active' : ''}`}
+        type="button"
+      >
+        Clear completed
+      </button>
+    </div>
+  );
+  */
 
   return (
     <div className={`page__footer__container ${dropdownActive && type !== 'main' ? 'hide' : ''}`}>
