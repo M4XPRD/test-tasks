@@ -22,7 +22,6 @@ const InputForm = () => {
     }
   }, [inputFocus]);
 
-  /*
   return (
     <form onSubmit={handleFormSubmit} className="page__form__container form-container">
       <div className="form-container__row row">
@@ -41,39 +40,9 @@ const InputForm = () => {
           value={inputValue}
           type="text"
         />
-        <button type="submit" className=""row__image-container">
+        <button type="submit" className="row__image-container">
           <img
             className="row__image row__image_right-side"
-            src={addTask}
-            alt="Add task"
-          />
-        </button>
-      </div>
-    </form>
-  );
-  */
-
-  return (
-    <form onSubmit={handleFormSubmit} className="page__form__container">
-      <div className="page__form__input__container">
-        <button type="button" className="page__form__img__container" onClick={() => handleDropdown?.()}>
-          <img
-            className={`page__form__image page__form__arrow ${dropdownActive ? 'rotate' : ''}`}
-            src={arrow}
-            alt="1"
-          />
-        </button>
-        <input
-          className="page__form__input"
-          onChange={handleInputChange}
-          ref={inputFocus}
-          placeholder="What needs to be done?"
-          value={inputValue}
-          type="text"
-        />
-        <button type="submit" className="page__form__img__container">
-          <img
-            className="page__form__image page__form__image__right"
             src={addTask}
             alt="Add task"
           />

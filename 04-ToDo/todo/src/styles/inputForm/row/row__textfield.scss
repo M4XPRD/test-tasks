@@ -1,0 +1,22 @@
+.row__textfield {
+  border: none;
+  height: 3em;
+  
+  padding-left: 1em;
+  padding-right: 1em;
+  text-overflow: ellipsis;
+
+  width: 100%;
+
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.row__textfield::placeholder {
+  font-style: italic;
+}
+
+.row__textfield:focus {
+  outline: none;
+}

@@ -13,75 +13,35 @@ const TasksList = () => {
     handleDeleteClick,
   } = todo;
 
-  /*
-    return (
+  return (
     <ul className={`page__form-ul ${dropdownActive ? 'page__form-ul_hide' : ''}`}>
       {todos && todos.map(({ text, completed, id }, index) => (
-        <li className="page__form-ul__task row" key={id}>
+        <li className="page__form-ul__task task" key={id}>
           <button
             type="submit"
-            className="row__image-container"
+            className="task__image-container"
             onClick={() => handleTodoClick?.(index)}
           >
             <img
-              className="row__image row__image_left-side"
+              className="task__image task__image_left-side"
               src={completed ? finishedTask : activeTask}
               alt={completed ? 'Finished task' : 'Active task'}
             />
           </button>
           <span
-            className={`row__task ${
-              completed ? 'row__task_completed' : ''
+            className={`task__description ${
+              completed ? 'task__description_completed' : ''
             }`}
           >
             {text}
           </span>
           <button
             type="submit"
-            className="row__image-container"
+            className="task__image-container"
             onClick={() => handleDeleteClick?.(index)}
           >
             <img
-              className="row__image row__image_right-side"
-              src={removeTask}
-              alt="Remove task"
-            />
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
-  */
-
-  return (
-    <ul className={`page__form__ul ${dropdownActive ? 'page__form__ul_hide' : ''}`}>
-      {todos && todos.map(({ text, completed, id }, index) => (
-        <li className="page__form__task" key={id}>
-          <button
-            type="submit"
-            className="page__form__img__container"
-            onClick={() => handleTodoClick?.(index)}
-          >
-            <img
-              className="page__form__image page__form__image__left"
-              src={completed ? finishedTask : activeTask}
-              alt={completed ? 'Finished task' : 'Active task'}
-            />
-          </button>
-          <span
-            className={`page__form__task__text ${
-              completed ? 'page__form__task__completed' : ''
-            }`}
-          >
-            {text}
-          </span>
-          <button
-            type="submit"
-            className="page__form__img__container"
-            onClick={() => handleDeleteClick?.(index)}
-          >
-            <img
-              className="page__form__image page__form__image__right"
+              className="task__image task__image_right-side"
               src={removeTask}
               alt="Remove task"
             />

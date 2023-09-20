@@ -1,0 +1,11 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  transform: translateY(10em);
+  padding-bottom: 10em;
+
+  background-color: #F5F5F5;
+}

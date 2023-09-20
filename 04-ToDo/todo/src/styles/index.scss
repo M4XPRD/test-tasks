@@ -1,2 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,300&display=swap');
-@import './main.scss';
+
+/* БЭМ */
+
+@import './helpers.scss';
+
+@import './page/page__form';
+@import './page/page__h1';
+@import './page/page';
+
+@import './inputForm/form-container.scss';
+@import './inputForm/row/row.scss';
+@import './inputForm/row/row__image-container.scss';
+@import './inputForm/row/row__textfield.scss';
+@import './inputForm/row/__arrow/row__arrow.scss';
+@import './inputForm/row/__arrow/__arrow_rotate/row__arrow_rotate.scss';
+@import './inputForm/row/__image/row__image.scss';
+@import './inputForm/row/__image/__right-side/row__image_right-side.scss';
+
+@import './tasksList/__form-ul/page__form-ul.scss';
+@import './tasksList/__form-ul/__hide/page__form-ul_hide.scss';
+@import './tasksList/task/__image/task__image.scss';
+@import './tasksList/task/__image/__left-side/task__image_left-side.scss';
+@import './tasksList/task/__image/__right-side/task__image_right-side.scss';
+@import './tasksList/task/__task/task.scss';
+@import './tasksList/task/__task/task__description.scss';
+@import './tasksList/task/__task/task__description_completed.scss';
+@import './tasksList/task/__task/task__image-container.scss';
+
+@import './filterBar/filter.scss';
+@import './filterBar/filter__button.scss';
+@import './filterBar/filter__counter.scss';
+@import './filterBar/__active/filter__button_active.scss';
+@import './filterBar/__hide/filter_hide.scss';

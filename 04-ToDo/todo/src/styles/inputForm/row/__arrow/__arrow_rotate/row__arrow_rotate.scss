@@ -1,0 +1,5 @@
+.row__arrow_rotate {
+  transform: scaleY(-1);
+
+  transition: transform 0.3s ease-in-out;
+}
