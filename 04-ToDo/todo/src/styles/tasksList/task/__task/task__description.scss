@@ -1,6 +1,10 @@
 .task__description {
-  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-grow: 1;
+
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  width: 75%;
+  padding-left: 1em;
+  margin-right: 1em;
   overflow: hidden;
 }
