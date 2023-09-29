@@ -33,3 +33,15 @@ y-install-04:
 
 y-start-04:
 		cd 04-ToDo/todo && yarn start
+
+install-05:
+		cd 05-NimaxBooking/booking && npm install
+
+start-05:
+		cd 05-NimaxBooking/booking && npm run start
+
+y-install-05:
+		cd 05-NimaxBooking/booking && yarn install
+
+y-start-05:
+		cd 05-NimaxBooking/booking && yarn start

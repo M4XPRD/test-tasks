@@ -1,0 +1,190 @@
+@media (max-width: 640px) {
+  .wrapper {
+    height: 700px;
+    
+    .form {
+      height: 680px;
+  
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 572px;
+    
+        .form-inputs {
+    
+          .form-control {
+       
+            label {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+            }
+        
+            label,
+            input,
+            select {
+              font-weight: 400;
+              font-size: var(--regular-font);
+              line-height: 18px;
+              width: -webkit-fill-available;
+            }
+
+            .input-number-arrows {
+              top: 22px;
+            }
+
+            select {
+              display: flex;
+              align-items: center;
+          
+              font-family: var(--font-family);
+              height: 32px;
+              border: 1px solid var(--input-border-colour);
+              border-radius: 4px;
+              padding-left: 8px;
+              outline: 1px solid transparent;
+
+              transition: all 0.3s ease-in-out;
+
+              appearance: none;
+              background-image: url('../../assets/dropdownArrow.svg');
+              background-repeat: no-repeat;
+              background-position: right 13.5px top 50%;
+              background-size: 0.65rem auto;
+            }        
+
+            select:focus {
+              outline: 1px solid var(--primary-colour);
+              background-image: url('../../assets/dropdownArrowGrey.svg');
+
+              transition: all 0.3s ease-in-out;
+            }
+          }
+    
+          .form-insurance {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 48px;
+    
+            span {
+              padding-top: 6.5px;
+            }
+    
+            .insurance input[type="checkbox"] {
+              display: none;
+            }
+    
+            .insurance {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+        
+              height: 32px;
+              width: 58px;
+              background-color: var(--element-off);;
+              border-radius: 32px;
+    
+              border: none;
+    
+              animation: insuranceAnimation 0.5s ease-in-out;
+    
+              .insurance-circle {
+                width: 28px;
+                height: 28px;
+                margin: 2px;
+        
+                background-color: var(--secondary-colour);
+        
+                border-radius: 28px;
+        
+                box-shadow: 0px 2px 2px 0px #00000040;
+              }
+            }
+    
+            .insurance input[type="checkbox"] {
+              display: none;
+            }
+    
+            .insurance {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+        
+              height: 32px;
+              width: 58px;
+              background-color: var(--element-off);;
+              border-radius: 32px;
+    
+              border: none;
+              transition: all 0.5s ease-in-out;
+    
+              .insurance-circle {
+                width: 28px;
+                height: 28px;
+                margin: 2px;
+        
+                background-color: var(--secondary-colour);
+                border-radius: 28px;
+                box-shadow: 0px 2px 2px 0px #00000040;
+
+                transition: all 0.3s ease-in-out;
+              }
+            }
+    
+            .insurance-checked {
+              background-color: var(--checkbox-on);
+    
+              transition: all 0.5s ease-in-out;
+
+              .insurance-circle-checked {
+                transform: translateX(26px);
+                transition: all 0.3s ease-in-out;
+              }
+            }
+        }
+      }
+
+        .form-navigation-buttons {
+
+          .form-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .result-sum {
+              font-weight: 600;
+            }
+          }
+
+          .form-next-button {
+
+            .next-button {
+              width: -webkit-fill-available;
+            }
+          }
+  
+          .form-previous-button {
+
+            .previous-button {
+              width: -webkit-fill-available;
+            }
+          }
+        }
+
+        .lds-wrapper {
+          padding-top: 11em;
+        }
+      }
+
+      .form-success-container {
+
+        .last-button {
+          margin-bottom: 4px;
+          width: -webkit-fill-available;
+        }
+      }
+    }
+  }
+}

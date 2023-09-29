@@ -1,0 +1,134 @@
+@media (min-width: 641px) {
+  .wrapper {
+    height: 100svh;
+
+    .form {
+      padding: 16px 20px 16px 20px;
+  
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+  
+        height: 592px;
+
+        .form-inputs {
+          .form-control {
+            padding: 0px 0px 16px 0px;
+          
+            label {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+            }
+  
+            input {
+              width: 50%;
+            }
+          }
+
+          .form-control-desktop {
+            padding: 0px 0px 16px 0px;
+
+            .roomtype-container {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+
+              .radio-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 51.5%;
+
+                  
+                label {
+                  display: flex;
+                  gap: 10px;
+
+                  input[type=radio] {
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+
+          .hidden-error-text {
+            padding-left: 32em;
+          }
+
+          .form-result {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .result-sum {
+              width: 51.5%;
+            }
+          }
+
+          .form-insurance {
+            .insurance {
+              width: 51.5%;
+
+              input[type=checkbox] {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        
+        .form-navigation-buttons {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          width: -webkit-fill-available;
+          align-self: flex-end;
+        
+          .result-sum {
+            font-weight: 600;
+          }
+        
+          .form-next-button {
+            display: flex;
+            justify-content: flex-end;
+        
+            .next-button {
+              width: 128px;
+            }
+          }
+
+          .form-previous-button {
+            .previous-button {
+              width: 248px;
+            }
+          }
+        }
+      }
+
+      .form-success-container {
+        height: unset;
+        .form-success {
+          gap: 10px;
+
+          .success {
+            padding-bottom: 0;
+          }
+
+          .form-navigation-buttons {
+            .form-next-button {
+              display: flex;
+              justify-content: center;
+
+              .last-button {
+                width: 300px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
