@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 500px;
+  padding: 0.5em 0;
+
+  background-color: #fff;
+
+  .filter__counter {
+    font-size: 0.8rem;
+  }
+
+  .filter__button {
+    cursor: pointer;
+    font-size: 0.8rem;
+  
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .filter__button_active {
+    color: #ecbcb8;
+  
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.filter_hide {
+  display: none;
+}

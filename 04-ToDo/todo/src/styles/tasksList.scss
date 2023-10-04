@@ -1,0 +1,73 @@
+.page__form-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  transition: all 0.3s ease-in-out;
+
+  .task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 500px;
+    min-height: 3rem;
+    padding: 0;
+    background-color: #fff;
+    font-size: 1rem;
+  
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 1rem;
+
+    .task__image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .task__image {
+        width: 25px;
+        height: 25px;
+        
+        cursor: pointer;
+      
+        transition: all 0.3s ease-in-out;
+      }
+
+      .task__image_left-side {
+        padding-left: 1em;
+      }
+
+      .task__image_right-side {
+        padding-right: 1em;
+      }
+    }
+
+    .task__description {
+      display: flex;
+      flex-grow: 1;
+    
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      padding-left: 1em;
+      margin-right: 1em;
+      overflow: hidden;
+    }
+
+    .task__description_completed {
+      text-decoration: line-through;
+      color: #DEDEDE;
+    }
+  }
+  
+  .task:last-child {
+    margin-bottom: 3px;
+  }
+}
+
+.page__form-ul_hide {
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+}

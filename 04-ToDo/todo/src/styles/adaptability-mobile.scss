@@ -20,40 +20,40 @@
 @media (max-width: 440px) {
   .row {
     .row__textfield {
-      font-size: 0.8rem;
+      font-size: 0.8rem !important;
     }
   }
   
   .task {
     .task__description {
-      font-size: 0.8rem;
+      font-size: 0.8rem !important;
     }
   }
 
   .filter {
     .filter__counter,
     .filter__button {
-      font-size: 0.7rem;
+      font-size: 0.7rem !important;
     }
   }
 }
 
 @media (max-width: 380px) {
   .page__h1 {
-    font-size: 6rem;
+    font-size: 6rem !important;
   }
 }
 
 @media (max-width: 350px) {
   .row {
     .row__textfield {
-      font-size: 0.7rem;
+      font-size: 0.7rem !important;
     }
   }
 
   .task {
     .task__description {
-      font-size: 0.7rem;
+      font-size: 0.7rem !important;
     }
   }
   .filter {
