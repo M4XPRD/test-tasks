@@ -16,11 +16,13 @@
     * [Требования](#currency-converter-requirements)
     * [Дополнительные задания](#currency-converter-additional-tasks)
     * [✅Результат](#currency-converter-result)
+
 4. [Todo List / Список дел (React, TypeScript, Jest, SCSS, BEM)](#todo-list)
     * [Описание задания](#todo-list-task)
     * [Требования](#todo-list-requirements)
     * [Дополнительные задания](#todo-list-additional-tasks)
     * [✅Результат](#todo-list-result)
+
 5. [Hotel Booking / Бронирование отеля (React, Formik + Yup, SCSS)](#booking)
     * [Цель задания](#booking-task)
     * [Условия](#booking-conditions)
@@ -320,4 +322,3 @@ $ make y-start-03
    * При событии `onSubmit` срабатывает имитация отправки данных на сервер с помощью `fetch`
    * Добавлена анимация искуственного ожидания отправки данных, чтобы всё выглядело реалистичнее
    * Проект полностью адаптирован под мобильные телефоны и любые разрешения экранов
-
