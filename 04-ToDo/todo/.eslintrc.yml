@@ -25,7 +25,7 @@ rules:
   no-param-reassign: 0
   prefer-arrow/prefer-arrow-functions: 1
 overrides:
-  - files: '**/__tests__/**/*.{js,jsx}'
+  - files: '**/components/**/*.{test.js,test.jsx}'
     rules:
       no-undef: off
       react/jsx-filename-extension: off
