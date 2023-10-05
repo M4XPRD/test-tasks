@@ -25,7 +25,7 @@ const InputForm = () => {
   return (
     <form onSubmit={handleFormSubmit} className="page__form__container form-container">
       <div className="form-container__row row">
-        <button type="button" className="row__image-container" onClick={() => handleDropdown?.()}>
+        <button type="button" className="row__image-container" onClick={() => handleDropdown?.()} data-testid="dropdownButton">
           <img
             className={`row__image row__arrow ${dropdownActive ? 'row__arrow_rotate' : ''}`}
             src={arrow}

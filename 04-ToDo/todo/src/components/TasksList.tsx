@@ -14,7 +14,7 @@ const TasksList = () => {
   } = todo;
 
   return (
-    <ul className={`page__form-ul ${dropdownActive ? 'page__form-ul_hide' : ''}`}>
+    <ul className={`page__form-ul ${dropdownActive ? 'page__form-ul_hide' : ''}`} data-testid="tasksList">
       {todos && todos.map(({ text, completed, id }, index) => (
         <li className="page__form-ul__task task" key={id}>
           <button

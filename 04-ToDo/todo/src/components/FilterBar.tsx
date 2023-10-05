@@ -14,7 +14,7 @@ const FilterBar = (props: { type: string }) => {
   } = todo;
 
   return (
-    <div className={`page__filter filter ${dropdownActive && type !== 'main' ? 'filter_hide' : ''}`}>
+    <div className={`page__filter filter ${dropdownActive && type !== 'main' ? 'filter_hide' : ''}`} data-testid="filterBar">
       <span className="filter__counter">
         {renderTodos?.()}
         {' '}
