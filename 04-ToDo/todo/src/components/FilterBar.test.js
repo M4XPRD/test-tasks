@@ -3,13 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import FilterBar from './FilterBar';
 import TodoProvider from '../contexts/TodoProvider';
-
-// jest.mock('../hooks/todoHook', () => ({
-//   __esModule: true,
-//   default: () => ({
-//     renderTodosLength: () => 5,
-//   }),
-// }));
+import InputForm from './InputForm';
 
 describe('FilterBar tests', () => {
   test('FilterBar snapshot test', () => {
@@ -71,13 +65,24 @@ describe('FilterBar counter works when tasks added', () => {
   test('FilterBar component renders and tasks counter works', () => {
     render(
       <TodoProvider>
+        <InputForm />
         <FilterBar type="main" />
       </TodoProvider>,
     );
 
-    const findElement = screen.getByTestId('filterBar');
-    const counterElement = findElement.querySelector('.filter__counter');
-    expect(counterElement).toHaveTextContent('5 items left');
-    expect(findElement).toBeInTheDocument();
+    const inputElement = screen.getByTestId('rowTextfield');
+    const filterBarElement = screen.getByTestId('filterBar');
+    const counterElement = filterBarElement.querySelector('.filter__counter');
+    expect(filterBarElement).toBeInTheDocument();
+
+    act(() => {
+      userEvent.type(inputElement, 'Task 1{enter}');
+    });
+    expect(counterElement).toHaveTextContent('1 item left');
+
+    act(() => {
+      userEvent.type(inputElement, 'Task 2{enter}');
+    });
+    expect(counterElement).toHaveTextContent('2 items left');
   });
 });
