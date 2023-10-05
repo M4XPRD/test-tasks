@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterBar snapshot test 1`] = `
+exports[`FilterBar tests FilterBar snapshot test 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -12,8 +12,7 @@ Object {
         <span
           class="filter__counter"
         >
-           
-          items left
+          0 items left
         </span>
         <button
           class="filter__button "
@@ -50,8 +49,7 @@ Object {
       <span
         class="filter__counter"
       >
-         
-        items left
+        0 items left
       </span>
       <button
         class="filter__button "

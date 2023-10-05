@@ -24,6 +24,7 @@ Object {
           </button>
           <input
             class="row__textfield"
+            data-testid="rowTextfield"
             placeholder="What needs to be done?"
             type="text"
             value=""
@@ -62,6 +63,7 @@ Object {
         </button>
         <input
           class="row__textfield"
+          data-testid="rowTextfield"
           placeholder="What needs to be done?"
           type="text"
           value=""

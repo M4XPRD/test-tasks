@@ -39,6 +39,7 @@ const InputForm = () => {
           placeholder="What needs to be done?"
           value={inputValue}
           type="text"
+          data-testid="rowTextfield"
         />
         <button type="submit" className="row__image-container">
           <img
