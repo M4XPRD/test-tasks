@@ -46,7 +46,7 @@ const TodoProvider = ({ children }: TodoProviderProps) => {
     setTodos(updatedTodos);
   };
 
-  const renderTodos = () => {
+  const renderTodosLength = () => {
     switch (activeFilter) {
       case 'all':
         return todos.length;
@@ -103,7 +103,7 @@ const TodoProvider = ({ children }: TodoProviderProps) => {
     handleFormSubmit,
     handleTodoClick,
     handleDeleteClick,
-    renderTodos,
+    renderTodosLength,
   }), [
     todos,
     setTodos,
@@ -119,7 +119,7 @@ const TodoProvider = ({ children }: TodoProviderProps) => {
     handleFormSubmit,
     handleTodoClick,
     handleDeleteClick,
-    renderTodos,
+    renderTodosLength,
   ]);
 
   return (

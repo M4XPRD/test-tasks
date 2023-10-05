@@ -17,7 +17,7 @@ interface TodoContextTypes {
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleTodoClick: (index: number) => void;
   handleDeleteClick: (index: number) => void;
-  renderTodos: () => number;
+  renderTodosLength: () => number;
 }
 
 const TodoContext = createContext<Partial<TodoContextTypes>>({});
