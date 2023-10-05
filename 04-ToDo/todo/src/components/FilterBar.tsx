@@ -8,17 +8,17 @@ const FilterBar = (props: { type: string }) => {
   const todo = useTodo();
   const {
     dropdownActive,
-    renderTodos,
+    renderTodosLength,
     activeFilter,
     handleTodosFilter,
   } = todo;
 
+  const renderCounter = (length: number): string => (length === 1 ? `${length} item left` : `${length} items left`);
+
   return (
     <div className={`page__filter filter ${dropdownActive && type !== 'main' ? 'filter_hide' : ''}`} data-testid="filterBar">
       <span className="filter__counter">
-        {renderTodos?.()}
-        {' '}
-        items left
+        {renderCounter(renderTodosLength?.() || 0)}
       </span>
       <button
         onClick={() => handleTodosFilter?.('all')}
