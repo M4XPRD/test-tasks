@@ -20,7 +20,6 @@
 4. [Todo List / Список дел (React, TypeScript, Jest, SCSS, BEM)](#todo-list)
     * [Описание задания](#todo-list-task)
     * [Требования](#todo-list-requirements)
-    * [Дополнительные задания](#todo-list-additional-tasks)
     * [✅Результат](#todo-list-result)
 
 5. [Hotel Booking / Бронирование отеля (React, Formik + Yup, SCSS)](#booking)
@@ -37,18 +36,18 @@
 # Шаг 1 — Клонируем репозиторий
 $ https://github.com/M4XPRD/Test-Tasks
 
-# Шаг 2 — Устанавливаем зависимости 2 или 3 проекта
+# Шаг 2 — Устанавливаем зависимости нужного проекта
 $ make install-02
-$ make install-03
+$ make install-05
 
-# Шаг 3 — Запускаем 2 или 3 проект
+# Шаг 3 — Запускаем нужный проект
 $ make start-02
-$ make start-03
+$ make start-05
 
 # Если у вас yarn, то перед командой пишем "y"
 
 $ make y-install-03
-$ make y-start-03
+$ make y-start-05
 ```
 
 ## Возможные проблемы
@@ -71,7 +70,7 @@ $ make y-start-03
 
 ## 1. Filter Courses / Отфильтровать курсы
 <a name="filter-courses"></a>
-#### Условие задачи:
+### Условие задачи:
 <a name="filter-courses-task"></a>
 
 На сайте UniPage есть подборка интересных языковых курсов. У каждого курса есть цена, которая является диапазоном.
@@ -84,12 +83,12 @@ $ make y-start-03
 
 Пользователю сайта нужно найти подходящие ему курсы. Для этого есть фильтр, где пользователь может задать подходящий ему диапазон цен.
 
-#### Требования:
+### Требования:
 <a name="filter-courses-requirements"></a>
 
 Опишите, как можно отфильтровать список курсов, чтобы выдались только подходящие по цене? Реализуйте на JavaScript (или TypeScript) функцию, проводящую такую фильтрацию.
 
-#### Входные данные и вывод:
+### Входные данные и вывод:
 <a name="filter-courses-io"></a>
 
 ```js
@@ -119,7 +118,7 @@ $ make y-start-03
    
 Дополнительно, вы также можете реализовать алгоритм сортировки курсов по цене.
 
-## ✅ Результат:
+### ✅ Результат:
 <a name="filter-courses-result"></a>
 Выполненная задача находится в файле [`filterCources.js`](/01-FilterCources/filterCources.js).
 
@@ -129,6 +128,7 @@ $ make y-start-03
 
 ## 2. [Simple Page / Простая страничка](https://test-tasks-nti3.vercel.app/) (React Router/Redux)
 <a name="simple-page"></a>
+
 ### Условие задачи:
 <a name="simple-page-task"></a>
 Есть две страницы:
@@ -142,25 +142,22 @@ $ make y-start-03
 
 После нажатия на кнопку «Войти», должно пользователя перенаправить на страницу профиля, где в теге **h1** должен быть отображен логин.
 
-## Требования:
+### Требования:
 <a name="simple-page-requirements"></a>
 Для хранения / отображения логина, нужно использовать *Redux*, для маршрутизации - *React-Router*.
 
 Проект тестового задания необходимо выложить в публичный репозиторий GitHub.
 
-## Установка
-<a name="simple-page-install"></a>
-
-## ✅ Результат:
+### ✅ Результат:
 <a name="simple-page-result"></a>
-Актуальный деплой прямо [здесь](https://test-tasks-nti3.vercel.app/).
+Актуальный деплой [здесь](https://test-tasks-nti3.vercel.app/).
 
 ![02-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/cbc75b30-1c63-41ca-ae6e-c67b5d818809)
 ![02-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/3c4ddd89-e02a-4bb5-9ca6-6b648a775e31)
 ![02-3](https://github.com/M4XPRD/Test-Tasks/assets/86636158/dd222ff0-f671-4053-adf0-1b6c839da472)
 
 
-### Что получилось:
+### Комментарии:
    * Решил модифицировать и чуть усложнить задачу, поэтому есть 3 страницы: ```/``` - главная, ```/login``` и страница с ошибкой ```404```
    * На странице `/login` при нажатии на *Get your login here!* можно увидеть секретный логин для входа. Сделано для большей интерактивности
    * Добавлена полноценная realtime-валидация формы с помощью `Formik`
@@ -172,12 +169,13 @@ $ make y-start-03
 
 ## 3. [Currency Converter / Конвертер валют](https://bit.ly/currency-converter-maxprd) (React, Redux Toolkit, Axios, i18n)
 <a name="currency-converter"></a>
-### Описание. Тестовое задание Appbooster: frontend
+
+### Описание задания:
 <a name="currency-converter-task"></a>
 
-Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
+Тестовое задание Appbooster: frontend-разработчик. Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
 
-### Требования
+### Требования:
 <a name="currency-converter-requirements"></a>
 
 Приложение должно состоять из двух страниц: 
@@ -194,9 +192,9 @@ $ make y-start-03
 * Максимальная скорость работы приложения (как при загрузке приложения, так и при конвертировании валют)
 * Для реализации используйте любые библиотеки, которые считаете уместными
 
-## ✅ Результат:
+### ✅ Результат:
 <a name="currency-converter-result"></a>
-Вот здесь есть [свежий деплой](https://bit.ly/currency-converter-maxprd).
+Актуальный деплой [здесь](https://bit.ly/currency-converter-maxprd).
 
 ![03-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/b24beabb-7f0a-49e8-a0ba-dad91d7550eb)
 ![03-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/b63f6738-852e-4074-be5a-b237b6ae6485)
@@ -205,9 +203,7 @@ $ make y-start-03
 ![04-1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/68cd83cb-7dbf-4c7f-b84a-d8c2030c9224)
 ![04-2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/22561837-f968-4d6e-97b1-139dadf7ccaf)
 
-
-
-### Что получилось в итоге:
+### Комментарии:
    * Всё написано на `TypeScript`
    * Есть 3 страницы: `/` - главная страница с конвертером, `/currencies` - страница со всеми доступными курсами валют и страница с `404`
    * На главной странице конвертер успешно переводит любую доступную валюту из списка
@@ -222,6 +218,47 @@ $ make y-start-03
    * Добавлена библиотека `i18next` для организации текстов
    * Добавлен английский язык и кнопка переключения с `EN` на `RU`
    * Добавлено несколько простых тестов
+
+## 4. [Todo App / Список дел](https://bit.ly/m4xprd-todoapp) (React, TypeScript, SCSS, BEM)
+<a name="todo-list"></a>
+
+### Описание задания:
+<a name="todo-list-task"></a>
+Сделайте Todo-приложение, позволяющее управлять текущим списком дел.
+
+### Требования:
+<a name="todo-list-requirements"></a>
+***Что должно быть в интерфейсе:***
+   - Поле для ввода новой задачи
+   - Списки всех задач, невыполненных и выполненных задач (по отдельности)
+
+***Пример внешнего вида приложения:***
+
+![Screenshot_1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/a3a4521b-228e-4b23-80a6-954afa6d0ed1)
+
+
+***Требования к коду:***
+   - Приложение создано с использованием TypeScript, React и React Hooks
+   - Ключевая на ваш взгляд функциональность обязательно покрыта тестами
+   - Проект должен запускаться командой npm i && npm run start
+   - Проект доступен на GitHub Pages/Vercel/etc.
+   - Библиотеки на ваше усмотрение
+
+### ✅ Результат:
+<a name="todo-list-result"></a>
+Актуальный деплой [здесь](https://bit.ly/m4xprd-todoapp).
+
+![Screenshot_1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/9faa55a0-2a3c-4f9b-a592-54e7ec33e9f7)
+![Screenshot_2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/2f483c8f-a4b0-42d0-ab64-db6ed2be4ed6)
+
+
+### Комментарии:
+   * Для наименования классов использовал методологию БЭМ
+   * CSS написан с помощью SCSS
+   * Приложение адаптировано под мобильные телефоны, планшеты и ПК
+   * Всё написано на TypeScript
+   * Добавлены тесты для каждого компонента, протестирована общая функциональность и рендер
+
 ## 5. [Hotel Booking / Бронирование отеля](https://nimax-test-task-eight.vercel.app/) (React, Formik + Yup, SCSS)
 <a name="booking"></a>
 
@@ -306,7 +343,7 @@ $ make y-start-03
 
 – Либо развёрнутый в гитхабе/гитлабе проект
 
-## ✅ Результат:
+### ✅ Результат:
 <a name="booking-result"></a>
 Актуальный деплой Vercel прямо [здесь](https://nimax-test-task-eight.vercel.app/).
 
@@ -316,7 +353,7 @@ $ make y-start-03
 ![Screenshot_4](https://github.com/M4XPRD/nimax-test-task/assets/86636158/0deafa5e-fac7-4246-997d-e25b3924035b)
 
 
-### Что получилось в итоге:
+### Комментарии:
    * Всё написано на React с использованием Formik + Yup
    * Весь HTML/CSS написан без сторонних UI-библиотек
    * В проекте сделан упор на масштабируемость и расширяемость, всё разделено на маленькие модули
