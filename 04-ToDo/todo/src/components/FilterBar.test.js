@@ -5,7 +5,7 @@ import FilterBar from './FilterBar';
 import TodoProvider from '../contexts/TodoProvider';
 import InputForm from './InputForm';
 
-describe('FilterBar tests', () => {
+describe('FilterBar basic tests', () => {
   test('FilterBar snapshot test', () => {
     const element = render(<FilterBar />);
     expect(element).toMatchSnapshot();
@@ -22,7 +22,9 @@ describe('FilterBar tests', () => {
     expect(counterElement).toHaveTextContent('0 items left');
     expect(findElement).toBeInTheDocument();
   });
+});
 
+describe('FilterBar functionality', () => {
   test('Filter buttons work', () => {
     render(
       <TodoProvider>
@@ -59,9 +61,7 @@ describe('FilterBar tests', () => {
 
     expect(allButton).toHaveClass('filter__button_active');
   });
-});
 
-describe('FilterBar counter works when tasks added', () => {
   test('FilterBar component renders and tasks counter works', () => {
     render(
       <TodoProvider>

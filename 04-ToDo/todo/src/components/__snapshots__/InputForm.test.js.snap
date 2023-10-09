@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputForm snapshot test 1`] = `
+exports[`InputForm basic tests InputForm snapshot test 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

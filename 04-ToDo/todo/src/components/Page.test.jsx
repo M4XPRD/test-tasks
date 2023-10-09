@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import Page from './Page';
 import TodoProvider from '../contexts/TodoProvider';
 
-describe('Page tests', () => {
+describe('Page basic tests', () => {
   test('Page components renders', () => {
     render(<Page />);
     const findElement = screen.getByText(/todos/i);
@@ -15,7 +15,9 @@ describe('Page tests', () => {
     const element = render(<Page />);
     expect(element).toMatchSnapshot();
   });
+});
 
+describe('Page functionality', () => {
   test('Tasks are shown by default on Page', () => {
     render(<Page />);
     const tasks = screen.getByTestId('tasksList');

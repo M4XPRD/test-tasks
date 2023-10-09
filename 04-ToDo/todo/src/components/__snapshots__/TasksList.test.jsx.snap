@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TasksList snapshot test 1`] = `
+exports[`TasksList basic tests TasksList snapshot test 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

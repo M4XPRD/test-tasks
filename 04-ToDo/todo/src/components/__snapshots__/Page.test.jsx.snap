@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Page tests Page snapshot test 1`] = `
+exports[`Page basic tests Page snapshot test 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

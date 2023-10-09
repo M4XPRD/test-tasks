@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterBar tests FilterBar snapshot test 1`] = `
+exports[`FilterBar basic tests FilterBar snapshot test 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
