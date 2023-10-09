@@ -60,7 +60,8 @@ $ make y-start-03
 ```
 {
   "eslint.workingDirectories": [
-    "03-CurrencyConverter/converter"
+    "03-CurrencyConverter/converter",
+    "04-TodoApp/todo",
   ]
 }
 ```
