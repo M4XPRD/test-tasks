@@ -17,7 +17,7 @@
     * [Дополнительные задания](#currency-converter-additional-tasks)
     * [✅Результат](#currency-converter-result)
 
-4. [Todo List / Список дел (React, TypeScript, Jest, SCSS, BEM)](#todo-list)
+4. [Todo App / Список дел (React, TypeScript, Jest, SCSS, BEM)](#todo-list)
     * [Описание задания](#todo-list-task)
     * [Требования](#todo-list-requirements)
     * [✅Результат](#todo-list-result)
