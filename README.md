@@ -11,7 +11,7 @@
     * [Требования](#simple-page-requirements)
     * [✅Результат](#simple-page-result)
 
-3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n)](#currency-converter)
+3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n, MUI)](#currency-converter)
     * [Описание задания](#currency-converter-task)
     * [Требования](#currency-converter-requirements)
     * [Дополнительные задания](#currency-converter-additional-tasks)
