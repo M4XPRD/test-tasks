@@ -1,0 +1,27 @@
+env:
+  browser: true
+  es2021: true
+extends:
+  - airbnb
+  - airbnb-typescript
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/recommended
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  project: "./tsconfig.json"
+  sourceType: "module"
+plugins:
+  - '@typescript-eslint'
+  - prefer-arrow
+  - react
+rules:
+  react/jsx-filename-extension: [1, {extensions: [".tsx", ".ts", ".js"]}]
+  react/function-component-definition: [2, { "namedComponents": "arrow-function" }]
+  react/jsx-one-expression-per-line: ["error", { "allow": "single-child" }]
+  filesWithoutExtension: 0
+  react/react-in-jsx-scope: 0
+  no-console: 0
+  no-param-reassign: 0
+  prefer-arrow/prefer-arrow-functions: 1
