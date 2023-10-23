@@ -45,3 +45,15 @@ y-install-05:
 
 y-start-05:
 		cd 05-HotelBooking/booking && yarn start
+
+install-06:
+		cd 06-SmartTVApp/smartTVApp && npm install
+
+start-06:
+		cd 06-SmartTVApp/smartTVApp && npm run start
+
+y-install-06:
+		cd 06-SmartTVApp/smartTVApp && yarn install
+
+y-start-06:
+		cd 06-SmartTVApp/smartTVApp && yarn start
