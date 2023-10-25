@@ -5,16 +5,16 @@ import useApp from '../hooks/appHook';
 
 const PromoBanner = () => {
   const [isBannerShown, setIsBannerShown] = useState(false);
-  const { nextStep } = useApp();
+  const { nextPage } = useApp();
 
   useEffect(() => {
     setTimeout(() => setIsBannerShown(true), 1000);
   }, []);
 
   return (
-    <div className="promo-container">
+    <main className="promo-container">
       <video src={promoVideo} autoPlay loop muted controlsList="nodownload" />
-      <div className={`qr-container ${isBannerShown && 'shown'}`}>
+      <section className={`qr-container ${isBannerShown && 'shown'}`}>
         <h1>
           <p>
             ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША!
@@ -32,9 +32,9 @@ const PromoBanner = () => {
             или нажмите ОК
           </p>
         </h2>
-        <button type="button" onClick={() => nextStep()}>ОК</button>
-      </div>
-    </div>
+        <button type="button" onClick={() => nextPage()}>ОК</button>
+      </section>
+    </main>
   );
 };
 

@@ -4,23 +4,23 @@ import useApp from '../hooks/appHook';
 import PhoneNumber from './PhoneNumber';
 import Confirm from './Confirm';
 
-interface StepsMapping {
+interface PagesMapping {
   [key: number]: ReactElement;
 }
 
 const Main = () => {
-  const stepsMapping: StepsMapping = {
+  const stepsMapping: PagesMapping = {
     1: <PromoBanner />,
     2: <PhoneNumber />,
     3: <Confirm />,
   };
 
-  const { step } = useApp();
+  const { page } = useApp();
 
   return (
-    <main className="main">
-      {stepsMapping[step]}
-    </main>
+    <div className="main">
+      {stepsMapping[page]}
+    </div>
   );
 };
 

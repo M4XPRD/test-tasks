@@ -1,14 +1,14 @@
 import { createContext } from 'react';
 
 interface AppContextTypes {
-  step: number;
-  nextStep: () => void;
+  page: number;
+  nextPage: () => void;
   closeApp: () => void;
 }
 
 const defaultValue: AppContextTypes = {
-  step: 0,
-  nextStep: () => {},
+  page: 0,
+  nextPage: () => {},
   closeApp: () => {},
 };
 

@@ -8,21 +8,21 @@ interface AppProviderProps {
 }
 
 const AppProvider = ({ children }: AppProviderProps) => {
-  const [step, setStep] = useState(3);
+  const [page, setPage] = useState(2);
 
-  const nextStep = useCallback(() => {
-    setStep((previousStep) => previousStep + 1);
+  const nextPage = useCallback(() => {
+    setPage((previousPage) => previousPage + 1);
   }, []);
 
   const closeApp = useCallback(() => {
-    setStep(1);
+    setPage(1);
   }, []);
 
   const providedData = useMemo(() => ({
-    step,
-    nextStep,
+    page,
+    nextPage,
     closeApp,
-  }), [step, nextStep, closeApp]);
+  }), [page, nextPage, closeApp]);
 
   return (
     <AppContext.Provider value={providedData}>
