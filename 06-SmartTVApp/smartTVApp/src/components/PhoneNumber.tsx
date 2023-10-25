@@ -1,9 +1,24 @@
+import { useState } from 'react';
 import QR110 from '../assets/QR-110.svg';
 import closeButton from '../assets/close-button.svg';
 import useApp from '../hooks/appHook';
+import formatPhoneNumber from '../utils/formatNumber';
+import numberPattern from '../utils/numberPattern';
 
 const PhoneNumber = () => {
   const { closeApp, nextPage } = useApp();
+  const [phoneNumber, setPhoneNumber] = useState<number[]>([]);
+
+  const inputButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'СТЕРЕТЬ', 0];
+  const shownNumber = phoneNumber.length === 0 ? numberPattern : formatPhoneNumber(phoneNumber);
+
+  const handleButtonClick = (sign: number | string) => {
+    if (typeof sign === 'number' && phoneNumber.length !== 10) {
+      setPhoneNumber((prevState) => [...prevState, sign]);
+    } else if (sign === 'СТЕРЕТЬ') {
+      setPhoneNumber((prevState) => prevState.slice(0, -1));
+    }
+  };
 
   return (
     <main className="main-container">
@@ -12,22 +27,21 @@ const PhoneNumber = () => {
           <h1 className="phone-h1">
             Введите ваш номер мобильного телефона
           </h1>
-          <div className="phone-number">+7(___)___-__-__</div>
+          <div className="phone-number">{shownNumber}</div>
           <p className="phone-p">
             и с Вами свяжется наш менеждер для дальнейшей консультации
           </p>
           <div className="input-buttons">
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button">4</button>
-            <button type="button">5</button>
-            <button type="button">6</button>
-            <button type="button">7</button>
-            <button type="button">8</button>
-            <button type="button">9</button>
-            <button type="button" className="clear-input">СТЕРЕТЬ</button>
-            <button type="button">0</button>
+            {inputButtons.map((sign) => (
+              <button
+                key={sign}
+                type="button"
+                className={sign === 'СТЕРЕТЬ' ? 'clear-input' : ''}
+                onClick={() => handleButtonClick(sign)}
+              >
+                {sign}
+              </button>
+            ))}
           </div>
           <div className="checkbox">
             <label htmlFor="checkbox">
