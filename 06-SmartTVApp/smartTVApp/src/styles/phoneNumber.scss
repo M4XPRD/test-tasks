@@ -1,126 +1,48 @@
-.phone-container {
+.phone-input-form {
   display: flex;
-  width: 1280px;
-  height: 720px;
-  background-image: url('../assets/main-background.svg');
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  height: inherit;
 
-  .phone-input {
+  .phone-h1 {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .phone-number {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .phone-p {
+    width: 337px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .input-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 13px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0 20px 0;
 
-    max-width: 380px;
-    height: 721px;
-
-    background-color: #86D3F4;
-
-    .phone-h1 {
-      font-size: 26px;
-      font-weight: 400;
-      line-height: 30px;
-      letter-spacing: 0em;
-      text-align: center;
-    }
-
-    .phone-number {
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .phone-p {
-      width: 337px;
-
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 16px;
-      letter-spacing: 0em;
-      text-align: center;
-    }
-
-    .input-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 20px 0 20px 0;
-
-      button {
-        width: 88px;
-        height: 52px;
-
-        background-color: transparent;
-        border: 2px solid black;
-
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: center;
-
-        cursor: pointer;
-      }
-
-      .clear-input {
-        width: 186px;
-      }
-    }
-
-    .checkbox {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      gap: 10px;
-
-      width: 284px;
-
-      label {
-        display: flex;
-        align-items: center;
-        padding: 6px 10px 6px 10px;
-
-        background-color: transparent;
-        color: black;
-        font-weight: bold;
-
-        input[type="checkbox"] {
-          appearance: none;
-          width: 40px;
-          height: 40px;
-          border: 2px solid black;
-          background-color: transparent;
-          cursor: pointer;
-        }
-        
-        input[type="checkbox"]:checked {
-          background-image: url('../assets/checkbox-arrow.svg');
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-
-      .checkbox-text {
-        display: flex;
-        flex-direction: column;
-
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 16px;
-        letter-spacing: 0em;
-        text-align: left;
-        color: #4E4E4E;
-      }
-    }
-
-    .confirm-number {
-      width: 284px;
+    button {
+      width: 88px;
       height: 52px;
 
       background-color: transparent;
-      border: 1px solid #4E4E4E;
-      color: #4E4E4E;
-      
+      border: 2px solid black;
+
       font-size: 16px;
       font-weight: 500;
       line-height: 19px;
@@ -129,42 +51,72 @@
 
       cursor: pointer;
     }
+
+    .clear-input {
+      width: 186px;
+    }
   }
 
-  .phone-elements-group {
+  .checkbox {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
 
-    width: 100%;
+    width: 284px;
 
-    button {
-      width: 88px;
-      height: 52px;
-      border: none;
-      margin: 20px 20px 0 0;
-      cursor: pointer;
-    }
-
-    .qr-block {
+    label {
       display: flex;
       align-items: center;
-      gap: 10px;
+      padding: 6px 10px 6px 10px;
 
-      width: 314px;
-      height: 110px;
+      background-color: transparent;
+      color: black;
+      font-weight: bold;
 
-      margin: 0 40px 40px 0;
+      input[type='checkbox'] {
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        border: 2px solid black;
+        background-color: transparent;
+        cursor: pointer;
+      }
 
-      p {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: right;
-        color: #FFFFFF;
+      input[type='checkbox']:checked {
+        background-image: url('../assets/checkbox-arrow.svg');
+        background-repeat: no-repeat;
+        background-position: center;
       }
     }
+
+    .checkbox-text {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #4e4e4e;
+    }
+  }
+
+  .confirm-number {
+    width: 284px;
+    height: 52px;
+
+    background-color: transparent;
+    border: 1px solid #4e4e4e;
+    color: #4e4e4e;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    cursor: pointer;
   }
 }

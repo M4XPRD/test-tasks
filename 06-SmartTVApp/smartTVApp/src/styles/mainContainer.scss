@@ -1,0 +1,56 @@
+.main-container {
+  display: flex;
+  width: 1280px;
+  height: 720px;
+  background-image: url('../assets/main-background.svg');
+
+  .left-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 380px;
+    min-width: 380px;
+    height: 720px;
+
+    background-color: #86d3f4;
+  }
+
+  .right-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 100%;
+
+    button {
+      width: 88px;
+      height: 52px;
+      border: none;
+      margin: 20px 20px 0 0;
+      cursor: pointer;
+    }
+
+    .qr-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      width: 314px;
+      height: 110px;
+
+      margin: 0 40px 40px 0;
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: right;
+        color: #ffffff;
+      }
+    }
+  }
+}

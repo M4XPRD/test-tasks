@@ -1,0 +1,26 @@
+.confirm-block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  top: 264px;
+  width: 284px;
+  height: 123px;
+
+  .confirm-h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .confirm-p {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  }
+}
