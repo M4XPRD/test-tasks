@@ -48,8 +48,15 @@
       line-height: 19px;
       letter-spacing: 0em;
       text-align: center;
-
+      
+      transition: all 0.3s ease-in-out;
       cursor: pointer;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #000000;
+      color: #FFFFFF;
     }
 
     .clear-input {
@@ -118,5 +125,11 @@
     text-align: center;
 
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .confirm-number:not([disabled]):hover{
+    background-color: #000000;
+    color: #FFFFFF;
   }
 }
