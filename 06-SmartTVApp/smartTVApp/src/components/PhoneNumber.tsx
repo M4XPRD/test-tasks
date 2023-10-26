@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 import {
+  ChangeEvent,
+  RefObject,
   useCallback, useEffect, useRef, useState,
 } from 'react';
 import QR110 from '../assets/QR-110.svg';
@@ -7,28 +9,16 @@ import closeButton from '../assets/close-button.svg';
 import useApp from '../hooks/appHook';
 import formatPhoneNumber from '../utils/formatNumber';
 import numberPattern from '../utils/numberPattern';
+import inputButtons from '../utils/inputButtons';
 
 type Refs = {
-  [key: string]: React.RefObject<HTMLButtonElement>;
+  [key: string]: RefObject<HTMLButtonElement>;
 };
-
-export const inputButtons = [
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  'СТЕРЕТЬ',
-  '0',
-];
 
 const PhoneNumber = () => {
   const { closeApp, nextPage } = useApp();
   const [phoneNumber, setPhoneNumber] = useState<string[]>([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   const inputRefs = inputButtons.reduce((acc: Refs, button: string) => {
     acc[button] = useRef<HTMLButtonElement>(null);
@@ -55,9 +45,13 @@ const PhoneNumber = () => {
     }
   };
 
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked);
+  };
+
   const navigationMap: {
     [key: string]: {
-      [direction: string]: string | React.RefObject<HTMLButtonElement>;
+      [direction: string]: string | RefObject<HTMLButtonElement>;
     };
   } = {
     1: {
@@ -230,7 +224,13 @@ const PhoneNumber = () => {
           </div>
           <div className="checkbox">
             <label htmlFor="checkbox">
-              <input type="checkbox" ref={checkboxRef} id="checkbox" />
+              <input
+                type="checkbox"
+                ref={checkboxRef}
+                id="checkbox"
+                // checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
             </label>
             <div className="checkbox-text">
               <p>Согласие на обработку</p>
@@ -243,7 +243,7 @@ const PhoneNumber = () => {
           <button
             type="submit"
             className="confirm-number"
-            disabled={phoneNumber.length < 10}
+            disabled={phoneNumber.length < 10 || !isChecked}
             ref={confirmPhoneRef}
           >
             ПОДТВЕРДИТЬ НОМЕР
