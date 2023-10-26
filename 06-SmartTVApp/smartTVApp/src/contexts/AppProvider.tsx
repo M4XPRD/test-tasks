@@ -8,7 +8,7 @@ interface AppProviderProps {
 }
 
 const AppProvider = ({ children }: AppProviderProps) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
 
   const nextPage = useCallback(() => {
     setPage((previousPage) => previousPage + 1);

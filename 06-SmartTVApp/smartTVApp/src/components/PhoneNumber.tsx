@@ -1,4 +1,5 @@
-import { useState } from 'react';
+/* eslint-disable max-len */
+import { useEffect, useState } from 'react';
 import QR110 from '../assets/QR-110.svg';
 import closeButton from '../assets/close-button.svg';
 import useApp from '../hooks/appHook';
@@ -7,18 +8,39 @@ import numberPattern from '../utils/numberPattern';
 
 const PhoneNumber = () => {
   const { closeApp, nextPage } = useApp();
-  const [phoneNumber, setPhoneNumber] = useState<number[]>([]);
+  const [phoneNumber, setPhoneNumber] = useState<string[]>([]);
 
-  const inputButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'СТЕРЕТЬ', 0];
+  const inputButtons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'СТЕРЕТЬ', '0'];
   const shownNumber = phoneNumber.length === 0 ? numberPattern : formatPhoneNumber(phoneNumber);
 
-  const handleButtonClick = (sign: number | string) => {
-    if (typeof sign === 'number' && phoneNumber.length !== 10) {
+  const handleButtonClick = (sign: string) => {
+    if (sign !== 'СТЕРЕТЬ' && phoneNumber.length !== 10) {
       setPhoneNumber((prevState) => [...prevState, sign]);
     } else if (sign === 'СТЕРЕТЬ') {
       setPhoneNumber((prevState) => prevState.slice(0, -1));
     }
   };
+
+  const handleKeyInput = (event: KeyboardEvent) => {
+    switch (event.key) {
+      case 'Backspace':
+        handleButtonClick('СТЕРЕТЬ');
+        break;
+      default:
+        if (inputButtons.includes(event.key)) {
+          handleButtonClick(event.key);
+        }
+        break;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyInput);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyInput);
+    };
+  }, [phoneNumber]);
 
   return (
     <main className="main-container">
@@ -29,7 +51,7 @@ const PhoneNumber = () => {
           </h1>
           <div className="phone-number">{shownNumber}</div>
           <p className="phone-p">
-            и с Вами свяжется наш менеждер для дальнейшей консультации
+            и с Вами свяжется наш менеджер для дальнейшей консультации
           </p>
           <div className="input-buttons">
             {inputButtons.map((sign) => (
@@ -55,7 +77,7 @@ const PhoneNumber = () => {
           {/* <div className="error-message">
           <p>НЕВЕРНО ВВЕДЁН НОМЕР</p>
         </div> */}
-          <button type="submit" className="confirm-number">ПОДТВЕРДИТЬ НОМЕР</button>
+          <button type="submit" className="confirm-number" disabled={phoneNumber.length < 10}>ПОДТВЕРДИТЬ НОМЕР</button>
         </form>
       </section>
       <section className="right-block">
