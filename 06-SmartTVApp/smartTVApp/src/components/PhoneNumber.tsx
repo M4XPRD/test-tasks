@@ -226,16 +226,6 @@ const PhoneNumber = () => {
   );
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyInput);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyInput);
-    };
-  }, [handleKeyInput]);
-
-  // Activity timer section
-
-  useEffect(() => {
     const handleActivity = () => {
       resetIdleTime();
     };
@@ -244,6 +234,7 @@ const PhoneNumber = () => {
       increaseIdleTime();
     };
 
+    window.addEventListener('keydown', handleKeyInput);
     window.addEventListener('mousemove', handleActivity);
     window.addEventListener('keydown', handleActivity);
     window.addEventListener('scroll', handleActivity);
@@ -251,21 +242,20 @@ const PhoneNumber = () => {
     const intervalId = setInterval(handleIdleTime, 1000);
 
     return () => {
+      window.removeEventListener('keydown', handleKeyInput);
       window.removeEventListener('mousemove', handleActivity);
       window.removeEventListener('keydown', handleActivity);
       window.removeEventListener('scroll', handleActivity);
       clearInterval(intervalId);
     };
-  }, []);
+  }, [handleKeyInput]);
 
   useEffect(() => {
-    if (idleTime >= 1000000000000000000) {
+    if (idleTime >= 10) {
       closeApp();
       resetIdleTime();
     }
   }, [idleTime]);
-
-  // Activity timer section end
 
   return (
     <main className="main-container">

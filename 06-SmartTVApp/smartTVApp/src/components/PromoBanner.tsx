@@ -12,7 +12,7 @@ const PromoBanner = () => {
   } = useApp();
 
   useEffect(() => {
-    setTimeout(() => setIsBannerShown(true), 1000);
+    setTimeout(() => setIsBannerShown(true), 5000);
   }, []);
 
   useEffect(() => {
