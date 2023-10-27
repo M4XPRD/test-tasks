@@ -33,7 +33,9 @@
     * [Бонусные задания](#tvapp-bonus)
     * [✅Результат](#tvapp-result)
 
-## Установка 
+## Установка:
+
+### Вариант №1 — скачивание репозитория целиком:
 
 ```sh
 Все команды запускаются из корня проекта:
@@ -54,8 +56,29 @@ $ make start-05
 $ make y-install-03
 $ make y-start-05
 ```
+### Вариант №2 — скачивание отдельных проектов:
 
-## Возможные проблемы
+   * [Filter Courses](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/01-FilterCources)
+   * [Simple Page](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/02-SimplePage)
+   * [Currency Converter](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/03-CurrencyConverter)
+   * [Todo App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/04-TodoApp)
+   * [Hotel Booking](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/05-HotelBooking)
+   * [SmartTV App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/06-SmartTVApp)
+
+```sh
+# Открываем папку с проектом в IDE:
+
+# 1. Переходим в корневую папку React-приложения
+$ cd *folder name*
+
+# 2. Устанавливаем зависимости
+$ npm install
+
+# 3. Запуск
+$ npm run start
+```
+
+## Возможные проблемы:
 Если у вас VSCode и в конвертере валют TypeScript выдаёт ошибку `Parsing error: Cannot read file '.../tsconfig.json'.eslint`, то нужно сделать следующее:
 
 1. Создать в общем корне всех проектов папку `.vscode`
