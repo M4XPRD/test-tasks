@@ -8,7 +8,8 @@ interface AppProviderProps {
 }
 
 const AppProvider = ({ children }: AppProviderProps) => {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
+  const [playbackTime, setPlaybackTime] = useState(0);
 
   const nextPage = useCallback(() => {
     setPage((previousPage) => previousPage + 1);
@@ -18,10 +19,16 @@ const AppProvider = ({ children }: AppProviderProps) => {
     setPage(1);
   }, []);
 
+  const saveTime = useCallback((newPlaybackTime: number) => {
+    setPlaybackTime(newPlaybackTime);
+  }, []);
+
   const providedData = useMemo(() => ({
     page,
     nextPage,
     closeApp,
+    playbackTime,
+    saveTime,
   }), [page, nextPage, closeApp]);
 
   return (
