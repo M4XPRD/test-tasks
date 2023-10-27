@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import promoVideo from '../assets/promo-video.mp4';
 import QR126 from '../assets/QR-126.svg';
 import useApp from '../hooks/appHook';
@@ -6,9 +6,14 @@ import useApp from '../hooks/appHook';
 const PromoBanner = () => {
   const [isBannerShown, setIsBannerShown] = useState(false);
   const { nextPage } = useApp();
+  const continueButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsBannerShown(true), 1000);
+  }, []);
+
+  useEffect(() => {
+    continueButtonRef.current?.focus();
   }, []);
 
   return (
@@ -32,7 +37,7 @@ const PromoBanner = () => {
             или нажмите ОК
           </p>
         </h2>
-        <button type="button" onClick={() => nextPage()}>ОК</button>
+        <button type="button" onClick={() => nextPage()} ref={continueButtonRef}>ОК</button>
       </section>
     </main>
   );

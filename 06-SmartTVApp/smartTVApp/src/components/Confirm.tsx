@@ -1,9 +1,15 @@
+import { useEffect, useRef } from 'react';
 import QR110 from '../assets/QR-110.svg';
 import closeButtonDark from '../assets/close-button-dark.svg';
 import useApp from '../hooks/appHook';
 
 const Confirm = () => {
   const { closeApp } = useApp();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+  }, []);
 
   return (
     <div className="main-container">
@@ -24,7 +30,7 @@ const Confirm = () => {
         </div>
       </section>
       <section className="right-block">
-        <button type="button" onClick={() => closeApp()}>
+        <button type="button" onClick={() => closeApp()} ref={closeButtonRef}>
           <img src={closeButtonDark} alt="Закрыть окно" />
         </button>
         <div className="qr-block">
