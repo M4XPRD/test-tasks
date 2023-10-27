@@ -1,8 +1,15 @@
 const validatePhoneNumber = async (phoneNumber: string) => {
-  const APIKey = '404e08ced7ba686646b5c8cd0cd44ef7';
-  const APILink = `http://apilayer.net/api/validate?access_key=${APIKey}&number=${phoneNumber}&country_code=RU&format=1`;
-  const response = await fetch(APILink);
+  const APIKey = 'xbdRRRIbw6bVRa239yOryrAspsxDAkX0';
+  const APILink = `https://api.apilayer.com/number_verification/validate?number=+7${phoneNumber}`;
+  const response = await fetch(APILink, {
+    method: 'GET',
+    headers: {
+      apikey: APIKey,
+    },
+  });
   const result = await response.json();
+  console.log(result);
+
   return result;
 };
 
