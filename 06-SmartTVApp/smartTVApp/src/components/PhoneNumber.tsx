@@ -20,6 +20,10 @@ const PhoneNumber = () => {
   const [phoneNumber, setPhoneNumber] = useState<string[]>([]);
   const [isChecked, setIsChecked] = useState(false);
 
+  const shownNumber = phoneNumber.length === 0 ? numberPattern : formatPhoneNumber(phoneNumber);
+
+  // Refs section
+
   const inputRefs = inputButtons.reduce((acc: Refs, button: string) => {
     acc[button] = useRef<HTMLButtonElement>(null);
     return acc;
@@ -35,19 +39,7 @@ const PhoneNumber = () => {
     confirmPhoneRef,
   };
 
-  const shownNumber = phoneNumber.length === 0 ? numberPattern : formatPhoneNumber(phoneNumber);
-
-  const handleButtonClick = (sign: string) => {
-    if (sign !== 'СТЕРЕТЬ' && phoneNumber.length !== 10) {
-      setPhoneNumber((prevState) => [...prevState, sign]);
-    } else if (sign === 'СТЕРЕТЬ') {
-      setPhoneNumber((prevState) => prevState.slice(0, -1));
-    }
-  };
-
-  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-  };
+  // Refs section end
 
   const navigationMap: {
     [key: string]: {
@@ -133,6 +125,18 @@ const PhoneNumber = () => {
       ArrowLeft: 'СТЕРЕТЬ',
     },
     confirmPhoneRef: { ArrowUp: checkboxRef, ArrowDown: closeWindowRef },
+  };
+
+  const handleButtonClick = (sign: string) => {
+    if (sign !== 'СТЕРЕТЬ' && phoneNumber.length !== 10) {
+      setPhoneNumber((prevState) => [...prevState, sign]);
+    } else if (sign === 'СТЕРЕТЬ') {
+      setPhoneNumber((prevState) => prevState.slice(0, -1));
+    }
+  };
+
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked);
   };
 
   const handleKeyInput = useCallback(
@@ -228,7 +232,6 @@ const PhoneNumber = () => {
                 type="checkbox"
                 ref={checkboxRef}
                 id="checkbox"
-                // checked={isChecked}
                 onChange={handleCheckboxChange}
               />
             </label>
