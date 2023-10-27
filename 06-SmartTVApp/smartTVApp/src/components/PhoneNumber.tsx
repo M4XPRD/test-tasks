@@ -44,6 +44,8 @@ const PhoneNumber = () => {
     confirmPhoneRef,
   };
 
+  // Refs section end
+
   // Handlers section
 
   const handleButtonClick = (sign: string) => {
@@ -79,8 +81,6 @@ const PhoneNumber = () => {
   };
 
   // Handlers section end
-
-  // Refs section end
 
   const navigationMap: {
     [key: string]: {
@@ -165,7 +165,7 @@ const PhoneNumber = () => {
       ArrowDown: confirmPhoneRef,
       ArrowLeft: 'СТЕРЕТЬ',
     },
-    confirmPhoneRef: { ArrowUp: checkboxRef, ArrowDown: closeWindowRef },
+    confirmPhoneRef: { ArrowUp: 'СТЕРЕТЬ', ArrowDown: closeWindowRef },
   };
 
   const handleKeyInput = useCallback(
