@@ -14,7 +14,7 @@
     min-width: 380px;
     height: 720px;
 
-    background-color: #86d3f4;
+    background-color: var(--background-blue);
   }
 
   .right-block {
@@ -44,10 +44,8 @@
       margin: 0 40px 40px 0;
 
       p {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 19px;
-        letter-spacing: 0em;
+        font-size: var(--s);
+        font-weight: var(--medium);
         text-align: right;
         color: #ffffff;
       }

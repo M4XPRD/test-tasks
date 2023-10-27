@@ -25,13 +25,13 @@
     height: 357px;
 
     opacity: 0%;
-    background-color: #86D3F4;
+    background-color: var(--background-blue);
 
     transition: all 1.5s ease-in-out;
 
     h1 {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: var(--s);
+      font-weight: var(--medium);
       line-height: 19px;
       text-align: center;
 
@@ -44,8 +44,8 @@
     }
 
     h2 {
-      font-size: 14px;
-      font-weight: 400;
+      font-size: var(--xs);
+      font-weight: var(--regular);
       line-height: 16px;
       text-align: center;
 
@@ -55,14 +55,12 @@
       width: 156px;
       height: 52px;
 
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 19px;
-      letter-spacing: 0em;
+      font-size: var(--s);
+      font-weight: var(--medium);
       text-align: center;
 
       background-color: #000000;
-      color: #86D3F4;
+      color: var(--background-blue);
 
       cursor: pointer;
     }

@@ -9,31 +9,29 @@
   height: inherit;
 
   .phone-h1 {
-    font-size: 26px;
-    font-weight: 400;
+    font-size: var(--l);
+    font-weight: var(--regular);
     line-height: 30px;
-    letter-spacing: 0em;
     text-align: center;
   }
 
   .phone-number {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: var(--m);
+    font-weight: var(--bold);
     transition: all 0.5s ease-in-out;
   }
 
   .invalid-number {
-    color: #EA0000;
+    color: var(--error);
     transition: all 0.5s ease-in-out;
   }
 
   .phone-p {
     width: 337px;
 
-    font-size: 14px;
-    font-weight: 400;
+    font-size: var(--xs);
+    font-weight: var(--regular);
     line-height: 16px;
-    letter-spacing: 0em;
     text-align: center;
   }
 
@@ -51,10 +49,9 @@
       background-color: transparent;
       border: 2px solid black;
 
-      font-size: 16px;
-      font-weight: 500;
+      font-size: var(--s);
+      font-weight: var(--medium);
       line-height: 19px;
-      letter-spacing: 0em;
       text-align: center;
 
       cursor: pointer;
@@ -90,7 +87,7 @@
 
       background-color: transparent;
       color: black;
-      font-weight: bold;
+      font-weight: var(--bold);
 
       input[type='checkbox'] {
         appearance: none;
@@ -112,10 +109,9 @@
       display: flex;
       flex-direction: column;
 
-      font-size: 14px;
-      font-weight: 400;
+      font-size: var(--xs);
+      font-weight: var(--regular);
       line-height: 16px;
-      letter-spacing: 0em;
       text-align: left;
       color: #4e4e4e;
     }
@@ -129,9 +125,9 @@
     width: 284px;
     height: 52px;
 
-    color: #EA0000;
-    font-size: 16px;
-    font-weight: 500;
+    color: var(--error);
+    font-size: var(--s);
+    font-weight: var(--medium);
   }
 
   .confirm-number {
@@ -142,10 +138,8 @@
     border: 1px solid #4e4e4e;
     color: #4e4e4e;
 
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: 0em;
+    font-size: var(--s);
+    font-weight: var(--medium);
     text-align: center;
 
     cursor: pointer;
