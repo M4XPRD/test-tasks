@@ -1,0 +1,10 @@
+@keyframes focusAnimation {
+  0%, 100% {
+    background-color: initial;
+    color: initial;
+  }
+  50% {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+}

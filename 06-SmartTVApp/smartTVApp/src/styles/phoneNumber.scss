@@ -1,3 +1,5 @@
+@import 'animations';
+
 .phone-input-form {
   display: flex;
   flex-direction: column;
@@ -52,10 +54,13 @@
       cursor: pointer;
     }
 
-    button:hover,
-    button:focus {
+    button:hover {
       background-color: #000000;
       color: #FFFFFF;
+    }
+
+    button:focus {
+      animation: focusAnimation 0.8s ease;
     }
 
     .clear-input {
