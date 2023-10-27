@@ -19,6 +19,12 @@
   .phone-number {
     font-size: 32px;
     font-weight: bold;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .invalid-number {
+    color: #EA0000;
+    transition: all 0.5s ease-in-out;
   }
 
   .phone-p {
@@ -75,6 +81,7 @@
     gap: 10px;
 
     width: 284px;
+    height: 52px;
 
     label {
       display: flex;
@@ -112,6 +119,19 @@
       text-align: left;
       color: #4e4e4e;
     }
+  }
+
+  .error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 284px;
+    height: 52px;
+
+    color: #EA0000;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .confirm-number {

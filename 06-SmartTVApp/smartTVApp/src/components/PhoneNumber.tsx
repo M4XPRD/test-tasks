@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import {
   ChangeEvent,
+  FormEvent,
   RefObject,
   useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -10,6 +11,7 @@ import useApp from '../hooks/appHook';
 import formatPhoneNumber from '../utils/formatNumber';
 import numberPattern from '../utils/numberPattern';
 import inputButtons from '../utils/inputButtons';
+import validatePhoneNumber from '../utils/validatePhoneNumber';
 
 type Refs = {
   [key: string]: RefObject<HTMLButtonElement>;
@@ -21,6 +23,7 @@ const PhoneNumber = () => {
   } = useApp();
   const [phoneNumber, setPhoneNumber] = useState<string[]>([]);
   const [isChecked, setIsChecked] = useState(false);
+  const [isNumberValid, setIsNumberValid] = useState<boolean | null>(null);
 
   const shownNumber = phoneNumber.length === 0 ? numberPattern : formatPhoneNumber(phoneNumber);
 
@@ -40,6 +43,42 @@ const PhoneNumber = () => {
     checkboxRef,
     confirmPhoneRef,
   };
+
+  // Handlers section
+
+  const handleButtonClick = (sign: string) => {
+    if (isNumberValid === false) {
+      setIsNumberValid(null);
+    }
+    if (sign !== 'СТЕРЕТЬ' && phoneNumber.length !== 10) {
+      setPhoneNumber((prevState) => [...prevState, sign]);
+    } else if (sign === 'СТЕРЕТЬ') {
+      setPhoneNumber((prevState) => prevState.slice(0, -1));
+    }
+  };
+
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsNumberValid(null);
+    try {
+      const { valid } = await validatePhoneNumber(phoneNumber.join(''));
+      if (!valid) {
+        throw new Error();
+      }
+      setIsNumberValid(true);
+      nextPage();
+    } catch (err) {
+      console.log('Number is invalid');
+
+      setIsNumberValid(false);
+    }
+  };
+
+  // Handlers section end
 
   // Refs section end
 
@@ -129,20 +168,8 @@ const PhoneNumber = () => {
     confirmPhoneRef: { ArrowUp: checkboxRef, ArrowDown: closeWindowRef },
   };
 
-  const handleButtonClick = (sign: string) => {
-    if (sign !== 'СТЕРЕТЬ' && phoneNumber.length !== 10) {
-      setPhoneNumber((prevState) => [...prevState, sign]);
-    } else if (sign === 'СТЕРЕТЬ') {
-      setPhoneNumber((prevState) => prevState.slice(0, -1));
-    }
-  };
-
-  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-  };
-
   const handleKeyInput = useCallback(
-    (event: KeyboardEvent) => {
+    (e: KeyboardEvent) => {
       const currentFocusKey = Object
         .keys(refs)
         .find((key) => document.activeElement === refs[key].current);
@@ -151,7 +178,7 @@ const PhoneNumber = () => {
         !currentFocusKey
         && !document.activeElement?.classList.contains('close-button')
       ) {
-        switch (event.key) {
+        switch (e.key) {
           case 'ArrowDown':
             inputRefs['2'].current?.focus();
             break;
@@ -169,13 +196,13 @@ const PhoneNumber = () => {
         }
       }
 
-      switch (event.key) {
+      switch (e.key) {
         case 'ArrowUp':
         case 'ArrowDown':
         case 'ArrowLeft':
         case 'ArrowRight':
           if (currentFocusKey) {
-            const newFocusKeyOrRef = navigationMap[currentFocusKey][event.key];
+            const newFocusKeyOrRef = navigationMap[currentFocusKey][e.key];
             if (newFocusKeyOrRef) {
               if (typeof newFocusKeyOrRef === 'string') {
                 inputRefs[newFocusKeyOrRef].current?.focus();
@@ -189,8 +216,8 @@ const PhoneNumber = () => {
           handleButtonClick('СТЕРЕТЬ');
           break;
         default:
-          if (inputButtons.includes(event.key)) {
-            handleButtonClick(event.key);
+          if (inputButtons.includes(e.key)) {
+            handleButtonClick(e.key);
           }
           break;
       }
@@ -206,7 +233,7 @@ const PhoneNumber = () => {
     };
   }, [handleKeyInput]);
 
-  // Activity timer
+  // Activity timer section
 
   useEffect(() => {
     const handleActivity = () => {
@@ -232,18 +259,20 @@ const PhoneNumber = () => {
   }, []);
 
   useEffect(() => {
-    if (idleTime >= 10) {
+    if (idleTime >= 1000000000000000000) {
       closeApp();
       resetIdleTime();
     }
   }, [idleTime]);
 
+  // Activity timer section end
+
   return (
     <main className="main-container">
       <section className="left-block">
-        <form className="phone-input-form" onSubmit={() => nextPage()}>
+        <form className="phone-input-form" onSubmit={(e) => handleSubmit(e)}>
           <h1 className="phone-h1">Введите ваш номер мобильного телефона</h1>
-          <div className="phone-number">{shownNumber}</div>
+          <div className={`phone-number ${isNumberValid === false ? 'invalid-number' : ''}`}>{shownNumber}</div>
           <p className="phone-p">
             и с Вами свяжется наш менеджер для дальнейшей консультации
           </p>
@@ -260,23 +289,26 @@ const PhoneNumber = () => {
               </button>
             ))}
           </div>
-          <div className="checkbox">
-            <label htmlFor="checkbox">
-              <input
-                type="checkbox"
-                ref={checkboxRef}
-                id="checkbox"
-                onChange={handleCheckboxChange}
-              />
-            </label>
-            <div className="checkbox-text">
-              <p>Согласие на обработку</p>
-              <p>персональных данных</p>
+          {isNumberValid === null ? (
+            <div className="checkbox">
+              <label htmlFor="checkbox">
+                <input
+                  type="checkbox"
+                  ref={checkboxRef}
+                  id="checkbox"
+                  onChange={handleCheckboxChange}
+                />
+              </label>
+              <div className="checkbox-text">
+                <p>Согласие на обработку</p>
+                <p>персональных данных</p>
+              </div>
             </div>
-          </div>
-          {/* <div className="error-message">
-          <p>НЕВЕРНО ВВЕДЁН НОМЕР</p>
-        </div> */}
+          ) : (
+            <div className="error-message">
+              <p>НЕВЕРНО ВВЕДЁН НОМЕР</p>
+            </div>
+          )}
           <button
             type="submit"
             className="confirm-number"
