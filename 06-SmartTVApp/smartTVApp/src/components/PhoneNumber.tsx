@@ -16,7 +16,9 @@ type Refs = {
 };
 
 const PhoneNumber = () => {
-  const { closeApp, nextPage } = useApp();
+  const {
+    closeApp, nextPage, idleTime, resetIdleTime, increaseIdleTime,
+  } = useApp();
   const [phoneNumber, setPhoneNumber] = useState<string[]>([]);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -203,6 +205,38 @@ const PhoneNumber = () => {
       window.removeEventListener('keydown', handleKeyInput);
     };
   }, [handleKeyInput]);
+
+  // Activity timer
+
+  useEffect(() => {
+    const handleActivity = () => {
+      resetIdleTime();
+    };
+
+    const handleIdleTime = () => {
+      increaseIdleTime();
+    };
+
+    window.addEventListener('mousemove', handleActivity);
+    window.addEventListener('keydown', handleActivity);
+    window.addEventListener('scroll', handleActivity);
+
+    const intervalId = setInterval(handleIdleTime, 1000);
+
+    return () => {
+      window.removeEventListener('mousemove', handleActivity);
+      window.removeEventListener('keydown', handleActivity);
+      window.removeEventListener('scroll', handleActivity);
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (idleTime >= 10) {
+      closeApp();
+      resetIdleTime();
+    }
+  }, [idleTime]);
 
   return (
     <main className="main-container">

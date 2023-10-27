@@ -10,6 +10,7 @@ interface AppProviderProps {
 const AppProvider = ({ children }: AppProviderProps) => {
   const [page, setPage] = useState(1);
   const [playbackTime, setPlaybackTime] = useState(0);
+  const [idleTime, setIdleTime] = useState(0);
 
   const nextPage = useCallback(() => {
     setPage((previousPage) => previousPage + 1);
@@ -23,18 +24,39 @@ const AppProvider = ({ children }: AppProviderProps) => {
     setPlaybackTime(newPlaybackTime);
   }, []);
 
-  const providedData = useMemo(() => ({
-    page,
-    nextPage,
-    closeApp,
-    playbackTime,
-    saveTime,
-  }), [page, nextPage, closeApp]);
+  const resetIdleTime = useCallback(() => {
+    setIdleTime(0);
+  }, []);
+
+  const increaseIdleTime = useCallback(() => {
+    setIdleTime((previousTime) => previousTime + 1);
+  }, []);
+
+  const providedData = useMemo(
+    () => ({
+      page,
+      nextPage,
+      closeApp,
+      playbackTime,
+      saveTime,
+      idleTime,
+      resetIdleTime,
+      increaseIdleTime,
+    }),
+    [
+      page,
+      nextPage,
+      closeApp,
+      playbackTime,
+      saveTime,
+      idleTime,
+      resetIdleTime,
+      increaseIdleTime,
+    ],
+  );
 
   return (
-    <AppContext.Provider value={providedData}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={providedData}>{children}</AppContext.Provider>
   );
 };
 
