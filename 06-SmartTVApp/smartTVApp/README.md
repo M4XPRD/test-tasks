@@ -1,3 +1,5 @@
+## Навигация:
+
  6. [SmartTV App / Приложение для SmartTV (React, TypeScript, SCSS)](#tvapp)
     * [Описание](#tvapp-description)
     * [Требования](#tvapp-requirements)
