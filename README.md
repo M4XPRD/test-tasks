@@ -458,7 +458,7 @@ $ npm run start
    * Главная особенность проекта — навигация по панели ввода номера телефона и активное использование хуков
    * Все дополнительные задания выполнены: переход с паузой, валидация и таймер закрытия
 
-## 7.[Игра в города / Cities Word Chain (React, TypeScript, Tailwind)] (React + TypeScript, Tailwind CSS)
+## 7.Игра в города / Cities Word Chain (React + TypeScript, Tailwind CSS)
 <a name="cities"></a>
 
 ### **Описание**
