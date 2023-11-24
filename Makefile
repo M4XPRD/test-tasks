@@ -57,3 +57,15 @@ y-install-06:
 
 y-start-06:
 		cd 06-SmartTVApp/smartTVApp && yarn start
+
+install-07:
+		cd 07-WordChainGame && npm install
+
+start-07:
+		cd 07-WordChainGame && npm run start
+
+y-install-07:
+		cd 07-WordChainGame && yarn install
+
+y-start-07:
+		cd 07-WordChainGame && yarn start
