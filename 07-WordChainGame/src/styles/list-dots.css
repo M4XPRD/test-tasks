@@ -1,0 +1,15 @@
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  display: inline-block;
+  vertical-align: 3px;
+  background-color: #3F3F46;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-left: -12px;
+}
