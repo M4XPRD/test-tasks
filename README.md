@@ -27,11 +27,13 @@
     * [Условия](#booking-conditions)
     * [Примечания](#booking-notes)
     * [✅Результат](#booking-result)
+
 6. [SmartTV App / Приложение для SmartTV (React, TypeScript, SCSS)](#tvapp)
     * [Описание](#tvapp-description)
     * [Требования](#tvapp-requirements)
     * [Бонусные задания](#tvapp-bonus)
     * [✅Результат](#tvapp-result)
+
 7. [Игра в города / Cities Word Chain (React, TypeScript, Tailwind)](#cities):
     * [Описание](#cities-description)
     * [Задача](#cities-task)
