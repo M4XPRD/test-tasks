@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+## Навигация:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 6. [SmartTV App / Приложение для SmartTV (React, TypeScript, SCSS)](#tvapp)
+    * [Описание](#tvapp-description)
+    * [Требования](#tvapp-requirements)
+    * [Бонусные задания](#tvapp-bonus)
+    * [✅Результат](#tvapp-result)
 
-## Available Scripts
+## [SmartTV App / Приложение для SmartTV](https://bit.ly/maxprd-smarttv) (React, TypeScript, SCSS)
+<a name="tvapp"></a>
 
-In the project directory, you can run:
+### **Описание:**
+<a name="tvapp-description"></a>
 
-### `npm start`
+В качестве тестового задания необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно [здесь](http://getshop.tv/portfolio/volvo/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ссылка на [макет](https://www.figma.com/file/TxI66vUCvCTtX5ljGR3fxe/FrontTestVOD?node-id=167%3A408).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Микросайт состоит из серии экранов:
+   * Промо-видео с баннером (верстать не обязательно).
+   * Экран ввода номера (с экранной клавиатурой).
+   * Финальный инфо-экран.
 
-### `npm test`
+Необходимо реализовать вёрстку экранов микросайта, а также навигацию и механизм ввода номера при помощи экранной клавиатуры. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Кнопка «Подтвердить номер» должна становиться доступной для выбора (enabled) только при полностью введенном номере и согласии с обработкой ПД. 
 
-### `npm run build`
+Валидацию номера проводить не нужно, достаточно проверять, что номер введен полностью.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Неинтерактивные статичные элементы (включая текст) разрешается не верстать, а использовать как часть (фоновой) картинки. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Для первого экрана добавить видео (отрывок около минуты длиной, к примеру [отсюда](https://www.youtube.com/watch?v=M7FIvfx5J10&feature=youtu.be) и баннер, появляющийся через 5 секунд от начала проигрывания ролика.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Навигация должна осуществляться также и с клавиатуры:
+   * Стрелки для навигации между кнопками (включая кнопки “закрыть”, “подтвердить”);
+   * Цифры и *Backspace* для быстрого ввода номера;
+   * *Enter* для выбора кнопки;
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **Требования:**
+<a name="tvapp-requirements"></a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   * Используйте React (использование TypeScript будет плюсом).
+   * Если сочтете нужным, можете использовать сторонние библиотеки.
+   * Разрешение микросайта фиксированное, 1280х720.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+На выходе ожидается:
+   * Ссылка на Github/Gitlab с осмысленной историей коммитов.
+   * Ссылка на развернутую версию микросайта.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### **Бонусные задания:**
+<a name="tvapp-bonus"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   * Переход из экрана с видео и баннером должен паузить видео. Переход обратно должен продолжать воспроизведение.
+   * Добавить валидацию номера при помощи открытого сервиса.
+   * На экране с микросайтом добавьте таймер закрытия по бездействию. Если пользователь ничего не делает 10 секунд, то интерактив закрывается и происходит переход на промо-видео с баннером.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ✅ Результат:
+<a name="tvapp-result"></a>
+Актуальный деплой Vercel прямо [здесь](https://bit.ly/maxprd-smarttv).
+
+![Screenshot_1](https://github.com/M4XPRD/Test-Tasks/assets/86636158/2daa25ba-01e4-45a8-88d2-f88126ea4932)
+![Screenshot_2](https://github.com/M4XPRD/Test-Tasks/assets/86636158/406abc04-619c-447a-b082-9502146146b2)
+
+### Комментарии:
+   * Всё написано на React + TypeScript
+   * Главная особенность проекта — навигация по панели ввода номера телефона и активное использование хуков
+   * Все дополнительные задания выполнены: переход с паузой, валидация и таймер закрытия
