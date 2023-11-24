@@ -1,4 +1,4 @@
-# Тестовое задание на frontend-разработчика
+# Тестовое задание на javascript-разработчика
 
 1. [Filter Courses / Отфильтровать курсы (JavaScript)](#filter-courses)
     * [Условие задания](#filter-courses-task)
