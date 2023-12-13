@@ -64,12 +64,13 @@ $ make y-start-05
 ```
 ### Вариант №2 — скачивание отдельных проектов:
 
-   * [Filter Courses](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/01-FilterCources)
-   * [Simple Page](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/02-SimplePage)
-   * [Currency Converter](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/03-CurrencyConverter)
-   * [Todo App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/04-TodoApp)
-   * [Hotel Booking](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/05-HotelBooking)
-   * [SmartTV App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/06-SmartTVApp)
+   * [Filter Courses](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/01-FilterCources)
+   * [Simple Page](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/02-SimplePage)
+   * [Currency Converter](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/03-CurrencyConverter)
+   * [Todo App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/04-TodoApp)
+   * [Hotel Booking](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/05-HotelBooking)
+   * [SmartTV App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/06-SmartTVApp)
+   * [Word Chain Game](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/07-WordChainGame)
 
 ```sh
 # Открываем папку с проектом в IDE:
