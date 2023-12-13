@@ -1,5 +1,3 @@
-# Тестовое задание на frontend-разработчика
-
 6. [SmartTV App / Приложение для SmartTV (React, TypeScript, SCSS)](#tvapp)
     * [Описание](#tvapp-description)
     * [Требования](#tvapp-requirements)
@@ -12,7 +10,7 @@
 ### **Описание:**
 <a name="tvapp-description"></a>
 
-В качестве тестового задания необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно [здесь](http://getshop.tv/portfolio/volvo/).
+Необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно [здесь](http://getshop.tv/portfolio/volvo/).
 
 Ссылка на [макет](https://www.figma.com/file/TxI66vUCvCTtX5ljGR3fxe/FrontTestVOD?node-id=167%3A408).
 
