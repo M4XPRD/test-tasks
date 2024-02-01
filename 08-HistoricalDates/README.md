@@ -1,6 +1,6 @@
 # Исторические даты
 
-1. [Исторические даты / Historical Dates (React, TypeScript)](#dates):
+8. [Исторические даты / Historical Dates (React, TypeScript)](#dates):
    
     * [Описание](#dates-description)
     * [Задача](#dates-task)
