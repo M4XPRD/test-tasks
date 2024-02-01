@@ -35,10 +35,8 @@
     * [✅Результат](#tvapp-result)
 
 7. [Игра в города / Cities Word Chain (React, TypeScript, Tailwind)](#cities):
-    * [Описание](#cities-description)
     * [Задача](#cities-task)
     * [Стек и технические требования](#cities-stack)
-    * [Примечания](#cities-notes)
     * [✅Результат](#cities-result)
 
 ## Установка:
@@ -66,12 +64,13 @@ $ make y-start-05
 ```
 ### Вариант №2 — скачивание отдельных проектов:
 
-   * [Filter Courses](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/01-FilterCources)
-   * [Simple Page](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/02-SimplePage)
-   * [Currency Converter](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/03-CurrencyConverter)
-   * [Todo App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/04-TodoApp)
-   * [Hotel Booking](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/05-HotelBooking)
-   * [SmartTV App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/Test-Tasks/tree/main/06-SmartTVApp)
+   * [Filter Courses](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/01-FilterCources)
+   * [Simple Page](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/02-SimplePage)
+   * [Currency Converter](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/03-CurrencyConverter)
+   * [Todo App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/04-TodoApp)
+   * [Hotel Booking](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/05-HotelBooking)
+   * [SmartTV App](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/06-SmartTVApp)
+   * [Word Chain Game](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/M4XPRD/test-tasks/tree/main/07-WordChainGame)
 
 ```sh
 # Открываем папку с проектом в IDE:
@@ -210,7 +209,7 @@ $ npm run start
 ### Описание задания:
 <a name="currency-converter-task"></a>
 
-Тестовое задание Appbooster: frontend-разработчик. Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
+Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
 
 ### Требования:
 <a name="currency-converter-requirements"></a>
@@ -404,7 +403,7 @@ $ npm run start
 ### **Описание:**
 <a name="tvapp-description"></a>
 
-В качестве тестового задания необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно [здесь](http://getshop.tv/portfolio/volvo/).
+Необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно [здесь](http://getshop.tv/portfolio/volvo/).
 
 Ссылка на [макет](https://www.figma.com/file/TxI66vUCvCTtX5ljGR3fxe/FrontTestVOD?node-id=167%3A408).
 
@@ -463,23 +462,6 @@ $ npm run start
 ## 7. [Игра в города / Cities Word Chain](https://bit.ly/m4xprd-word-chain) (React + TypeScript, Tailwind CSS)
 <a name="cities"></a>
 
-### **Описание:**
-<a name="cities-description"></a>
-
-Привет!
-
-Это страничка тестового задания для вакансии на frontend-разработчика.
-
-Задание расчитано на ~3-4 часа. Что мы проверяем:
-
-  - Вёрстка, (кроссбраузерная, адаптивная), применение Tailwind
-  - Умение работать с макетом в Figma
-  - Умение разделять код на компоненты
-  - Умение писать осознанные коммиты
-  - Умение предлагать варианты для решения поставленной задачи
-  - Код стайл, аккуратность (желательно использование prettier)
-  - Стремление к развитию, не бойся делать ошибки
-
 ### **Задача:**
 <a name="cities-task"></a>
 
@@ -515,17 +497,6 @@ Pixel Perfect оценивать не будем, но жирным плюсом
 Решение должно быть выложено в публичном репозитории на github, чтобы можно было его проверить.
 
 В остальном требований к проекту нет, можно использовать любые вспомогательные библиотеки на твой вкус (такие как day.js для работы с датой и тд). Будет плюсом, если ты умеешь обходится без "готовых React компонентов".
-
-### **Примечания:**
-<a name="cities-notes"></a>
-
-Присылай свой вариант решения на почту chaek-frontend@mail.ru в виде ссылки на Github-репозиторий.
-
-Если тебе что-либо не удалось реализовать, прикладывай пояснение к своей работе для общего разбора полетов. Мы приветствуем любые результаты, даже если у тебя что-то не получается реализовать.
-
-Все вопросы можно задавать на почте a@gldk.ru или в телеграм @qweik
-
-Желаем успехов! Надеемся, что задание окажется интересным!
 
 ## ✅ Результат:
 <a name="cities-result"></a>

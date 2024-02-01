@@ -1,5 +1,3 @@
-# Тестовое задание на frontend-разработчика
-
 3. [Currency Converter / Конвертер валют (React, Redux Toolkit, Axios, i18n, MUI)](#currency-converter)
     * [Описание задания](#currency-converter-task)
     * [Требования](#currency-converter-requirements)
@@ -12,7 +10,7 @@
 ### Описание задания:
 <a name="currency-converter-task"></a>
 
-Тестовое задание Appbooster: frontend-разработчик. Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
+Напишите SPA для конвертирования валют. Для получения текущих курсов найдите и используйте любое отрытое API.
 
 ### Требования:
 <a name="currency-converter-requirements"></a>
