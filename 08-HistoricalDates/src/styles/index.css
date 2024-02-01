@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import './swiperNavigation.css';
+
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --colour-date-from: #5D5FEF;
+  --colour-date-to: #EF5DA8;
+  --colour-small-date: #3877EE;
+  --colour-main: #42567A;
+  --colour-dot: #303e5880;
+  --colour-background: #F4F5F9;
+  --colour-mobile-border: #C7CDD9;
+  --font-family: 'PT Sans', sans-serif;
+  --font-family-secondary: 'Bebas Neue', sans-serif;
+  --fw-standart: 400;
+  --fw-bold: 700;
+  --fs-xxs: 14px;
+  --fs-xs: 16x;
+  --fs-s: 20px;
+  --fs-m: 25px;
+  --fs-l: 56px;
+  --fs-xl: 100px;
+  --fs-xxl: 200px;
+}
