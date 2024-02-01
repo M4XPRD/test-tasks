@@ -69,3 +69,15 @@ y-install-07:
 
 y-start-07:
 		cd 07-WordChainGame && yarn start
+
+install-08:
+		cd 08-HistoricalDates && npm install
+
+start-08:
+		cd 08-HistoricalDates && npm run dev
+
+y-install-08:
+		cd 08-HistoricalDates && yarn install
+
+y-start-08:
+		cd 08-HistoricalDates && yarn dev
